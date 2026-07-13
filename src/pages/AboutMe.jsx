@@ -8,7 +8,7 @@ const introWords = ["Eric Tan", "Designer", "Developer", "Builder"];
 
 const AboutMe = () => {
   return (
-    <div>
+    <div className="flex min-h-screen flex-col">
       <PageLoader words={introWords} />
       <Navbar />
       <Footer />

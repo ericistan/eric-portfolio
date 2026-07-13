@@ -162,7 +162,7 @@ const relatedProjects = {
 
 const KoinSight = () => {
   return (
-    <div>
+    <div className="flex min-h-screen flex-col">
       <Navbar />
       <CaseStudyLayout header={header} sections={sections} relatedProjects={relatedProjects} />
       <Footer />

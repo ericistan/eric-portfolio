@@ -9,15 +9,15 @@ import Footer from "../components/Footer.jsx";
 
 const HomePage = () => {
   return (
-    <>
-      <Navbar />;
-      <HeroSection />;
+    <div className="flex min-h-screen flex-col">
+      <Navbar />
+      <HeroSection />
       <CaseStudySection />
       <TechStack />
       <WhyMeSection />
       <CtaSection />
       <Footer />
-    </>
+    </div>
   );
 };
 

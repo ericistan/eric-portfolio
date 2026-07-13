@@ -5,7 +5,7 @@ import Footer from "../components/Footer.jsx";
 
 const Contact = () => {
   return (
-    <div>
+    <div className="flex min-h-screen flex-col">
       <Navbar />
       <ContactLinks />
       <Footer />

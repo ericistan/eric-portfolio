@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 const buttonVariants = {
   primary: "bg-black text-white hover:bg-black/90",
   secondary: "border border-black bg-transparent text-black hover:bg-black/5",
@@ -12,11 +14,20 @@ const Button = ({
   variant = "primary",
   size = "md",
   href,
+  url,
   className = "",
   children,
   ...props
 }) => {
   const classes = `inline-flex items-center justify-center rounded transition-colors ${buttonVariants[variant]} ${buttonSizes[size]} ${className}`;
+
+  if (url) {
+    return (
+      <Link to={url} className={classes} {...props}>
+        {children}
+      </Link>
+    );
+  }
 
   if (href) {
     return (
@@ -62,7 +73,7 @@ export const CtaSectionDefaults = {
   heading: "Medium length heading goes here",
   description:
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
-  buttons: [{ title: "Button" }, { title: "Button", variant: "secondary" }],
+  buttons: [{ title: "Contact Me", url: "/contact" }],
 };
 
 export default CtaSection;

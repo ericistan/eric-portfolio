@@ -1,57 +1,36 @@
 import { FaXTwitter } from "react-icons/fa6";
-import {
-  BiLogoFacebookCircle,
-  BiLogoInstagram,
-  BiLogoLinkedinSquare,
-  BiLogoYoutube,
-} from "react-icons/bi";
+import { BiLogoLinkedinSquare } from "react-icons/bi";
+import { Link } from "react-router";
 
 const Footer = (props) => {
-  const { logo, footerText, columnLinks, footerLinks, socialMediaLinks } = {
+  const { footerText, columnLinks, socialMediaLinks } = {
     ...FooterDefaults,
     ...props,
   };
 
   return (
-    <footer id="relume" className="px-[5%] py-12 md:py-18 lg:py-20">
+    <footer id="relume" className="mt-auto px-[5%] py-12 md:py-18 lg:py-20">
       <div className="page-container">
-        <div className="grid grid-cols-1 items-center justify-center justify-items-center gap-x-[4vw] gap-y-12 pb-12 md:pb-18 lg:grid-cols-[0.25fr_1fr_0.25fr] lg:justify-between lg:gap-y-4 lg:pb-20">
-          <a href={logo.url} className="lg:justify-self-start">
-            <img src={logo.src} alt={logo.alt} className="inline-block" />
-          </a>
-          {columnLinks.map((column, index) => (
-            <ul
-              key={index}
-              className="grid grid-flow-row grid-cols-1 items-start justify-center justify-items-center gap-6 md:grid-flow-col md:grid-cols-[max-content] md:justify-center md:justify-items-start"
-            >
-              {column.links.map((link, linkIndex) => (
-                <li key={linkIndex} className="font-semibold">
-                  <a href={link.url}>{link.title}</a>
-                </li>
+        <div className="flex flex-col items-center justify-between gap-8 text-center lg:flex-row lg:text-left">
+          <p>{footerText}</p>
+          <div className="flex flex-col items-center gap-6 sm:flex-row sm:gap-10">
+            {columnLinks.map((column, index) => (
+              <ul key={index} className="flex flex-wrap items-center justify-center gap-6">
+                {column.links.map((link, linkIndex) => (
+                  <li key={linkIndex} className="font-semibold">
+                    <Link to={link.url}>{link.title}</Link>
+                  </li>
+                ))}
+              </ul>
+            ))}
+            <div className="flex items-center gap-x-3">
+              {socialMediaLinks.map((link, index) => (
+                <a key={index} href={link.url}>
+                  {link.icon}
+                </a>
               ))}
-            </ul>
-          ))}
-          <div className="flex items-start justify-start justify-items-center gap-x-3 lg:justify-self-end">
-            {socialMediaLinks.map((link, index) => (
-              <a key={index} href={link.url}>
-                {link.icon}
-              </a>
-            ))}
+            </div>
           </div>
-        </div>
-        <div className="h-px w-full bg-black" />
-        <div className="flex flex-col-reverse items-center justify-center justify-items-center pb-4 pt-6 text-sm md:flex-row md:gap-x-6 md:pb-0 md:pt-8">
-          <p className="mt-8 md:mt-0">{footerText}</p>
-          <ul className="grid grid-flow-row grid-cols-[max-content] items-center justify-center justify-items-center gap-y-4 text-sm md:grid-flow-col md:gap-x-6 md:gap-y-0">
-            {footerLinks.map((link, index) => (
-              <li
-                key={index}
-                className="underline decoration-black underline-offset-1"
-              >
-                <a href={link.url}>{link.title}</a>
-              </li>
-            ))}
-          </ul>
         </div>
       </div>
     </footer>
@@ -59,32 +38,20 @@ const Footer = (props) => {
 };
 
 export const FooterDefaults = {
-  logo: {
-    url: "#",
-    src: "https://d22po4pjz3o32e.cloudfront.net/logo-image.svg",
-    alt: "Logo image",
-  },
   columnLinks: [
     {
       links: [
-        { title: "Home", url: "#" },
-        { title: "About", url: "#about" },
-        { title: "Contact", url: "#" },
+        { title: "Home", url: "/" },
+        { title: "About", url: "/about" },
+        { title: "Contact", url: "/contact" },
       ],
     },
   ],
   socialMediaLinks: [
-    { url: "#", icon: <BiLogoFacebookCircle className="size-6" /> },
-    { url: "#", icon: <BiLogoInstagram className="size-6" /> },
     { url: "#", icon: <FaXTwitter className="size-6 p-0.5" /> },
     { url: "#", icon: <BiLogoLinkedinSquare className="size-6" /> },
-    { url: "#", icon: <BiLogoYoutube className="size-6" /> },
   ],
-  footerText: "© 2026 Eric Tan. All rights reserved.",
-  footerLinks: [
-    { title: "Privacy Policy", url: "#" },
-    { title: "Terms of Service", url: "#" },
-  ],
+  footerText: "Built with ❤️ by Eric Tan. © 2026 All rights reserved.",
 };
 
 export default Footer;
