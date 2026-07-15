@@ -570,16 +570,20 @@ const MagicBento = ({
             const cardContent = (
               <>
                 <div className="card__header relative flex justify-between gap-3 text-black/50">
-                  <span className="card__label text-sm font-semibold">{item.label}</span>
+                  {item.icon ? (
+                    <span className="card__label">{item.icon}</span>
+                  ) : (
+                    <span className="card__label text-sm font-semibold">{item.label}</span>
+                  )}
                 </div>
                 <div className="card__content relative flex flex-col text-black">
                   <h3
-                    className={`card__title m-0 mb-1 text-lg font-bold ${textAutoHide ? "text-clamp-1" : ""}`}
+                    className={`card__title !text-black m-0 mb-1 text-lg font-bold ${textAutoHide ? "text-clamp-1" : ""}`}
                   >
                     {item.title}
                   </h3>
                   <p
-                    className={`card__description text-sm leading-5 opacity-80 ${textAutoHide ? "text-clamp-2" : ""}`}
+                    className={`card__description !text-black text-sm leading-5 opacity-80 ${textAutoHide ? "text-clamp-2" : ""}`}
                   >
                     {item.description}
                   </p>

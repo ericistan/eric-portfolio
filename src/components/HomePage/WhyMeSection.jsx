@@ -1,4 +1,5 @@
-import MagicBento from "../MagicBento";
+import { UsersThree, PenNib, RocketLaunch, ChalkboardTeacher } from "@phosphor-icons/react";
+import BentoHighlights from "../BentoHighlights";
 
 const WhyMeSection = (props) => {
   const { tagline, heading, description, highlights } = {
@@ -6,8 +7,8 @@ const WhyMeSection = (props) => {
     ...props,
   };
 
-  const bentoItems = highlights.map((highlight, index) => ({
-    label: String(index + 1).padStart(2, "0"),
+  const bentoItems = highlights.map((highlight) => ({
+    icon: highlight.icon,
     title: highlight.lead,
     description: highlight.text,
   }));
@@ -22,19 +23,7 @@ const WhyMeSection = (props) => {
             <p>{description}</p>
           </div>
           <div className="mt-10 flex justify-center md:mt-12">
-            <MagicBento
-              items={bentoItems}
-              textAutoHide={false}
-              enableStars={false}
-              enableSpotlight={false}
-              enableBorderGlow={true}
-              enableTilt={true}
-              enableMagnetism={true}
-              clickEffect={false}
-              spotlightRadius={150}
-              particleCount={10}
-              glowColor="0, 0, 0"
-            />
+            <BentoHighlights items={bentoItems} />
           </div>
         </div>
       </div>
@@ -49,18 +38,22 @@ export const WhyMeSectionDefaults = {
     "Fostering growth through collaboration, where everyone learns and grows together.",
   highlights: [
     {
+      icon: <UsersThree className="size-6" />,
       lead: "Led functional & cross-functional product teams",
       text: "of up to 10 members.",
     },
     {
+      icon: <PenNib className="size-6" />,
       lead: "Developed UX strategy and design",
       text: "process from scratch in 4 months.",
     },
     {
+      icon: <RocketLaunch className="size-6" />,
       lead: "Launched a monetization project",
       text: "(2.5 months, 5 teams of up to 12 members).",
     },
     {
+      icon: <ChalkboardTeacher className="size-6" />,
       lead: "Mentored a junior designer",
       text: "to a middle position in 9 months.",
     },

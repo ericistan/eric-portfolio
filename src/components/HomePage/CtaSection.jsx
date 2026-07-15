@@ -53,7 +53,7 @@ const CtaSection = (props) => {
   return (
     <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
       <div className="page-container max-w-full text-center">
-        <h2 className="mb-5 text-2xl font-bold md:mb-6 md:text-3xl lg:text-5xl">
+        <h2 className="mb-5 text-2xl font-bold md:mb-6 md:text-2xl lg:text-3xl">
           {heading}
         </h2>
         <p className="text-md">{description}</p>
@@ -70,9 +70,8 @@ const CtaSection = (props) => {
 };
 
 export const CtaSectionDefaults = {
-  heading: "Medium length heading goes here",
-  description:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
+  heading: "Like what you see? Let's work together.",
+  description: "Let's build something great together.",
   buttons: [{ title: "Contact Me", url: "/contact" }],
 };
 

@@ -1,6 +1,13 @@
 import { createContext, useContext, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { RxChevronRight } from "react-icons/rx";
+import {
+  Globe,
+  Briefcase,
+  PaintBrush,
+  ChartLineUp,
+  Code,
+} from "@phosphor-icons/react";
 
 const buttonVariants = {
   primary: "bg-black text-white hover:bg-black/90",
@@ -59,7 +66,7 @@ const TabsList = ({ className = "", children }) => (
   </div>
 );
 
-const TabsTrigger = ({ value, className = "", children }) => {
+const TabsTrigger = ({ value, icon, className = "", children }) => {
   const { value: activeValue, setValue } = useContext(TabsContext);
   const isActive = activeValue === value;
 
@@ -70,8 +77,9 @@ const TabsTrigger = ({ value, className = "", children }) => {
       aria-selected={isActive}
       data-state={isActive ? "active" : "inactive"}
       onClick={() => setValue(value)}
-      className={`border-0 border-b-[1.5px] border-black/20 px-0 py-2 text-black/50 transition-colors data-[state=active]:border-border-primary data-[state=active]:text-black ${className}`}
+      className={`inline-flex items-center gap-2 border-0 border-b-[1.5px] border-black/20 px-0 py-2 text-black/50 transition-colors data-[state=active]:border-border-primary data-[state=active]:text-black ${className}`}
     >
+      {icon}
       {children}
     </button>
   );
@@ -137,7 +145,7 @@ const HeroSection = (props) => {
         <Tabs defaultValue={defaultTabValue}>
           <TabsList className="mb-12 gap-6 overflow-x-auto whitespace-nowrap md:mb-16">
             {tabs.map((tab, index) => (
-              <TabsTrigger key={index} value={tab.value}>
+              <TabsTrigger key={index} value={tab.value} icon={tab.icon}>
                 {tab.trigger}
               </TabsTrigger>
             ))}
@@ -155,12 +163,13 @@ export const HeroSectionDefaults = {
     {
       value: "anyone",
       trigger: "For Anyone",
+      icon: <Globe className="size-4" />,
       content: [
         {
           tagline: "Full-Stack Engineer",
           heading: "I build clean, reliable products from idea to launch.",
           description:
-            "I turn ideas into clean, reliable products — from first sketch to production launch, across the entire stack.",
+            "I turn ideas into clean, reliable products, from first sketch to production launch, across the entire stack.",
           buttons: [
             {
               title: "LinkedIn ↗",
@@ -187,12 +196,13 @@ export const HeroSectionDefaults = {
     {
       value: "recruiters",
       trigger: "Recruiters",
+      icon: <Briefcase className="size-4" />,
       content: [
         {
           tagline: "Open to Opportunities",
           heading: "I'm a full-stack engineer looking for my next opportunity.",
           description:
-            "A full-stack engineer ready for what's next — comfortable owning features end-to-end and ramping quickly on new codebases.",
+            "A full-stack engineer ready for what's next, comfortable owning features end-to-end and ramping quickly on new codebases.",
           buttons: [
             {
               title: "LinkedIn ↗",
@@ -219,6 +229,7 @@ export const HeroSectionDefaults = {
     {
       value: "designers",
       trigger: "Designers",
+      icon: <PaintBrush className="size-4" />,
       content: [
         {
           tagline: "Design-Minded Engineer",
@@ -249,48 +260,17 @@ export const HeroSectionDefaults = {
         },
       ],
     },
-    {
-      value: "product-managers",
-      trigger: "Product Managers",
-      content: [
-        {
-          tagline: "Product-Focused Engineer",
-          heading:
-            "I turn product requirements into shipped, working software.",
-          description:
-            "I translate requirements into shipped software, working closely with product to keep scope realistic and momentum high.",
-          buttons: [
-            {
-              title: "LinkedIn ↗",
-              href: "#",
-              target: "_blank",
-              rel: "noreferrer",
-              variant: "secondary",
-            },
-            {
-              title: "About Me",
-              href: "#about",
-              variant: "link",
-              size: "link",
-              iconRight: <RxChevronRight />,
-            },
-          ],
-          image: {
-            src: "https://placehold.co/600x600?text=Photo",
-            alt: "Placeholder portrait",
-          },
-        },
-      ],
-    },
+
     {
       value: "engineers",
       trigger: "Engineers",
+      icon: <Code className="size-4" />,
       content: [
         {
           tagline: "Engineer's Engineer",
           heading: "I write maintainable code and sweat the details.",
           description:
-            "I write code built to last — readable, tested, and maintainable, with an eye for the details that keep systems healthy.",
+            "I write code built to last: readable, tested, and maintainable, with an eye for the details that keep systems healthy.",
           buttons: [
             {
               title: "LinkedIn ↗",

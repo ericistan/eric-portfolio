@@ -5,6 +5,7 @@ import { RxChevronLeft, RxChevronRight } from "react-icons/rx";
 import LineSidebar from "./LineSidebar/LineSidebar";
 import PageLoader from "./PageLoader";
 import CtaSection from "./HomePage/CtaSection.jsx";
+import CaseStudyImage from "./CaseStudyImage.jsx";
 
 const ProjectCard = ({ title, description, image, url, tags }) => (
   <Link
@@ -122,7 +123,8 @@ const CaseStudyLayout = ({ header, sections, relatedProjects }) => {
               <div className="grid grid-cols-2 gap-8">
                 {header.details.map((detail, index) => (
                   <div key={index}>
-                    <h3 className="mb-2 text-base font-bold leading-[1.4] text-white md:text-xl">
+                    <h3 className="mb-2 flex items-center gap-2 text-base font-bold leading-[1.4] text-white md:text-xl">
+                      {detail.icon}
                       {detail.label}
                     </h3>
                     {detail.url ? (
@@ -142,10 +144,10 @@ const CaseStudyLayout = ({ header, sections, relatedProjects }) => {
               </div>
             </div>
             <div>
-              <img
+              <CaseStudyImage
                 src={header.image.src}
                 alt={header.image.alt}
-                className="w-full object-cover"
+                className="object-cover"
               />
             </div>
           </div>

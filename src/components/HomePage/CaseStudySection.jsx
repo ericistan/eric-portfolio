@@ -71,6 +71,18 @@ const CaseStudyCard = ({ study }) => {
           </h3>
         </div>
         <p className="mt-6 md:mt-8 md:text-md">{study.description}</p>
+        {study.tags?.length > 0 && (
+          <ul className="mt-4 flex flex-wrap gap-2">
+            {study.tags.map((tag, index) => (
+              <li
+                key={index}
+                className="border border-black/20 px-2 py-1 text-xs font-semibold"
+              >
+                {tag}
+              </li>
+            ))}
+          </ul>
+        )}
         <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-8">
           {study.buttons.map((button, index) => (
             <Button key={index} {...button}>
@@ -124,6 +136,14 @@ export const CaseStudySectionDefaults = {
       heading: "Formjo",
       description:
         "Coach Smarter. Train Better. Formjo is a platform for coaches to assign structured training, review athlete video submissions, and deliver personalised feedback. Built solo with React, Flask, and Postgres, from Figma wireframe to shipped product",
+      tags: [
+        "Coaching Platform",
+        "Full-Stack Development",
+        "Product Design",
+        "UX Research",
+        "Branding",
+        "Solo Project",
+      ],
       buttons: [
         {
           title: "Read Case Study",
@@ -141,7 +161,13 @@ export const CaseStudySectionDefaults = {
       tagline: "Crypto Portfolio Tracker",
       heading: "KoinSight",
       description:
-        "KoinSight gives crypto investors real-time portfolio tracking, transaction management, and historical performance analysis. Built full-stack with React, Node, Express, and MongoDB, with Recharts and Three.js powering the data visualizations.",
+        "A crypto portfolio tracker built with two teammates at General Assembly's Software Engineering Bootcamp. I was the frontend developer and UX engineer, building the landing page, dashboard, and component system in React and Three.js.",
+      tags: [
+        "Frontend Development",
+        "UX Engineering",
+        "Team Project",
+        "Bootcamp Project",
+      ],
       buttons: [
         {
           title: "Read Case Study",
@@ -156,37 +182,41 @@ export const CaseStudySectionDefaults = {
       },
     },
     {
-      tagline: "Tagline",
-      heading: "Medium length project heading goes here",
+      tagline: "AI Agent Dashboard",
+      heading: "StartSearch",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
+        "Alumni Intelligence tracks every SMU IIE alumni startup from the outside, no founder opt-in required. Built with teammates during a hackathon using Manus AI, EXA, and Mem0 for persistent agent memory.",
+      tags: ["AI Agents", "Hackathon", "Product Design", "Team Project"],
       buttons: [
         {
           title: "Read Case Study",
           variant: "secondary",
           iconRight: <RxChevronRight />,
+          url: "/case-study/startsearch",
         },
       ],
       image: {
-        src: "https://placehold.co/800x600?text=Case+Study+2",
-        alt: "Case study 2 placeholder image",
+        src: "https://placehold.co/800x600?text=StartSearch",
+        alt: "StartSearch placeholder image",
       },
     },
     {
-      tagline: "Tagline",
-      heading: "Medium length project heading goes here",
+      tagline: "Web Design",
+      heading: "Raincity Boxing",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
+        "A website for a Richmond, BC boxing gym and wellness studio, built to turn curious visitors into trial sign-ups with clear pricing, real member stories, and integrated booking.",
+      tags: ["Web Design", "Branding", "UI/UX", "Local Business", "Solo Project"],
       buttons: [
         {
           title: "Read Case Study",
           variant: "secondary",
           iconRight: <RxChevronRight />,
+          url: "/case-study/raincityboxing",
         },
       ],
       image: {
-        src: "https://placehold.co/800x600?text=Case+Study+2",
-        alt: "Case study 2 placeholder image",
+        src: "https://placehold.co/800x600?text=Raincity+Boxing",
+        alt: "Raincity Boxing placeholder image",
       },
     },
   ],
