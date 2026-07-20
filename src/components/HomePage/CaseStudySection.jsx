@@ -2,11 +2,15 @@ import { useRef } from "react";
 import { RxChevronRight } from "react-icons/rx";
 import { Link } from "react-router";
 import { motion, useScroll, useTransform } from "framer-motion";
+import formjoHeroImage from "../../assets/case-study_formjo-hero.png";
+import koinSightHeroImage from "../../assets/case-study_koin-sight_portfolio-dashboard.png";
+import startSearchHeroImage from "../../assets/case-study_start-search_portfolio-dashboard.png";
+import raincityBoxingHeroImage from "../../assets/case-study_raincity-boxing-hero.jpg";
 
 const buttonVariants = {
-  primary: "bg-black text-white hover:bg-black/90",
-  secondary: "border border-black bg-transparent text-black hover:bg-black/5",
-  link: "text-black underline-offset-4 hover:underline",
+  primary: "bg-text-primary text-background-primary hover:bg-text-primary/90",
+  secondary: "bg-accent text-background-primary hover:bg-accent/90",
+  link: "text-text-primary underline-offset-4 hover:underline",
 };
 
 const buttonSizes = {
@@ -24,7 +28,7 @@ const Button = ({
   children,
   ...props
 }) => {
-  const classes = `inline-flex items-center justify-center rounded transition-colors ${buttonVariants[variant]} ${buttonSizes[size]} ${className}`;
+  const classes = `inline-flex items-center justify-center rounded-lg transition-colors ${buttonVariants[variant]} ${buttonSizes[size]} ${className}`;
 
   if (url) {
     return (
@@ -50,7 +54,11 @@ const CaseStudyCard = ({ study }) => {
     offset: ["start end", "end start"],
   });
 
-  const scale = useTransform(scrollYProgress, [0, 0.2, 0.7, 0.9, 1], [0.9, 1, 1, 0.95, 0.9]);
+  const scale = useTransform(
+    scrollYProgress,
+    [0, 0.2, 0.7, 0.9, 1],
+    [0.9, 1, 1, 0.95, 0.9],
+  );
   const opacity = useTransform(
     scrollYProgress,
     [0, 0.2, 0.7, 0.9, 0.95],
@@ -61,11 +69,13 @@ const CaseStudyCard = ({ study }) => {
     <motion.div
       ref={ref}
       style={{ scale, opacity }}
-      className="grid grid-cols-1 gap-x-20 gap-y-6 border border-border-primary p-6 md:grid-cols-[3fr_4fr] md:gap-y-20 md:p-8 lg:p-12"
+      className="grid grid-cols-1 gap-x-20 gap-y-6 rounded-lg border border-text-primary/10 bg-text-primary/5 p-6 md:grid-cols-[3fr_4fr] md:gap-y-20 md:p-8 lg:p-12"
     >
       <div className="flex flex-col justify-between">
         <div>
-          <p className="mb-2 text-sm font-semibold">{study.tagline}</p>
+          <p className="mb-2 font-mono text-sm font-semibold">
+            {study.tagline}
+          </p>
           <h3 className="text-4xl font-bold leading-[1.2] md:text-5xl lg:text-6xl">
             {study.heading}
           </h3>
@@ -76,7 +86,7 @@ const CaseStudyCard = ({ study }) => {
             {study.tags.map((tag, index) => (
               <li
                 key={index}
-                className="border border-black/20 px-2 py-1 text-xs font-semibold"
+                className="rounded-full bg-text-primary/10 px-3 py-1.5 font-mono text-xs font-semibold"
               >
                 {tag}
               </li>
@@ -112,8 +122,10 @@ const CaseStudySection = (props) => {
     <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
       <div className="page-container">
         <header className="mx-auto mb-12 max-w-lg text-center md:mb-18 lg:mb-20">
-          <p className="mb-3 font-semibold md:mb-4">{tagline}</p>
-          <h2 className="mb-5 text-2xl font-bold md:mb-6 md:text-4xl lg:text-5xl">{heading}</h2>
+          <p className="mb-3 font-mono font-semibold md:mb-4">{tagline}</p>
+          <h2 className="mb-5 text-2xl font-bold md:mb-6 md:text-4xl lg:text-5xl">
+            {heading}
+          </h2>
           <p className="text-md">{description}</p>
         </header>
         <div className="grid grid-cols-1 gap-6 md:gap-12 lg:gap-20">
@@ -153,8 +165,8 @@ export const CaseStudySectionDefaults = {
         },
       ],
       image: {
-        src: "https://placehold.co/800x600?text=Case+Study+1",
-        alt: "Case study 1 placeholder image",
+        src: formjoHeroImage,
+        alt: "Formjo case study hero image",
       },
     },
     {
@@ -177,8 +189,8 @@ export const CaseStudySectionDefaults = {
         },
       ],
       image: {
-        src: "https://placehold.co/800x600?text=KoinSight",
-        alt: "KoinSight placeholder image",
+        src: koinSightHeroImage,
+        alt: "KoinSight case study hero image",
       },
     },
     {
@@ -196,8 +208,8 @@ export const CaseStudySectionDefaults = {
         },
       ],
       image: {
-        src: "https://placehold.co/800x600?text=StartSearch",
-        alt: "StartSearch placeholder image",
+        src: startSearchHeroImage,
+        alt: "StartSearch case study hero image",
       },
     },
     {
@@ -205,7 +217,13 @@ export const CaseStudySectionDefaults = {
       heading: "Raincity Boxing",
       description:
         "A website for a Richmond, BC boxing gym and wellness studio, built to turn curious visitors into trial sign-ups with clear pricing, real member stories, and integrated booking.",
-      tags: ["Web Design", "Branding", "UI/UX", "Local Business", "Solo Project"],
+      tags: [
+        "Web Design",
+        "Branding",
+        "UI/UX",
+        "Local Business",
+        "Solo Project",
+      ],
       buttons: [
         {
           title: "Read Case Study",
@@ -215,8 +233,8 @@ export const CaseStudySectionDefaults = {
         },
       ],
       image: {
-        src: "https://placehold.co/800x600?text=Raincity+Boxing",
-        alt: "Raincity Boxing placeholder image",
+        src: raincityBoxingHeroImage,
+        alt: "Raincity Boxing case study hero image",
       },
     },
   ],

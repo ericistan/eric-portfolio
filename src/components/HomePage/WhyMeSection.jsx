@@ -1,5 +1,6 @@
 import { UsersThree, PenNib, RocketLaunch, ChalkboardTeacher } from "@phosphor-icons/react";
 import BentoHighlights from "../BentoHighlights";
+import SideRays from "../SideRays";
 
 const WhyMeSection = (props) => {
   const { tagline, heading, description, highlights } = {
@@ -16,13 +17,28 @@ const WhyMeSection = (props) => {
   return (
     <section className="px-[5%] py-16 md:py-24 lg:py-28">
       <div className="page-container">
-        <div className="border border-border-primary px-6 py-12 md:px-12 md:py-16 lg:px-16 lg:py-20">
-          <div className="mx-auto max-w-lg text-center">
-            <p className="mb-3">{tagline}</p>
+        <div className="relative overflow-hidden rounded-lg border border-text-primary/10 bg-text-primary/5 px-6 py-12 md:px-12 md:py-16 lg:px-16 lg:py-20">
+          <div className="pointer-events-none absolute inset-0 z-0">
+            <SideRays
+              speed={2.5}
+              rayColor1="#39ff14"
+              rayColor2="#96c8ff"
+              intensity={2}
+              spread={2}
+              origin="top-right"
+              tilt={0}
+              saturation={1.5}
+              blend={0.75}
+              falloff={1.6}
+              opacity={1}
+            />
+          </div>
+          <div className="relative z-10 mx-auto max-w-lg text-center">
+            <p className="mb-3 font-mono">{tagline}</p>
             <h2 className="mb-5">{heading}</h2>
             <p>{description}</p>
           </div>
-          <div className="mt-10 flex justify-center md:mt-12">
+          <div className="relative z-10 mt-10 flex justify-center md:mt-12">
             <BentoHighlights items={bentoItems} />
           </div>
         </div>

@@ -41,7 +41,7 @@ const FallingText = ({
             observer.disconnect();
           }
         },
-        { threshold: 0.1 },
+        { threshold: 0.8 },
       );
       observer.observe(containerRef.current);
       return () => observer.disconnect();
@@ -51,7 +51,8 @@ const FallingText = ({
   useEffect(() => {
     if (!effectStarted) return;
 
-    const { Engine, Render, World, Bodies, Runner, Mouse, MouseConstraint } = Matter;
+    const { Engine, Render, World, Bodies, Runner, Mouse, MouseConstraint } =
+      Matter;
 
     const canvasContainer = canvasContainerRef.current;
     const containerRect = containerRef.current.getBoundingClientRect();
@@ -78,10 +79,34 @@ const FallingText = ({
       isStatic: true,
       render: { fillStyle: "transparent" },
     };
-    const floor = Bodies.rectangle(width / 2, height + 25, width, 50, boundaryOptions);
-    const leftWall = Bodies.rectangle(-25, height / 2, 50, height, boundaryOptions);
-    const rightWall = Bodies.rectangle(width + 25, height / 2, 50, height, boundaryOptions);
-    const ceiling = Bodies.rectangle(width / 2, -25, width, 50, boundaryOptions);
+    const floor = Bodies.rectangle(
+      width / 2,
+      height + 25,
+      width,
+      50,
+      boundaryOptions,
+    );
+    const leftWall = Bodies.rectangle(
+      -25,
+      height / 2,
+      50,
+      height,
+      boundaryOptions,
+    );
+    const rightWall = Bodies.rectangle(
+      width + 25,
+      height / 2,
+      50,
+      height,
+      boundaryOptions,
+    );
+    const ceiling = Bodies.rectangle(
+      width / 2,
+      -25,
+      width,
+      50,
+      boundaryOptions,
+    );
 
     const wordSpans = textRef.current.children;
     const wordBodies = [...wordSpans].map((elem) => {
@@ -158,7 +183,13 @@ const FallingText = ({
       World.clear(engine.world);
       Engine.clear(engine);
     };
-  }, [effectStarted, gravity, wireframes, backgroundColor, mouseConstraintStiffness]);
+  }, [
+    effectStarted,
+    gravity,
+    wireframes,
+    backgroundColor,
+    mouseConstraintStiffness,
+  ]);
 
   const handleTrigger = () => {
     if (!effectStarted && (trigger === "click" || trigger === "hover")) {
@@ -184,11 +215,7 @@ const FallingText = ({
         {wordItems.map((item, index) => (
           <div
             key={index}
-            className={`mx-1 inline-flex select-none items-center gap-2 rounded-full border px-4 py-2 align-middle ${
-              item.highlight
-                ? "border-black text-black"
-                : "border-black/30 text-black/50"
-            }`}
+            className="mx-1 inline-flex select-none items-center gap-2 rounded-full border border-[#4ade80] bg-[#4ade80] px-4 py-2 align-middle text-[#052e16]"
           >
             {item.icon}
             <span>{item.label}</span>

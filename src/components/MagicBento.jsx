@@ -466,8 +466,8 @@ const MagicBento = ({
             --glow-intensity: 0;
             --glow-radius: 200px;
             --glow-color: ${glowColor};
-            --border-color: #000000;
-            --background-card: #ffffff;
+            --border-color: rgba(224, 224, 224, 0.2);
+            --background-card: rgba(224, 224, 224, 0.08);
           }
 
           .card-responsive {
@@ -505,7 +505,7 @@ const MagicBento = ({
           }
 
           .card--border-glow:hover {
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08), 0 0 24px rgba(${glowColor}, 0.15);
+            box-shadow: 0 0 24px rgba(${glowColor}, 0.15);
           }
 
           .particle::before {
@@ -553,14 +553,14 @@ const MagicBento = ({
       <BentoCardGrid gridRef={gridRef}>
         <div className="card-responsive grid gap-3">
           {items.map((item, index) => {
-            const baseClassName = `card relative flex min-h-[180px] w-full max-w-full flex-col justify-between overflow-hidden rounded-none border border-solid p-5 font-light transition-colors duration-300 ease-in-out hover:-translate-y-0.5 ${
+            const baseClassName = `card relative flex min-h-[180px] w-full max-w-full flex-col justify-between overflow-hidden rounded-lg border border-solid p-5 font-light transition-colors duration-300 ease-in-out hover:-translate-y-0.5 ${
               enableBorderGlow ? "card--border-glow" : ""
             }`;
 
             const cardStyle = {
               backgroundColor: "var(--background-card)",
               borderColor: "var(--border-color)",
-              color: "#000000",
+              color: "var(--color-text-primary)",
               "--glow-x": "50%",
               "--glow-y": "50%",
               "--glow-intensity": "0",
@@ -569,21 +569,21 @@ const MagicBento = ({
 
             const cardContent = (
               <>
-                <div className="card__header relative flex justify-between gap-3 text-black/50">
+                <div className="card__header relative flex justify-between gap-3 text-text-primary/50">
                   {item.icon ? (
                     <span className="card__label">{item.icon}</span>
                   ) : (
                     <span className="card__label text-sm font-semibold">{item.label}</span>
                   )}
                 </div>
-                <div className="card__content relative flex flex-col text-black">
+                <div className="card__content relative flex flex-col text-text-primary">
                   <h3
-                    className={`card__title !text-black m-0 mb-1 text-lg font-bold ${textAutoHide ? "text-clamp-1" : ""}`}
+                    className={`card__title !text-text-primary m-0 mb-1 text-lg font-bold ${textAutoHide ? "text-clamp-1" : ""}`}
                   >
                     {item.title}
                   </h3>
                   <p
-                    className={`card__description !text-black text-sm leading-5 opacity-80 ${textAutoHide ? "text-clamp-2" : ""}`}
+                    className={`card__description !text-text-primary text-sm leading-5 opacity-80 ${textAutoHide ? "text-clamp-2" : ""}`}
                   >
                     {item.description}
                   </p>

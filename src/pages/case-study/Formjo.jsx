@@ -262,7 +262,7 @@ const sections = [
         </p>
 
         <div>
-          <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-white/40">
+          <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-text-primary/40">
             Stack & Architecture
           </p>
           <p>
@@ -278,7 +278,7 @@ const sections = [
                 className="flex flex-col items-center gap-2"
               >
                 {tech.icon}
-                <span className="text-sm text-white/70">{tech.label}</span>
+                <span className="text-sm text-text-primary/70">{tech.label}</span>
               </div>
             ))}
           </div>

@@ -3,7 +3,7 @@ import { FaXTwitter } from "react-icons/fa6";
 import { BiEnvelope, BiLogoLinkedinSquare } from "react-icons/bi";
 
 const linkRowClasses =
-  "flex w-full items-center justify-center gap-x-4 border border-border-primary p-3";
+  "flex w-full items-center justify-center gap-x-4 rounded-lg border border-border-primary p-3";
 
 const CopyLink = ({ link }) => {
   const [copied, setCopied] = useState(false);

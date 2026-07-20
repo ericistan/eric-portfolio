@@ -12,7 +12,7 @@ const BentoHighlights = ({ items }) => (
     clickEffect={false}
     spotlightRadius={150}
     particleCount={10}
-    glowColor="0, 0, 0"
+    glowColor="57, 255, 20"
   />
 );
 

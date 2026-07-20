@@ -1,18 +1,14 @@
 import { createContext, useContext, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { RxChevronRight } from "react-icons/rx";
-import {
-  Globe,
-  Briefcase,
-  PaintBrush,
-  ChartLineUp,
-  Code,
-} from "@phosphor-icons/react";
+import { Globe, Briefcase, PaintBrush, Code } from "@phosphor-icons/react";
+import sfProfileImage from "../../assets/sf-profile.jpg";
 
 const buttonVariants = {
-  primary: "bg-black text-white hover:bg-black/90",
-  secondary: "border border-black bg-transparent text-black hover:bg-black/5",
-  link: "text-black underline-offset-4 hover:underline",
+  primary: "bg-text-primary text-background-primary hover:bg-text-primary/90",
+  secondary:
+    "border border-text-primary bg-transparent text-text-primary hover:bg-text-primary/5",
+  link: "text-text-primary underline-offset-4 hover:underline",
 };
 
 const buttonSizes = {
@@ -30,7 +26,7 @@ const Button = ({
   children,
   ...props
 }) => {
-  const classes = `inline-flex items-center justify-center rounded transition-colors ${buttonVariants[variant]} ${buttonSizes[size]} ${className}`;
+  const classes = `inline-flex items-center justify-center rounded-lg transition-colors ${buttonVariants[variant]} ${buttonSizes[size]} ${className}`;
 
   if (href) {
     return (
@@ -77,7 +73,7 @@ const TabsTrigger = ({ value, icon, className = "", children }) => {
       aria-selected={isActive}
       data-state={isActive ? "active" : "inactive"}
       onClick={() => setValue(value)}
-      className={`inline-flex items-center gap-2 border-0 border-b-[1.5px] border-black/20 px-0 py-2 text-black/50 transition-colors data-[state=active]:border-border-primary data-[state=active]:text-black ${className}`}
+      className={`inline-flex items-center gap-2 border-0 border-b-[1.5px] border-text-primary/20 px-0 py-2 text-text-primary/50 transition-colors data-[state=active]:border-border-primary data-[state=active]:text-text-primary ${className}`}
     >
       {icon}
       {children}
@@ -111,8 +107,10 @@ const Feature = (feature) => {
   return (
     <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2 lg:gap-x-20">
       <div className="max-w-lg">
-        <p className="mb-3 font-semibold md:mb-4">{feature.tagline}</p>
-        <h2 className="mb-5 text-2xl font-bold md:mb-6 md:text-4xl lg:text-5xl">
+        <p className="mb-3 font-mono font-semibold md:mb-4">
+          {feature.tagline}
+        </p>
+        <h2 className="mb-5 text-2xl font-bold md:mb-6 md:text-3xl lg:text-4xl">
           {feature.heading}
         </h2>
         <p className="text-md">{feature.description}</p>
@@ -126,7 +124,7 @@ const Feature = (feature) => {
       </div>
       <img
         src={feature.image.src}
-        className="w-full object-cover"
+        className="w-full rounded-lg object-cover"
         alt={feature.image.alt}
       />
     </div>
@@ -187,8 +185,8 @@ export const HeroSectionDefaults = {
             },
           ],
           image: {
-            src: "https://placehold.co/600x600?text=Photo",
-            alt: "Placeholder portrait",
+            src: sfProfileImage,
+            alt: "Eric standing along the San Francisco waterfront at sunrise, with the Bay Bridge in the background",
           },
         },
       ],

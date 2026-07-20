@@ -55,18 +55,18 @@ const PageLoader = ({ title, words, id }) => {
 
   return (
     <div
-      className={`fixed inset-0 z-50 flex items-center justify-center bg-black transition-transform duration-700 ease-in-out ${
+      className={`fixed inset-0 z-50 flex items-center justify-center bg-background-primary transition-transform duration-700 ease-in-out ${
         isExiting ? "-translate-y-full" : "translate-y-0"
       }`}
     >
       {!isExiting && isWordMode && (
-        <span className="px-[5%] text-center text-5xl font-bold text-white md:text-7xl">
+        <span className="px-[5%] text-center text-5xl font-bold text-accent md:text-7xl">
           {words[wordIndex]}
         </span>
       )}
       {!isExiting && !isWordMode && (
         <h1
-          className={`px-[5%] text-center text-5xl font-semibold text-white transition-all duration-500 ease-out md:text-7xl ${
+          className={`px-[5%] text-center text-5xl font-semibold text-accent transition-all duration-500 ease-out md:text-7xl ${
             showTitle ? "translate-y-0 opacity-100" : "translate-y-16 opacity-0"
           }`}
         >

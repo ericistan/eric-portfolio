@@ -9,7 +9,7 @@ import Footer from "../components/Footer.jsx";
 
 const HomePage = () => {
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="relative flex min-h-screen flex-col">
       <Navbar />
       <HeroSection />
       <CaseStudySection />

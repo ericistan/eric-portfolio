@@ -57,9 +57,9 @@ const header = {
 };
 
 const toolsUsed = [
-  { label: "Manus AI", icon: <Robot className="size-10 text-white" /> },
-  { label: "EXA", icon: <MagnifyingGlass className="size-10 text-white" /> },
-  { label: "Mem0", icon: <Brain className="size-10 text-white" /> },
+  { label: "Manus AI", icon: <Robot className="size-10 text-text-primary" /> },
+  { label: "EXA", icon: <MagnifyingGlass className="size-10 text-text-primary" /> },
+  { label: "Mem0", icon: <Brain className="size-10 text-text-primary" /> },
 ];
 
 const resultsItems = [
@@ -191,14 +191,14 @@ const sections = [
           shaped how we built it as much as what we built.
         </p>
         <div>
-          <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-white/40">
+          <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-text-primary/40">
             Tools & Services
           </p>
           <div className="flex flex-wrap gap-x-8 gap-y-6">
             {toolsUsed.map((tool) => (
               <div key={tool.label} className="flex flex-col items-center gap-2">
                 {tool.icon}
-                <span className="text-sm text-white/70">{tool.label}</span>
+                <span className="text-sm text-text-primary/70">{tool.label}</span>
               </div>
             ))}
           </div>

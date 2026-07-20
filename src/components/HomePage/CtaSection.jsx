@@ -1,8 +1,9 @@
 import { Link } from "react-router";
 
 const buttonVariants = {
-  primary: "bg-black text-white hover:bg-black/90",
-  secondary: "border border-black bg-transparent text-black hover:bg-black/5",
+  primary: "bg-text-primary text-background-primary hover:bg-text-primary/90",
+  secondary:
+    "border border-text-primary bg-transparent text-text-primary hover:bg-text-primary/5",
 };
 
 const buttonSizes = {
@@ -19,7 +20,7 @@ const Button = ({
   children,
   ...props
 }) => {
-  const classes = `inline-flex items-center justify-center rounded transition-colors ${buttonVariants[variant]} ${buttonSizes[size]} ${className}`;
+  const classes = `inline-flex items-center justify-center rounded-lg transition-colors ${buttonVariants[variant]} ${buttonSizes[size]} ${className}`;
 
   if (url) {
     return (
@@ -53,7 +54,7 @@ const CtaSection = (props) => {
   return (
     <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
       <div className="page-container max-w-full text-center">
-        <h2 className="mb-5 text-2xl font-bold md:mb-6 md:text-2xl lg:text-3xl">
+        <h2 className="mb-5 text-2xl font-bold text-accent md:mb-6 md:text-3xl lg:text-4xl">
           {heading}
         </h2>
         <p className="text-md">{description}</p>
