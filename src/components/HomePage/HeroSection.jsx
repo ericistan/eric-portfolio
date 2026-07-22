@@ -3,6 +3,10 @@ import { AnimatePresence, motion } from "framer-motion";
 import { RxChevronRight } from "react-icons/rx";
 import { Globe, Briefcase, PaintBrush, Code } from "@phosphor-icons/react";
 import sfProfileImage from "../../assets/sf-profile.jpg";
+import fbProfileImage from "../../assets/fb-profile-pic.png";
+import etProfileImage from "../../assets/eric-linkedin-profile.jpeg";
+import etNFT from "../../assets/coolPetsMyNFT.png";
+import ericProfileMic from "../../assets/eric-speaking.jpg";
 
 const buttonVariants = {
   primary: "bg-text-primary text-background-primary hover:bg-text-primary/90",
@@ -185,8 +189,8 @@ export const HeroSectionDefaults = {
             },
           ],
           image: {
-            src: sfProfileImage,
-            alt: "Eric standing along the San Francisco waterfront at sunrise, with the Bay Bridge in the background",
+            src: etProfileImage,
+            alt: "Eric Tan's profile picture",
           },
         },
       ],
@@ -218,8 +222,8 @@ export const HeroSectionDefaults = {
             },
           ],
           image: {
-            src: "https://placehold.co/600x600?text=Photo",
-            alt: "Placeholder portrait",
+            src: fbProfileImage,
+            alt: "Eric at Facebook HQ",
           },
         },
       ],
@@ -252,8 +256,8 @@ export const HeroSectionDefaults = {
             },
           ],
           image: {
-            src: "https://placehold.co/600x600?text=Photo",
-            alt: "Placeholder portrait",
+            src: etNFT,
+            alt: "Eric's NFT",
           },
         },
       ],
@@ -286,8 +290,8 @@ export const HeroSectionDefaults = {
             },
           ],
           image: {
-            src: "https://placehold.co/600x600?text=Photo",
-            alt: "Placeholder portrait",
+            src: ericProfileMic,
+            alt: "Eric Tan speaking at a conference",
           },
         },
       ],
