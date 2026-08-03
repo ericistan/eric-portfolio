@@ -5,7 +5,6 @@ import { BiLogoLinkedinSquare } from "react-icons/bi";
 import sfProfileImage from "../../assets/sf-profile.jpg";
 import fbProfileImage from "../../assets/fb-profile-pic.png";
 import etDesignerProfileImage from "../../assets/eric-designer-profile.jpg";
-import etNFT from "../../assets/coolPetsMyNFT.png";
 import ericProfileMic from "../../assets/eric-speaking.jpg";
 
 const buttonVariants = {
