@@ -1,10 +1,10 @@
 import { createContext, useContext, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { RxChevronRight } from "react-icons/rx";
-import { Globe, Briefcase, PaintBrush, Code } from "@phosphor-icons/react";
+import { Globe, Briefcase, Code, LinkedinLogo } from "@phosphor-icons/react";
 import sfProfileImage from "../../assets/sf-profile.jpg";
 import fbProfileImage from "../../assets/fb-profile-pic.png";
-import etProfileImage from "../../assets/eric-linkedin-profile.jpeg";
+import etDesignerProfileImage from "../../assets/eric-designer-profile.jpg";
 import etNFT from "../../assets/coolPetsMyNFT.png";
 import ericProfileMic from "../../assets/eric-speaking.jpg";
 
@@ -13,17 +13,19 @@ const buttonVariants = {
   secondary:
     "border border-text-primary bg-transparent text-text-primary hover:bg-text-primary/5",
   link: "text-text-primary underline-offset-4 hover:underline",
+  linkedin: "bg-[#0A66C2] text-white hover:bg-[#0A66C2]/90",
 };
 
 const buttonSizes = {
-  sm: "px-5 py-2 text-sm",
-  md: "px-6 py-3 text-base",
+  sm: "gap-1.5 px-5 py-2 text-sm",
+  md: "gap-2 px-6 py-3 text-base",
   link: "gap-1 px-0 py-0 text-sm",
 };
 
 const Button = ({
   variant = "primary",
   size = "md",
+  iconLeft,
   iconRight,
   href,
   className = "",
@@ -35,6 +37,7 @@ const Button = ({
   if (href) {
     return (
       <a href={href} className={classes} {...props}>
+        {iconLeft}
         {children}
         {iconRight}
       </a>
@@ -43,6 +46,7 @@ const Button = ({
 
   return (
     <button className={classes} {...props}>
+      {iconLeft}
       {children}
       {iconRight}
     </button>
@@ -118,7 +122,7 @@ const Feature = (feature) => {
           {feature.heading}
         </h2>
         <p className="text-md">{feature.description}</p>
-        <div className="mt-6 flex flex-wrap gap-4 md:mt-8">
+        <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-8">
           {feature.buttons.map((button, index) => (
             <Button key={index} {...button}>
               {button.title}
@@ -168,17 +172,18 @@ export const HeroSectionDefaults = {
       icon: <Globe className="size-4" />,
       content: [
         {
-          tagline: "Full-Stack Engineer",
-          heading: "I build clean, reliable products from idea to launch.",
+          tagline: "Design & Code built in one",
+          heading: "Design led. Code shipped.",
           description:
-            "I turn ideas into clean, reliable products, from first sketch to production launch, across the entire stack.",
+            "I design and build products end to end. Three years shaping user experience, now writing the code that brings it to life.",
           buttons: [
             {
-              title: "LinkedIn ↗",
+              title: "LinkedIn",
               href: "#",
               target: "_blank",
               rel: "noreferrer",
-              variant: "secondary",
+              variant: "linkedin",
+              iconLeft: <LinkedinLogo weight="fill" className="size-5" />,
             },
             {
               title: "About Me",
@@ -189,8 +194,8 @@ export const HeroSectionDefaults = {
             },
           ],
           image: {
-            src: etProfileImage,
-            alt: "Eric Tan's profile picture",
+            src: etDesignerProfileImage,
+            alt: "Eric Tan's designer profile picture",
           },
         },
       ],
@@ -202,84 +207,17 @@ export const HeroSectionDefaults = {
       content: [
         {
           tagline: "Open to Opportunities",
-          heading: "I'm a full-stack engineer looking for my next opportunity.",
+          heading: "Frontend engineer with a design background.",
           description:
-            "A full-stack engineer ready for what's next, comfortable owning features end-to-end and ramping quickly on new codebases.",
+            "3+ years designing products before I learned to build them. Now I ship frontend features fast, and I know why they should look right too.",
           buttons: [
             {
-              title: "LinkedIn ↗",
+              title: "LinkedIn",
               href: "#",
               target: "_blank",
               rel: "noreferrer",
-              variant: "secondary",
-            },
-            {
-              title: "About Me",
-              href: "#about",
-              variant: "link",
-              size: "link",
-              iconRight: <RxChevronRight />,
-            },
-          ],
-          image: {
-            src: fbProfileImage,
-            alt: "Eric at Facebook HQ",
-          },
-        },
-      ],
-    },
-    {
-      value: "designers",
-      trigger: "Designers",
-      icon: <PaintBrush className="size-4" />,
-      content: [
-        {
-          tagline: "Design-Minded Engineer",
-          heading:
-            "I prioritize high-quality solutions, partnering to create bespoke designs from concept to launch.",
-          description:
-            "I care about the craft as much as the code, partnering closely with design to turn concepts into polished, bespoke experiences.",
-          buttons: [
-            {
-              title: "LinkedIn ↗",
-              href: "#",
-              target: "_blank",
-              rel: "noreferrer",
-              variant: "secondary",
-            },
-            {
-              title: "About Me",
-              href: "#about",
-              variant: "link",
-              size: "link",
-              iconRight: <RxChevronRight />,
-            },
-          ],
-          image: {
-            src: etNFT,
-            alt: "Eric's NFT",
-          },
-        },
-      ],
-    },
-
-    {
-      value: "engineers",
-      trigger: "Engineers",
-      icon: <Code className="size-4" />,
-      content: [
-        {
-          tagline: "Engineer's Engineer",
-          heading: "I write maintainable code and sweat the details.",
-          description:
-            "I write code built to last: readable, tested, and maintainable, with an eye for the details that keep systems healthy.",
-          buttons: [
-            {
-              title: "LinkedIn ↗",
-              href: "#",
-              target: "_blank",
-              rel: "noreferrer",
-              variant: "secondary",
+              variant: "linkedin",
+              iconLeft: <LinkedinLogo weight="fill" className="size-5" />,
             },
             {
               title: "About Me",
@@ -292,6 +230,40 @@ export const HeroSectionDefaults = {
           image: {
             src: ericProfileMic,
             alt: "Eric Tan speaking at a conference",
+          },
+        },
+      ],
+    },
+    {
+      value: "engineers",
+      trigger: "Designer x Engineer",
+      icon: <Code className="size-4" />,
+      content: [
+        {
+          tagline: "Design-Minded Engineer",
+          heading: "I bring design instincts to every line I write.",
+          description:
+            "I've been the designer who loves to tinker with code. Now I build what I design myself, pixel to production, with the same eye for structure and detail I learned from design systems.",
+          buttons: [
+            {
+              title: "LinkedIn",
+              href: "#",
+              target: "_blank",
+              rel: "noreferrer",
+              variant: "linkedin",
+              iconLeft: <LinkedinLogo weight="fill" className="size-5" />,
+            },
+            {
+              title: "About Me",
+              href: "#about",
+              variant: "link",
+              size: "link",
+              iconRight: <RxChevronRight />,
+            },
+          ],
+          image: {
+            src: fbProfileImage,
+            alt: "Eric at Facebook HQ",
           },
         },
       ],

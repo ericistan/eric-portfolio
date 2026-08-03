@@ -1,4 +1,9 @@
-import { UsersThree, PenNib, RocketLaunch, ChalkboardTeacher } from "@phosphor-icons/react";
+import {
+  PenNib,
+  RocketLaunch,
+  Handshake,
+  GraduationCap,
+} from "@phosphor-icons/react";
 import BentoHighlights from "../BentoHighlights";
 import SideRays from "../SideRays";
 
@@ -34,9 +39,11 @@ const WhyMeSection = (props) => {
             />
           </div>
           <div className="relative z-10 mx-auto max-w-lg text-center">
-            <p className="mb-3 font-mono">{tagline}</p>
-            <h2 className="mb-5">{heading}</h2>
-            <p>{description}</p>
+            <p className="mb-3 font-mono font-semibold md:mb-4">{tagline}</p>
+            <h2 className="mb-5 text-2xl font-bold md:mb-6 md:text-4xl lg:text-5xl">
+              {heading}
+            </h2>
+            <p className="text-md">{description}</p>
           </div>
           <div className="relative z-10 mt-10 flex justify-center md:mt-12">
             <BentoHighlights items={bentoItems} />
@@ -49,29 +56,29 @@ const WhyMeSection = (props) => {
 
 export const WhyMeSectionDefaults = {
   tagline: "Why Me",
-  heading: "Leadership",
+  heading: "Ownership and growth, built in.",
   description:
-    "Fostering growth through collaboration, where everyone learns and grows together.",
+    "I take ideas from first sketch to shipped product, and own every step in between.",
   highlights: [
     {
-      icon: <UsersThree className="size-6" />,
-      lead: "Led functional & cross-functional product teams",
-      text: "of up to 10 members.",
-    },
-    {
       icon: <PenNib className="size-6" />,
-      lead: "Developed UX strategy and design",
-      text: "process from scratch in 4 months.",
+      lead: "Designed and built end-to-end, solo",
+      text: "No handoff gap. I own the interface from Figma file to shipped component.",
     },
     {
       icon: <RocketLaunch className="size-6" />,
-      lead: "Launched a monetization project",
-      text: "(2.5 months, 5 teams of up to 12 members).",
+      lead: "Co-founded a startup, shipped from zero to one",
+      text: "Took many Web3 projects from concept to launch, wearing every hat along the way.",
     },
     {
-      icon: <ChalkboardTeacher className="size-6" />,
-      lead: "Mentored a junior designer",
-      text: "to a middle position in 9 months.",
+      icon: <Handshake className="size-6" />,
+      lead: "Trusted across founder, studio, and consulting work",
+      text: "Brought in for both UX strategy and frontend execution, not just one or the other.",
+    },
+    {
+      icon: <GraduationCap className="size-6" />,
+      lead: "Always leveling up, by design",
+      text: "From design to accelerator programs to full-stack code, each step chosen to close a real gap, not chase a trend.",
     },
   ],
 };
