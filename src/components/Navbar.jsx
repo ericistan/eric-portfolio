@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { RxChevronDown } from "react-icons/rx";
-import { BiLogoLinkedinSquare } from "react-icons/bi";
+import { BiLogoLinkedinSquare, BiLogoGithub } from "react-icons/bi";
 import { FaXTwitter } from "react-icons/fa6";
 import { Link } from "react-router";
 
@@ -20,7 +20,7 @@ const useMediaQuery = (query) => {
 };
 
 export const Navbar = (props) => {
-  const { logo, navLinks, linkedinUrl, xUrl } = {
+  const { logo, navLinks, linkedinUrl, xUrl, githubUrl } = {
     ...Navbar1Defaults,
     ...props,
   };
@@ -81,17 +81,38 @@ export const Navbar = (props) => {
               <Link
                 key={index}
                 to={navLink.url}
-                className="block py-3 font-mono text-md first:pt-7 lg:px-4 lg:py-2 lg:text-base first:lg:pt-2"
+                className="block py-3 font-mono text-md text-text-primary transition-colors duration-300 ease-in-out first:pt-7 hover:text-accent lg:px-4 lg:py-2 lg:text-base first:lg:pt-2"
               >
                 {navLink.title}
               </Link>
             ),
           )}
           <div className="mt-6 flex items-center justify-center gap-4 lg:ml-4 lg:mt-0">
-            <a href={linkedinUrl} target="_blank" rel="noreferrer" aria-label="LinkedIn">
+            <a
+              href={githubUrl}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="GitHub"
+              className="text-text-primary transition-colors duration-300 ease-in-out hover:text-accent"
+            >
+              <BiLogoGithub className="size-7" />
+            </a>
+            <a
+              href={linkedinUrl}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="LinkedIn"
+              className="text-text-primary transition-colors duration-300 ease-in-out hover:text-accent"
+            >
               <BiLogoLinkedinSquare className="size-7" />
             </a>
-            <a href={xUrl} target="_blank" rel="noreferrer" aria-label="X">
+            <a
+              href={xUrl}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="X"
+              className="text-text-primary transition-colors duration-300 ease-in-out hover:text-accent"
+            >
               <FaXTwitter className="size-6" />
             </a>
           </div>
@@ -110,7 +131,7 @@ const SubMenu = ({ navLink, isMobile }) => {
       onMouseLeave={() => !isMobile && setIsDropdownOpen(false)}
     >
       <button
-        className="flex w-full items-center justify-between gap-2 py-3 text-left font-mono text-md lg:flex-none lg:justify-start lg:px-4 lg:py-2 lg:text-base"
+        className="flex w-full items-center justify-between gap-2 py-3 text-left font-mono text-md text-text-primary transition-colors duration-300 ease-in-out hover:text-accent lg:flex-none lg:justify-start lg:px-4 lg:py-2 lg:text-base"
         onClick={() => setIsDropdownOpen((prev) => !prev)}
       >
         <span>{navLink.title}</span>
@@ -150,7 +171,7 @@ const SubMenu = ({ navLink, isMobile }) => {
               <Link
                 key={index}
                 to={navLink.url}
-                className="block py-3 pl-[5%] font-mono text-md lg:px-4 lg:py-2 lg:text-base"
+                className="block py-3 pl-[5%] font-mono text-md text-text-primary transition-colors duration-300 ease-in-out hover:text-accent lg:px-4 lg:py-2 lg:text-base"
               >
                 {navLink.title}
               </Link>
@@ -169,11 +190,11 @@ export const Navbar1Defaults = {
   },
   navLinks: [
     { title: "Home", url: "/" },
-    { title: "About", url: "/about" },
     { title: "Contact", url: "/contact" },
   ],
   linkedinUrl: "https://www.linkedin.com/in/ericistan",
   xUrl: "https://x.com/ericistan",
+  githubUrl: "https://github.com/ericistan",
 };
 
 const topLineVariants = {

@@ -5,7 +5,6 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import formjoHeroImage from "../../assets/case-study_formjo-hero.png";
 import koinSightHeroImage from "../../assets/case-study_koin-sight_portfolio-dashboard.png";
 import startSearchHeroImage from "../../assets/case-study_start-search_portfolio-dashboard.png";
-import raincityBoxingHeroImage from "../../assets/case-study_raincity-boxing-hero.jpg";
 
 const buttonVariants = {
   primary: "bg-text-primary text-background-primary hover:bg-text-primary/90",
@@ -71,7 +70,7 @@ const CaseStudyCard = ({ study }) => {
       style={{ scale, opacity }}
       className="grid grid-cols-1 gap-x-20 gap-y-6 rounded-lg border border-text-primary/10 bg-text-primary/5 p-6 md:grid-cols-[3fr_4fr] md:gap-y-20 md:p-8 lg:p-12"
     >
-      <div className="flex flex-col justify-between">
+      <div className="contents md:flex md:flex-col md:justify-between">
         <div>
           <p className="mb-2 font-mono text-sm font-semibold">
             {study.tagline}
@@ -80,9 +79,9 @@ const CaseStudyCard = ({ study }) => {
             {study.heading}
           </h3>
         </div>
-        <p className="mt-6 md:mt-8 md:text-md">{study.description}</p>
+        <p className="md:mt-8 md:text-md">{study.description}</p>
         {study.tags?.length > 0 && (
-          <ul className="mt-4 flex flex-wrap gap-2">
+          <ul className="flex flex-wrap gap-2 md:mt-4">
             {study.tags.map((tag, index) => (
               <li
                 key={index}
@@ -93,15 +92,15 @@ const CaseStudyCard = ({ study }) => {
             ))}
           </ul>
         )}
-        <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-8">
+        <div className="order-3 flex flex-wrap items-center gap-4 md:order-none md:mt-8">
           {study.buttons.map((button, index) => (
-            <Button key={index} {...button}>
+            <Button key={index} {...button} className="w-full md:w-auto">
               {button.title}
             </Button>
           ))}
         </div>
       </div>
-      <div>
+      <div className="order-2 md:order-none">
         <img
           src={study.image.src}
           alt={study.image.alt}
@@ -141,7 +140,6 @@ const CaseStudySection = (props) => {
 export const CaseStudySectionDefaults = {
   tagline: "Case Studies",
   heading: "Selected work",
-  description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   studies: [
     {
       tagline: "Training Coach App",
@@ -210,31 +208,6 @@ export const CaseStudySectionDefaults = {
       image: {
         src: startSearchHeroImage,
         alt: "StartSearch case study hero image",
-      },
-    },
-    {
-      tagline: "Web Design",
-      heading: "Raincity Boxing",
-      description:
-        "A website for a Richmond, BC boxing gym and wellness studio, built to turn curious visitors into trial sign-ups with clear pricing, real member stories, and integrated booking.",
-      tags: [
-        "Web Design",
-        "Branding",
-        "UI/UX",
-        "Local Business",
-        "Solo Project",
-      ],
-      buttons: [
-        {
-          title: "Read Case Study",
-          variant: "secondary",
-          iconRight: <RxChevronRight />,
-          url: "/case-study/raincityboxing",
-        },
-      ],
-      image: {
-        src: raincityBoxingHeroImage,
-        alt: "Raincity Boxing case study hero image",
       },
     },
   ],

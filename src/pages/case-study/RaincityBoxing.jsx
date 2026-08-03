@@ -13,6 +13,7 @@ import {
 } from "@phosphor-icons/react";
 import Navbar from "../../components/Navbar.jsx";
 import CaseStudyLayout from "../../components/CaseStudyLayout.jsx";
+import CaseStudyImage from "../../components/CaseStudyImage.jsx";
 import BentoHighlights from "../../components/BentoHighlights.jsx";
 import Footer from "../../components/Footer.jsx";
 
@@ -132,7 +133,7 @@ const sections = [
             link to Google reviews.
           </li>
         </ul>
-        <img
+        <CaseStudyImage
           src="https://placehold.co/800x500?text=Raincity+Boxing"
           alt="Raincity Boxing placeholder image"
         />
@@ -233,34 +234,15 @@ const sections = [
   },
 ];
 
-const relatedProjects = {
-  tagline: "Portfolio",
-  heading: "More case studies",
-  description: "Take a look at some of my other work.",
-  projects: [
-    {
-      title: "Formjo",
-      description:
-        "A platform for coaches to assign structured training, review athlete video submissions, and deliver personalised feedback.",
-      image: {
-        src: "https://placehold.co/800x500?text=Formjo",
-        alt: "Formjo placeholder image",
-      },
-      url: "/case-study/formjo",
-      tags: ["React", "Flask", "PostgreSQL"],
-    },
-  ],
-  button: {
-    title: "View all",
-    url: "/",
-  },
-};
-
 const RaincityBoxing = () => {
   return (
     <div className="flex min-h-screen flex-col">
       <Navbar />
-      <CaseStudyLayout header={header} sections={sections} relatedProjects={relatedProjects} />
+      <CaseStudyLayout
+        header={header}
+        sections={sections}
+        liveUrl="https://www.raincityboxing.com/"
+      />
       <Footer />
     </div>
   );

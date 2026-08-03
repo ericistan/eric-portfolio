@@ -1,6 +1,17 @@
 import { useRef, useState, useEffect } from "react";
 import Matter from "matter-js";
 
+const DEFAULT_PILL_COLOR = "#4ade80";
+
+const getContrastText = (hex) => {
+  const value = hex.replace("#", "");
+  const r = parseInt(value.substring(0, 2), 16);
+  const g = parseInt(value.substring(2, 4), 16);
+  const b = parseInt(value.substring(4, 6), 16);
+  const yiq = (r * 299 + g * 587 + b * 114) / 1000;
+  return yiq >= 128 ? "#052e16" : "#ffffff";
+};
+
 const FallingText = ({
   text = "",
   highlightWords = [],
@@ -212,15 +223,23 @@ const FallingText = ({
           lineHeight: 1.4,
         }}
       >
-        {wordItems.map((item, index) => (
-          <div
-            key={index}
-            className="mx-1 inline-flex select-none items-center gap-2 rounded-full border border-[#4ade80] bg-[#4ade80] px-4 py-2 align-middle text-[#052e16]"
-          >
-            {item.icon}
-            <span>{item.label}</span>
-          </div>
-        ))}
+        {wordItems.map((item, index) => {
+          const color = item.color ?? DEFAULT_PILL_COLOR;
+          return (
+            <div
+              key={index}
+              className="mx-1 inline-flex select-none items-center gap-1.5 rounded-full border px-3 py-1.5 align-middle md:gap-2 md:px-4 md:py-2"
+              style={{
+                borderColor: color,
+                backgroundColor: color,
+                color: getContrastText(color),
+              }}
+            >
+              {item.icon}
+              <span>{item.label}</span>
+            </div>
+          );
+        })}
       </div>
 
       <div className="absolute left-0 top-0 z-0" ref={canvasContainerRef} />

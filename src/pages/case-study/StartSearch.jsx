@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  Robot,
   MagnifyingGlass,
   Brain,
   Eye,
@@ -11,11 +10,31 @@ import {
   CalendarBlank,
   IdentificationBadge,
   Globe,
+  Trophy,
 } from "@phosphor-icons/react";
 import Navbar from "../../components/Navbar.jsx";
 import CaseStudyLayout from "../../components/CaseStudyLayout.jsx";
+import CaseStudyImage from "../../components/CaseStudyImage.jsx";
 import BentoHighlights from "../../components/BentoHighlights.jsx";
 import Footer from "../../components/Footer.jsx";
+import startsearchLandingImage from "../../assets/startsearch-landing.jpg";
+import startsearchDropOffImage from "../../assets/startsearch-drop-off.jpg";
+import startsearchManusDashboardImage from "../../assets/steartsearch-manus-dashboard.jpg";
+import startsearchDarkAlumniImage from "../../assets/startsearch-dark-alumni.jpg";
+import startsearchDesignAudienceImage from "../../assets/startsearch-design-audience.jpg";
+import startsearchPainPointsImage from "../../assets/startsearch_pain-points.jpg";
+import startsearchHowMightWeImage from "../../assets/startsearch_how-might-we.jpg";
+import startsearchDesignPhilosophyImage from "../../assets/startsearch-design-philosophy.jpg";
+import manusLogo from "../../assets/manus-logo.svg";
+import exaLogo from "../../assets/exa-logo.png";
+import mem0Logo from "../../assets/mem0-logo.svg";
+import startsearchDataScrapeImage from "../../assets/startsearch_data-scrape.jpg";
+import startsearchIntelligenceCohortImage from "../../assets/startsearch_intelligence-cohort.jpg";
+import startsearchStartupProfileImage from "../../assets/startsearch_startup-profile.jpg";
+import startsearchCheckInEmailImage from "../../assets/startsearch_check-in-email.jpg";
+import startsearchCohortComparisonImage from "../../assets/startsearch_cohort-comparison.jpg";
+import startsearchCohortInvestorImage from "../../assets/startsearch_cohort-investor.jpg";
+import startsearchCohortManagementImage from "../../assets/startsearch_cohort-management.jpg";
 
 const header = {
   heading: "StartSearch",
@@ -49,17 +68,31 @@ const header = {
       icon: <Globe className="size-5" />,
       url: "https://smiietrack-jfeh6whh.manus.space/",
     },
+    {
+      label: "Award",
+      description: "SMU Prize: Best Startup Ecosystem Build",
+      icon: <Trophy className="size-5" />,
+    },
   ],
   image: {
-    src: "https://placehold.co/1600x900?text=StartSearch",
-    alt: "StartSearch hero placeholder image",
+    src: startsearchLandingImage,
+    alt: "StartSearch landing page",
   },
 };
 
 const toolsUsed = [
-  { label: "Manus AI", icon: <Robot className="size-10 text-text-primary" /> },
-  { label: "EXA", icon: <MagnifyingGlass className="size-10 text-text-primary" /> },
-  { label: "Mem0", icon: <Brain className="size-10 text-text-primary" /> },
+  {
+    label: "Manus AI",
+    icon: <img src={manusLogo} alt="Manus AI logo" className="size-10 rounded-lg" />,
+  },
+  {
+    label: "EXA",
+    icon: <img src={exaLogo} alt="EXA logo" className="size-10 rounded-lg" />,
+  },
+  {
+    label: "Mem0",
+    icon: <img src={mem0Logo} alt="Mem0 logo" className="size-10 rounded-lg" />,
+  },
 ];
 
 const resultsItems = [
@@ -116,8 +149,12 @@ const sections = [
         <h3>About StartSearch</h3>
         <p>
           Alumni Intelligence is an AI agent dashboard I built with my
-          teammates Jin and Jiraum during a hackathon, tracking every
-          graduated startup from the outside, no founder opt-in, no
+          teammates Gin and Jerome at Build Club's Go-to-Market Builders AI
+          Build Lab, a Singapore evening hackathon where teams had one
+          three-hour window to turn a manual workflow into a working AI
+          prototype using Manus AI, EXA, and Mem0. We took home the{" "}
+          <strong>SMU Prize: Best Startup Ecosystem Build</strong>, tracking
+          every graduated startup from the outside, no founder opt-in, no
           spreadsheets. Core features include:
         </p>
         <ul>
@@ -139,13 +176,10 @@ const sections = [
             health, plus cohort-to-cohort comparison across years.
           </li>
         </ul>
-        <img
-          src="https://placehold.co/800x500?text=StartSearch"
-          alt="StartSearch placeholder image"
+        <CaseStudyImage
+          src={startsearchDropOffImage}
+          alt="Startup drop-off tracked after Demo Day"
         />
-        <p className="text-sm italic">
-          * Placeholder caption: swap in a real dashboard screenshot here.
-        </p>
         <h3>Problem</h3>
         <p>
           Founders rarely self-report to programme managers once a cohort
@@ -155,6 +189,14 @@ const sections = [
           without a safety net, since nobody knows to check in until it's
           too late.
         </p>
+        <CaseStudyImage
+          src={startsearchPainPointsImage}
+          alt="StartSearch pain points"
+        />
+        <CaseStudyImage
+          src={startsearchHowMightWeImage}
+          alt="StartSearch how might we"
+        />
       </>
     ),
   },
@@ -168,6 +210,14 @@ const sections = [
           asking founders to report in, the dashboard surfaces the absence
           of activity as the thing worth acting on.
         </p>
+        <CaseStudyImage
+          src={startsearchDesignAudienceImage}
+          alt="StartSearch dashboard views for each audience"
+        />
+        <CaseStudyImage
+          src={startsearchDesignPhilosophyImage}
+          alt="StartSearch design philosophy"
+        />
         <p>
           The dashboard is built around three audiences, each served by a
           different view: programme managers get a cohort health snapshot
@@ -186,7 +236,7 @@ const sections = [
     content: (
       <>
         <p>
-          Built in a hackathon window with Jin and Jiraum, under real time
+          Built in a hackathon window with Gin and Jerome, under real time
           pressure to have something working, not just designed. That
           shaped how we built it as much as what we built.
         </p>
@@ -203,6 +253,11 @@ const sections = [
             ))}
           </div>
         </div>
+
+        <CaseStudyImage
+          src={startsearchManusDashboardImage}
+          alt="StartSearch dashboard built with Manus AI"
+        />
 
         <h3>Stack & Architecture</h3>
         <ul>
@@ -235,6 +290,11 @@ const sections = [
           surface; the absence of signal is the signal.
         </p>
 
+        <CaseStudyImage
+          src={startsearchDarkAlumniImage}
+          alt="Dark Alumni Detection feature in StartSearch"
+        />
+
         <h3>What I'd Do Differently</h3>
         <p>A few things worth naming honestly, given the timeline:</p>
         <ul>
@@ -263,41 +323,55 @@ const sections = [
     id: "Outcomes",
     label: "Outcomes",
     content: (
-      <div className="flex justify-center">
-        <BentoHighlights items={resultsItems} />
-      </div>
+      <>
+        <div className="flex justify-center">
+          <BentoHighlights items={resultsItems} />
+        </div>
+        <CaseStudyImage
+          src={startsearchDataScrapeImage}
+          alt="Automated web signal scraping"
+        />
+        <CaseStudyImage
+          src={startsearchIntelligenceCohortImage}
+          alt="Cohort intelligence snapshot"
+        />
+        <CaseStudyImage
+          src={startsearchStartupProfileImage}
+          alt="Startup profile and memory timeline"
+        />
+        <CaseStudyImage
+          src={startsearchCheckInEmailImage}
+          alt="At-risk founder check-in email"
+        />
+        <CaseStudyImage
+          src={startsearchCohortComparisonImage}
+          alt="Cohort comparison view"
+        />
+        <CaseStudyImage
+          src={startsearchCohortInvestorImage}
+          alt="Investor and donor cohort report"
+        />
+        <CaseStudyImage
+          src={startsearchCohortManagementImage}
+          alt="Cohort management view"
+        />
+      </>
     ),
   },
 ];
-
-const relatedProjects = {
-  tagline: "Portfolio",
-  heading: "More case studies",
-  description: "Take a look at some of my other work.",
-  projects: [
-    {
-      title: "Formjo",
-      description:
-        "A platform for coaches to assign structured training, review athlete video submissions, and deliver personalised feedback.",
-      image: {
-        src: "https://placehold.co/800x500?text=Formjo",
-        alt: "Formjo placeholder image",
-      },
-      url: "/case-study/formjo",
-      tags: ["React", "Flask", "PostgreSQL"],
-    },
-  ],
-  button: {
-    title: "View all",
-    url: "/",
-  },
-};
 
 const StartSearch = () => {
   return (
     <div className="flex min-h-screen flex-col">
       <Navbar />
-      <CaseStudyLayout header={header} sections={sections} relatedProjects={relatedProjects} />
+      <CaseStudyLayout
+        header={header}
+        sections={sections}
+        githubUrl="https://campus.buildclub.ai/projects/019ebb87-9e86-7539-998c-3af3695d9444"
+        githubLabel="View Project"
+        githubIcon={<Presentation className="size-5" />}
+        liveUrl="https://smiietrack-jfeh6whh.manus.space/"
+      />
       <Footer />
     </div>
   );

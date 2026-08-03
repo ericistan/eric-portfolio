@@ -345,36 +345,6 @@ const sections = [
   },
 ];
 
-// const relatedProjects = {
-//   tagline: "Portfolio",
-//   heading: "More case studies",
-//   description: "Take a look at some of my other work.",
-//   projects: [
-//     {
-//       title: "KoinSight",
-//       description:
-//         "A real-time portfolio tracker for crypto investors, with transaction management and historical performance analysis.",
-//       image: {
-//         src: "https://placehold.co/800x500?text=KoinSight",
-//         alt: "KoinSight placeholder image",
-//       },
-//       url: "/case-study/koinsight",
-//       tags: ["React", "Node.js", "MongoDB"],
-//     },
-//     {
-//       title: "KoinSight",
-//       description:
-//         "A real-time portfolio tracker for crypto investors, with transaction management and historical performance analysis.",
-//       image: {
-//         src: "https://placehold.co/800x500?text=KoinSight",
-//         alt: "KoinSight placeholder image",
-//       },
-//       url: "/case-study/koinsight",
-//       tags: ["React", "Node.js", "MongoDB"],
-//     },
-//   ],
-// };
-
 const Formjo = () => {
   return (
     <div className="flex min-h-screen flex-col">
@@ -382,7 +352,7 @@ const Formjo = () => {
       <CaseStudyLayout
         header={header}
         sections={sections}
-        // relatedProjects={relatedProjects}
+        githubUrl="https://github.com/ericistan/Formjo"
       />
       <Footer />
     </div>

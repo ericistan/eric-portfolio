@@ -5,12 +5,14 @@ import {
   SiExpress,
   SiMongodb,
   SiTailwindcss,
-  SiGit,
   SiFigma,
   SiWebflow,
-  SiFramer,
+  SiClaude,
+  SiStorybook,
+  SiGithub,
 } from "react-icons/si";
 import FallingText from "../FallingText";
+import NousResearchIcon from "../icons/NousResearchIcon";
 
 const TechStack = (props) => {
   const { tagline, heading, items } = {
@@ -30,7 +32,7 @@ const TechStack = (props) => {
             items={items}
             trigger="scroll"
             gravity={0.16}
-            fontSize="2rem"
+            fontSize="clamp(0.9rem, 4vw, 2rem)"
             mouseConstraintStiffness={0.9}
           />
         </div>
@@ -39,22 +41,24 @@ const TechStack = (props) => {
   );
 };
 
-const iconClass = "size-6";
+const iconClass = "size-4 md:size-6";
 
 export const TechStackDefaults = {
   tagline: "Tech Stack",
   heading: "Tools I work with",
   items: [
-    { label: "JavaScript", icon: <SiJavascript className={iconClass} />, highlight: true },
-    { label: "React", icon: <SiReact className={iconClass} />, highlight: true },
-    { label: "Node.js", icon: <SiNodedotjs className={iconClass} />, highlight: true },
-    { label: "Express", icon: <SiExpress className={iconClass} />, highlight: true },
-    { label: "MongoDB", icon: <SiMongodb className={iconClass} />, highlight: true },
-    { label: "Tailwind CSS", icon: <SiTailwindcss className={iconClass} /> },
-    { label: "Git", icon: <SiGit className={iconClass} /> },
-    { label: "Figma", icon: <SiFigma className={iconClass} /> },
-    { label: "Webflow", icon: <SiWebflow className={iconClass} /> },
-    { label: "Framer", icon: <SiFramer className={iconClass} /> },
+    { label: "JavaScript", icon: <SiJavascript className={iconClass} />, highlight: true, color: "#F7DF1E" },
+    { label: "React", icon: <SiReact className={iconClass} />, highlight: true, color: "#61DAFB" },
+    { label: "Node.js", icon: <SiNodedotjs className={iconClass} />, highlight: true, color: "#3C873A" },
+    { label: "Express", icon: <SiExpress className={iconClass} />, highlight: true, color: "#FFFFFF" },
+    { label: "MongoDB", icon: <SiMongodb className={iconClass} />, highlight: true, color: "#47A248" },
+    { label: "Tailwind", icon: <SiTailwindcss className={iconClass} />, color: "#38BDF8" },
+    { label: "Figma", icon: <SiFigma className={iconClass} />, color: "#F24E1E" },
+    { label: "Webflow", icon: <SiWebflow className={iconClass} />, color: "#146EF5" },
+    { label: "Claude Code", icon: <SiClaude className={iconClass} />, color: "#D97757" },
+    { label: "Storybook", icon: <SiStorybook className={iconClass} />, color: "#FF4785" },
+    { label: "GitHub", icon: <SiGithub className={iconClass} />, color: "#FFFFFF" },
+    { label: "Hermes", icon: <NousResearchIcon className={iconClass} />, color: "#FFFFFF" },
   ],
 };
 

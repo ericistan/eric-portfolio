@@ -1,5 +1,5 @@
 import { FaXTwitter } from "react-icons/fa6";
-import { BiLogoLinkedinSquare } from "react-icons/bi";
+import { BiLogoLinkedinSquare, BiLogoGithub } from "react-icons/bi";
 import { Link } from "react-router";
 
 const Footer = (props) => {
@@ -18,14 +18,23 @@ const Footer = (props) => {
               <ul key={index} className="flex flex-wrap items-center justify-center gap-6">
                 {column.links.map((link, linkIndex) => (
                   <li key={linkIndex} className="font-semibold">
-                    <Link to={link.url}>{link.title}</Link>
+                    <Link
+                      to={link.url}
+                      className="transition-colors duration-300 ease-in-out hover:text-accent"
+                    >
+                      {link.title}
+                    </Link>
                   </li>
                 ))}
               </ul>
             ))}
             <div className="flex items-center gap-x-3">
               {socialMediaLinks.map((link, index) => (
-                <a key={index} href={link.url}>
+                <a
+                  key={index}
+                  href={link.url}
+                  className="text-text-primary transition-colors duration-300 ease-in-out hover:text-accent"
+                >
                   {link.icon}
                 </a>
               ))}
@@ -42,12 +51,12 @@ export const FooterDefaults = {
     {
       links: [
         { title: "Home", url: "/" },
-        { title: "About", url: "/about" },
         { title: "Contact", url: "/contact" },
       ],
     },
   ],
   socialMediaLinks: [
+    { url: "https://github.com/ericistan", icon: <BiLogoGithub className="size-6" /> },
     { url: "#", icon: <FaXTwitter className="size-6 p-0.5" /> },
     { url: "#", icon: <BiLogoLinkedinSquare className="size-6" /> },
   ],

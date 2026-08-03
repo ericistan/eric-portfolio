@@ -1,42 +1,21 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useLenis } from "lenis/react";
 import { Link } from "react-router";
-import { RxChevronLeft, RxChevronRight } from "react-icons/rx";
+import { RxChevronLeft } from "react-icons/rx";
+import { GithubLogo, ArrowSquareOut } from "@phosphor-icons/react";
 import LineSidebar from "./LineSidebar/LineSidebar";
 import PageLoader from "./PageLoader";
 import CtaSection from "./HomePage/CtaSection.jsx";
 import CaseStudyImage from "./CaseStudyImage.jsx";
 
-const ProjectCard = ({ title, description, image, url, tags }) => (
-  <Link
-    to={url}
-    className="block overflow-hidden rounded-lg border border-text-primary/10 transition-colors hover:border-text-primary/30"
-  >
-    <img src={image.src} alt={image.alt} className="w-full object-cover" />
-    <div className="p-5 sm:p-6">
-      <h3 className="mb-2 text-xl font-bold text-text-primary md:text-2xl">{title}</h3>
-      <p className="text-text-primary/70">{description}</p>
-      {tags?.length > 0 && (
-        <ul className="mt-3 flex flex-wrap gap-2 md:mt-4">
-          {tags.map((tag, index) => (
-            <li
-              key={index}
-              className="bg-text-primary/10 px-2 py-1 font-mono text-sm font-semibold text-text-primary/80"
-            >
-              {tag}
-            </li>
-          ))}
-        </ul>
-      )}
-      <span className="mt-5 inline-flex items-center gap-1 font-mono text-sm font-semibold text-accent md:mt-6">
-        View project
-        <RxChevronRight />
-      </span>
-    </div>
-  </Link>
-);
-
-const CaseStudyLayout = ({ header, sections, relatedProjects }) => {
+const CaseStudyLayout = ({
+  header,
+  sections,
+  githubUrl,
+  githubLabel = "GitHub Repo",
+  githubIcon = <GithubLogo className="size-5" weight="fill" />,
+  liveUrl,
+}) => {
   const sectionRefs = useRef([]);
   const [activeIndex, setActiveIndex] = useState(0);
   const lenis = useLenis();
@@ -45,6 +24,32 @@ const CaseStudyLayout = ({ header, sections, relatedProjects }) => {
     () => sections.map((section) => section.label),
     [sections],
   );
+
+  const ctaButtons = useMemo(() => {
+    const buttons = [];
+    if (githubUrl) {
+      buttons.push({
+        title: githubLabel,
+        href: githubUrl,
+        target: "_blank",
+        rel: "noreferrer",
+        variant: "secondary",
+        iconLeft: githubIcon,
+      });
+    }
+    if (liveUrl) {
+      buttons.push({
+        title: "Live Website",
+        href: liveUrl,
+        target: "_blank",
+        rel: "noreferrer",
+        variant: "secondary",
+        iconLeft: <ArrowSquareOut className="size-5" />,
+      });
+    }
+    buttons.push({ title: "Contact Me", url: "/contact" });
+    return buttons;
+  }, [githubUrl, githubLabel, githubIcon, liveUrl]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -148,6 +153,7 @@ const CaseStudyLayout = ({ header, sections, relatedProjects }) => {
                 src={header.image.src}
                 alt={header.image.alt}
                 className="object-cover"
+                spacing={false}
               />
             </div>
           </div>
@@ -191,37 +197,12 @@ const CaseStudyLayout = ({ header, sections, relatedProjects }) => {
         </div>
       </section>
 
-      {relatedProjects?.projects?.length > 0 && (
-        <section className="bg-background-primary px-[5%] py-16 text-text-primary md:py-24 lg:py-28">
-          <div className="page-container">
-            <div className="mx-auto mb-12 max-w-lg text-center md:mb-16 lg:mb-20">
-              <p className="mb-3 font-mono font-semibold text-text-primary/70">
-                {relatedProjects.tagline}
-              </p>
-              <h2 className="mb-5 text-4xl font-bold text-accent md:text-5xl">
-                {relatedProjects.heading}
-              </h2>
-              <p className="text-text-primary/70">{relatedProjects.description}</p>
-            </div>
-            <div className="grid grid-cols-1 gap-x-8 gap-y-12 md:grid-cols-2 lg:gap-x-12">
-              {relatedProjects.projects.map((project, index) => (
-                <ProjectCard key={index} {...project} />
-              ))}
-            </div>
-            {relatedProjects.button && (
-              <div className="mt-12 flex justify-center md:mt-16 lg:mt-20">
-                <Link
-                  to={relatedProjects.button.url}
-                  className="inline-flex items-center justify-center rounded-lg border border-text-primary/20 px-6 py-3 text-base transition-colors hover:bg-text-primary/10"
-                >
-                  {relatedProjects.button.title}
-                </Link>
-              </div>
-            )}
-          </div>
-        </section>
-      )}
-      <CtaSection />
+      <CtaSection
+        heading="Want to see more?"
+        description="Check out the code, try it live, or get in touch if you'd like to work together."
+        buttons={ctaButtons}
+        showRays
+      />
     </>
   );
 };

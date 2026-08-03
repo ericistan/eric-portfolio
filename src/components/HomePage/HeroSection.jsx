@@ -1,7 +1,7 @@
 import { createContext, useContext, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { RxChevronRight } from "react-icons/rx";
-import { Globe, Briefcase, Code, LinkedinLogo } from "@phosphor-icons/react";
+import { Globe, Briefcase, Code } from "@phosphor-icons/react";
+import { BiLogoLinkedinSquare } from "react-icons/bi";
 import sfProfileImage from "../../assets/sf-profile.jpg";
 import fbProfileImage from "../../assets/fb-profile-pic.png";
 import etDesignerProfileImage from "../../assets/eric-designer-profile.jpg";
@@ -183,14 +183,7 @@ export const HeroSectionDefaults = {
               target: "_blank",
               rel: "noreferrer",
               variant: "linkedin",
-              iconLeft: <LinkedinLogo weight="fill" className="size-5" />,
-            },
-            {
-              title: "About Me",
-              href: "#about",
-              variant: "link",
-              size: "link",
-              iconRight: <RxChevronRight />,
+              iconLeft: <BiLogoLinkedinSquare className="size-6" />,
             },
           ],
           image: {
@@ -217,14 +210,7 @@ export const HeroSectionDefaults = {
               target: "_blank",
               rel: "noreferrer",
               variant: "linkedin",
-              iconLeft: <LinkedinLogo weight="fill" className="size-5" />,
-            },
-            {
-              title: "About Me",
-              href: "#about",
-              variant: "link",
-              size: "link",
-              iconRight: <RxChevronRight />,
+              iconLeft: <BiLogoLinkedinSquare className="size-6" />,
             },
           ],
           image: {
@@ -251,14 +237,7 @@ export const HeroSectionDefaults = {
               target: "_blank",
               rel: "noreferrer",
               variant: "linkedin",
-              iconLeft: <LinkedinLogo weight="fill" className="size-5" />,
-            },
-            {
-              title: "About Me",
-              href: "#about",
-              variant: "link",
-              size: "link",
-              iconRight: <RxChevronRight />,
+              iconLeft: <BiLogoLinkedinSquare className="size-6" />,
             },
           ],
           image: {

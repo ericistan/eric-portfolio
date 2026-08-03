@@ -21,8 +21,20 @@ import {
 } from "@phosphor-icons/react";
 import Navbar from "../../components/Navbar.jsx";
 import CaseStudyLayout from "../../components/CaseStudyLayout.jsx";
+import CaseStudyImage from "../../components/CaseStudyImage.jsx";
 import BentoHighlights from "../../components/BentoHighlights.jsx";
 import Footer from "../../components/Footer.jsx";
+import koinsightHeroImage from "../../assets/koinsight-hero-img.jpg";
+import koinsightInitialPlanningImage from "../../assets/koinsight-initial-planning.jpg";
+import koinsightStyleGuideImage from "../../assets/koinsight-style-guide.jpg";
+import koinsightBackendImage from "../../assets/koinsight-backend.png";
+import koinsightWatchlistGif from "../../assets/koinsight-watchlist.gif";
+import koinsightTeamImage from "../../assets/koinsight-team.jpg";
+import koinsightOutcomesDashboardImage from "../../assets/koinsight-outcomes-dashboard.jpg";
+import koinsightOutcomesSelectCoinModalImage from "../../assets/koinsight-outcomes-select-coin-modal.jpg";
+import koinsightOutcomesAddTransactionModalImage from "../../assets/koinsight-outcomes-add-transaction-modal.jpg";
+import koinsightOutcomesTransactionHistoryImage from "../../assets/koinsight-outcomes-transaction-history.jpg";
+import koinsightOutcomesCoinDetailPageImage from "../../assets/koinsight-outcomes-coin-detail-page.jpg";
 
 const header = {
   heading: "KoinSight",
@@ -52,20 +64,26 @@ const header = {
     },
     {
       label: "Website",
-      description: "koinsight.netlify.app",
+      description: "koinsight-tracker.netlify.app",
       icon: <Globe className="size-5" />,
-      url: "https://koinsight.netlify.app/",
+      url: "https://koinsight-tracker.netlify.app/",
     },
   ],
   image: {
-    src: "https://placehold.co/1600x900?text=KoinSight+Hero",
-    alt: "KoinSight hero placeholder image",
+    src: koinsightHeroImage,
+    alt: "KoinSight portfolio dashboard",
   },
 };
 
 const techStack = [
-  { label: "React", icon: <SiReact className="size-10" style={{ color: "#61DAFB" }} /> },
-  { label: "Vite", icon: <SiVite className="size-10" style={{ color: "#646CFF" }} /> },
+  {
+    label: "React",
+    icon: <SiReact className="size-10" style={{ color: "#61DAFB" }} />,
+  },
+  {
+    label: "Vite",
+    icon: <SiVite className="size-10" style={{ color: "#646CFF" }} />,
+  },
   {
     label: "Tailwind",
     icon: <SiTailwindcss className="size-10" style={{ color: "#38BDF8" }} />,
@@ -74,8 +92,14 @@ const techStack = [
     label: "Three.js",
     icon: <SiThreedotjs className="size-10" style={{ color: "#FFFFFF" }} />,
   },
-  { label: "Node.js", icon: <SiNodedotjs className="size-10" style={{ color: "#3C873A" }} /> },
-  { label: "MongoDB", icon: <SiMongodb className="size-10" style={{ color: "#47A248" }} /> },
+  {
+    label: "Node.js",
+    icon: <SiNodedotjs className="size-10" style={{ color: "#3C873A" }} />,
+  },
+  {
+    label: "MongoDB",
+    icon: <SiMongodb className="size-10" style={{ color: "#47A248" }} />,
+  },
 ];
 
 const resultsItems = [
@@ -126,12 +150,12 @@ const sections = [
         <p>
           KoinSight is a full-stack crypto portfolio tracker I built with two
           teammates, Lincoln and Kenneth, as our capstone project at General
-          Assembly's Software Engineering Bootcamp, shipped in under two
-          weeks. I was the frontend developer and UX engineer: the landing
-          page, the portfolio dashboard, the component system, and the UI
-          details all ran through me, while Lincoln architected the database
-          schema, REST API, and CoinGecko integration, and Kenneth built the
-          authentication system and transaction flow end-to-end.
+          Assembly's Software Engineering Bootcamp, shipped in under two weeks.
+          I was the frontend developer and UX engineer: the landing page, the
+          portfolio dashboard, the component system, and the UI details all ran
+          through me, while Lincoln architected the database schema, REST API,
+          and CoinGecko integration, and Kenneth built the authentication system
+          and transaction flow end-to-end.
         </p>
         <h3>About KoinSight</h3>
         <p>
@@ -142,8 +166,8 @@ const sections = [
         </p>
         <ul>
           <li>
-            <strong>JWT Authentication</strong>: secure sign-up and login
-            with bcrypt-hashed passwords.
+            <strong>JWT Authentication</strong>: secure sign-up and login with
+            bcrypt-hashed passwords.
           </li>
           <li>
             <strong>Transaction Management</strong>: full CRUD for buy, sell,
@@ -158,22 +182,19 @@ const sections = [
             250+ cryptocurrencies, synced from the CoinGecko API.
           </li>
         </ul>
-        <img
-          src="https://placehold.co/800x500?text=KoinSight"
-          alt="KoinSight placeholder image"
+        <CaseStudyImage src={koinsightTeamImage} alt="KoinSight team" />
+        <CaseStudyImage
+          src={koinsightInitialPlanningImage}
+          alt="KoinSight initial planning and wireframes"
         />
-        <p className="text-sm italic">
-          * Placeholder caption: swap in a real dashboard screenshot here.
-        </p>
-        <h3>Problem</h3>
+        <h3>Problem & Ideation</h3>
         <p>
-          Most crypto investors track their holdings across multiple
-          exchanges and wallets, with no single source of truth for what
-          they actually own or how it's performing. Exchange dashboards only
-          show one account at a time, and spreadsheets don't update with
-          live prices. KoinSight was built to solve that: one place to log
-          every transaction and see real portfolio value and performance,
-          synced against live market data.
+          Most crypto investors track their holdings across multiple exchanges
+          and wallets, with no single source of truth for what they actually own
+          or how it's performing. Exchange dashboards only show one account at a
+          time, and spreadsheets don't update with live prices. KoinSight was
+          built to solve that: one place to log every transaction and see real
+          portfolio value and performance, synced against live market data.
         </p>
       </>
     ),
@@ -182,17 +203,34 @@ const sections = [
     id: "design",
     label: "Design",
     content: (
-      <p>
-        The visual language is a dark glassmorphism look, translucent white
-        panels, backdrop blur, and subtle borders, paired with a deliberate
-        typography split: a clean sans body font against a bold, techy
-        display face on every heading. Green and red carry all the profit
-        and loss meaning throughout the dashboard. On the landing page, that
-        restraint gives way to two custom effects I built specifically to
-        make the first impression memorable: a matrix-style text reveal on
-        the hero copy and stat numbers, and an ambient, mouse-reactive ring
-        animation rendered with a hand-written shader behind the whole page.
-      </p>
+      <>
+        <p>
+          The design system, KoinSight-Dark, is built on a high-contrast dark
+          aesthetic optimized for financial data and cryptocurrency tracking:
+        </p>
+        <ul>
+          <li>
+            <strong>Color Palette</strong>: A deep navy and slate foundation
+            (slate-950) ensures readability for long sessions. Gains and losses
+            are color-coded green and red throughout, both with glassmorphic
+            backing for a modern feel.
+          </li>
+          <li>
+            <strong>Typography</strong>: Inter carries the body copy and
+            data-dense tables for its legibility, paired with Bruno Ace SC on
+            headings for a bolder, more techy display voice.
+          </li>
+          <li>
+            <strong>Visual Style</strong>: The "Cyber-Glassmorphism" approach
+            uses soft borders, subtle background blurs, and elevation levels to
+            create hierarchy without cluttering the screen.
+          </li>
+        </ul>
+        <CaseStudyImage
+          src={koinsightStyleGuideImage}
+          alt="KoinSight style guide"
+        />
+      </>
     ),
   },
   {
@@ -201,10 +239,9 @@ const sections = [
     content: (
       <>
         <p>
-          My scope was the frontend end-to-end: the React/Vite/Tailwind
-          build, the landing page, the portfolio dashboard, and the
-          component system that ties them together. A few of the decisions
-          behind that:
+          My scope was the frontend end-to-end: the React/Vite/Tailwind build,
+          the landing page, the portfolio dashboard, and the component system
+          that ties them together. A few of the decisions behind that:
         </p>
         <div>
           <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-text-primary/40">
@@ -212,77 +249,54 @@ const sections = [
           </p>
           <div className="flex flex-wrap gap-x-8 gap-y-6">
             {techStack.map((tech) => (
-              <div key={tech.label} className="flex flex-col items-center gap-2">
+              <div
+                key={tech.label}
+                className="flex flex-col items-center gap-2"
+              >
                 {tech.icon}
-                <span className="text-sm text-text-primary/70">{tech.label}</span>
+                <span className="text-sm text-text-primary/70">
+                  {tech.label}
+                </span>
               </div>
             ))}
           </div>
         </div>
+
+        <CaseStudyImage src={koinsightBackendImage} alt="KoinSight backend" />
 
         <h3>Frontend Architecture</h3>
         <ul>
           <li>
             <strong>A hand-built shader background, not a stock effect.</strong>{" "}
             The landing page's ambient ring animation is raw Three.js and a
-            custom GLSL fragment shader, gated behind a WebGL capability
-            check so it degrades gracefully instead of breaking on
-            unsupported devices.
+            custom GLSL fragment shader, gated behind a WebGL capability check
+            so it degrades gracefully instead of breaking on unsupported
+            devices.
           </li>
           <li>
             <strong>Polling over websockets.</strong> The portfolio chart
             refreshes on a 5-minute interval instead of a live socket
-            connection, matching how the backend itself caches CoinGecko
-            data on a schedule rather than proxying live requests.
+            connection, matching how the backend itself caches CoinGecko data on
+            a schedule rather than proxying live requests.
           </li>
           <li>
             <strong>Fixing Lenis against a modal's own scroll.</strong> Our
             global smooth-scroll library was hijacking scrolling inside the
-            coin-picker modal, solved by explicitly opting that modal out
-            with a data attribute rather than disabling smooth scroll
-            site-wide.
+            coin-picker modal, solved by explicitly opting that modal out with a
+            data attribute rather than disabling smooth scroll site-wide.
           </li>
         </ul>
 
         <h3>Feature Spotlight: Custom Text Reveal Animation</h3>
         <p>
           The hero heading, section titles, and live stat numbers all run
-          through a text-reveal component I built from scratch, a
-          matrix-style decrypt effect that can trigger on hover, on click,
-          or on scroll into view, and can reveal sequentially or all at
-          once, from the start, end, or center of the string. It's one
-          component reused everywhere text needs to feel alive, not a
-          one-off animation.
+          through a text-reveal component I built from scratch, a matrix-style
+          decrypt effect that can trigger on hover, on click, or on scroll into
+          view, and can reveal sequentially or all at once, from the start, end,
+          or center of the string. It's one component reused everywhere text
+          needs to feel alive, not a one-off animation.
         </p>
-
-        <h3>What I'd Do Differently</h3>
-        <p>Given the two-week timeline, a few things worth naming honestly:</p>
-        <ul>
-          <li>
-            <strong>A loading state that never loads.</strong> On the main
-            portfolio view, the loading flag is only ever set to false, so
-            the "Loading..." branch is dead code. Data just pops in once it
-            arrives, no spinner, no skeleton.
-          </li>
-          <li>
-            <strong>Status colors, defined four times.</strong> The
-            green/red profit-and-loss color logic is copy-pasted across
-            four different components instead of pulled into one shared
-            constant.
-          </li>
-          <li>
-            <strong>The landing page promises a Watchlist we didn't ship.</strong>{" "}
-            It's listed as a feature in the marketing copy, but there's no
-            watchlist route or component behind it yet, a gap between the
-            pitch and what's actually built.
-          </li>
-          <li>
-            <strong>No responsive polish on the dashboard.</strong> The
-            landing page is carefully responsive; the portfolio tables and
-            charts are still fixed-width and don't hold up well on small
-            screens.
-          </li>
-        </ul>
+        <CaseStudyImage src={koinsightWatchlistGif} alt="KoinSight watchlist" />
       </>
     ),
   },
@@ -290,41 +304,110 @@ const sections = [
     id: "Outcomes",
     label: "Outcomes",
     content: (
-      <div className="flex justify-center">
-        <BentoHighlights items={resultsItems} />
-      </div>
+      <>
+        <div className="flex justify-center">
+          <BentoHighlights items={resultsItems} />
+        </div>
+        <CaseStudyImage
+          src={koinsightOutcomesDashboardImage}
+          alt="KoinSight dashboard"
+        />
+        <CaseStudyImage
+          src={koinsightOutcomesSelectCoinModalImage}
+          alt="KoinSight select coin modal"
+        />
+        <CaseStudyImage
+          src={koinsightOutcomesAddTransactionModalImage}
+          alt="KoinSight add transaction modal"
+        />
+        <CaseStudyImage
+          src={koinsightOutcomesTransactionHistoryImage}
+          alt="KoinSight transaction history"
+        />
+        <CaseStudyImage
+          src={koinsightOutcomesCoinDetailPageImage}
+          alt="KoinSight coin detail page"
+        />
+      </>
+    ),
+  },
+  {
+    id: "what-id-do-differently",
+    label: "What I'd Do Differently",
+    content: (
+      <>
+        <p>
+          We shipped a working crypto portfolio tracker with live prices, full
+          transaction CRUD, and a polished landing page. Along the way, we hit a
+          few real-world engineering challenges that sharpened our skills:
+        </p>
+        <ul>
+          <li>
+            <strong>
+              CoinGecko's CORS policy and rate limits caught us early.
+            </strong>{" "}
+            We solved it by managing requests server-side and handling rate
+            limits gracefully with scheduled cron jobs and caching, instead of
+            proxying every request live.
+          </li>
+          <li>
+            <strong>Merge conflicts, more than once.</strong> Three of us
+            working across overlapping feature branches led to repeated git
+            merge conflicts, a reminder to scope branches more narrowly and
+            merge more often next time.
+          </li>
+          <li>
+            <strong>Components grew before we broke them down.</strong>{" "}
+            Refactoring UI into smaller, component-level pieces part-way through
+            the build taught us how much easier that makes a codebase to read
+            and maintain, a lesson we'd apply from day one next time.
+          </li>
+        </ul>
+      </>
+    ),
+  },
+  {
+    id: "whats-next",
+    label: "What's Next",
+    content: (
+      <>
+        <p>
+          With the MVP complete, these are the features we'd love to build next
+          to make KoinSight even more useful for everyday crypto investors:
+        </p>
+        <ul>
+          <li>
+            <strong>Multi-currency support.</strong> Toggle between USD, SGD,
+            and other fiat currencies.
+          </li>
+          <li>
+            <strong>A crypto-to-fiat calculator.</strong> Quick conversion
+            between crypto and fiat currencies, without leaving the dashboard.
+          </li>
+          <li>
+            <strong>Price alerts.</strong> Notify users when a coin hits a
+            target price.
+          </li>
+          <li>
+            <strong>Mobile-responsive polish.</strong> An optimised experience
+            for smaller screens.
+          </li>
+        </ul>
+      </>
     ),
   },
 ];
-
-const relatedProjects = {
-  tagline: "Portfolio",
-  heading: "More case studies",
-  description: "Take a look at some of my other work.",
-  projects: [
-    {
-      title: "Formjo",
-      description:
-        "A platform for coaches to assign structured training, review athlete video submissions, and deliver personalised feedback.",
-      image: {
-        src: "https://placehold.co/800x500?text=Formjo",
-        alt: "Formjo placeholder image",
-      },
-      url: "/case-study/formjo",
-      tags: ["React", "Flask", "PostgreSQL"],
-    },
-  ],
-  button: {
-    title: "View all",
-    url: "/",
-  },
-};
 
 const KoinSight = () => {
   return (
     <div className="flex min-h-screen flex-col">
       <Navbar />
-      <CaseStudyLayout header={header} sections={sections} relatedProjects={relatedProjects} />
+      <CaseStudyLayout
+        header={header}
+        sections={sections}
+        githubUrl="https://github.com/ericistan/KoinSight-Tracker"
+        liveUrl="https://koinsight-tracker.netlify.app/"
+      />
       <Footer />
     </div>
   );

@@ -1,9 +1,19 @@
 import { useState } from "react";
 import { FaXTwitter } from "react-icons/fa6";
 import { BiEnvelope, BiLogoLinkedinSquare } from "react-icons/bi";
+import ericLinkedinProfileImage from "../assets/eric-linkedin-profile.jpeg";
 
 const linkRowClasses =
-  "flex w-full items-center justify-center gap-x-4 rounded-lg border border-border-primary p-3";
+  "flex w-full items-center justify-center gap-x-4 rounded-lg border border-border-primary p-3 transition-colors";
+
+const brandStyle = (link) =>
+  link.bgColor
+    ? {
+        backgroundColor: link.bgColor,
+        borderColor: link.bgColor,
+        color: link.textColor ?? "#ffffff",
+      }
+    : undefined;
 
 const CopyLink = ({ link }) => {
   const [copied, setCopied] = useState(false);
@@ -37,7 +47,8 @@ const Category = ({ heading, links }) => (
           href={link.url}
           target="_blank"
           rel="noreferrer"
-          className={linkRowClasses}
+          className={`${linkRowClasses} ${link.bgColor ? "hover:opacity-90" : ""}`}
+          style={brandStyle(link)}
         >
           {link.icon}
           <p>{link.title}</p>
@@ -84,11 +95,11 @@ const ContactLinks = (props) => {
 export const ContactLinksDefaults = {
   author: {
     avatar: {
-      src: "https://placehold.co/200x200?text=Eric",
+      src: ericLinkedinProfileImage,
       alt: "Eric Tan avatar",
     },
     fullName: "Eric Tan",
-    position: "Full-Stack Engineer",
+    position: "Design-Minded Full-Stack Engineer",
   },
   categories: [
     {
@@ -107,11 +118,15 @@ export const ContactLinksDefaults = {
           url: "https://www.linkedin.com/in/ericistan",
           title: "LinkedIn",
           icon: <BiLogoLinkedinSquare className="size-8" />,
+          bgColor: "#0A66C2",
+          textColor: "#ffffff",
         },
         {
           url: "https://x.com/ericistan",
           title: "X",
           icon: <FaXTwitter className="size-6 p-1" />,
+          bgColor: "#ffffff",
+          textColor: "#000000",
         },
       ],
     },
