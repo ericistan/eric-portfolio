@@ -11,7 +11,6 @@ import {
   IdentificationBadge,
   Globe,
 } from "@phosphor-icons/react";
-import Navbar from "../../components/Navbar.jsx";
 import CaseStudyLayout from "../../components/CaseStudyLayout.jsx";
 import CaseStudyImage from "../../components/CaseStudyImage.jsx";
 import BentoHighlights from "../../components/BentoHighlights.jsx";
@@ -237,7 +236,6 @@ const sections = [
 const RaincityBoxing = () => {
   return (
     <div className="flex min-h-screen flex-col">
-      <Navbar />
       <CaseStudyLayout
         header={header}
         sections={sections}

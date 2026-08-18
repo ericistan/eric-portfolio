@@ -3,7 +3,8 @@ import { AnimatePresence, motion } from "framer-motion";
 import { RxChevronDown } from "react-icons/rx";
 import { BiLogoLinkedinSquare, BiLogoGithub } from "react-icons/bi";
 import { FaXTwitter } from "react-icons/fa6";
-import { Link } from "react-router";
+import { Link, useLocation } from "react-router";
+import { useLenis } from "lenis/react";
 
 const useMediaQuery = (query) => {
   const [matches, setMatches] = useState(false);
@@ -27,6 +28,19 @@ export const Navbar = (props) => {
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const isMobile = useMediaQuery("(max-width: 1199px)");
+  const location = useLocation();
+  const lenis = useLenis();
+
+  const handleSamePageClick = (url) => (e) => {
+    if (location.pathname !== url) return;
+    e.preventDefault();
+    setIsMobileMenuOpen(false);
+    if (lenis) {
+      lenis.scrollTo(0);
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
 
   return (
     <section
@@ -36,7 +50,11 @@ export const Navbar = (props) => {
     >
       <div className="page-container size-full lg:flex lg:items-center lg:justify-between">
         <div className="flex min-h-16 items-center justify-between md:min-h-18 lg:min-h-full">
-          <Link to={logo.url} className="font-heading text-xl font-bold">
+          <Link
+            to={logo.url}
+            onClick={handleSamePageClick(logo.url)}
+            className="font-heading text-xl font-bold"
+          >
             {logo.text}
           </Link>
           <button
@@ -82,6 +100,7 @@ export const Navbar = (props) => {
               <Link
                 key={index}
                 to={navLink.url}
+                onClick={handleSamePageClick(navLink.url)}
                 className="block py-3 font-mono text-md text-text-primary transition-colors duration-300 ease-in-out first:pt-7 hover:text-accent lg:px-4 lg:py-2 lg:text-base first:lg:pt-2"
               >
                 {navLink.title}

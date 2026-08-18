@@ -1,5 +1,4 @@
 import React from "react";
-import Navbar from "../components/Navbar.jsx";
 import HeroSection from "../components/HomePage/HeroSection.jsx";
 import CaseStudySection from "../components/HomePage/CaseStudySection.jsx";
 import WhyMeSection from "../components/HomePage/WhyMeSection.jsx";
@@ -11,7 +10,6 @@ import Footer from "../components/Footer.jsx";
 const HomePage = () => {
   return (
     <div className="relative flex min-h-screen flex-col">
-      <Navbar />
       <HeroSection />
       <CaseStudySection />
       <TechStack />
