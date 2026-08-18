@@ -56,27 +56,27 @@ const WhyMeSection = (props) => {
 
 export const WhyMeSectionDefaults = {
   tagline: "Why Me",
-  heading: "Ownership and growth, built in.",
+  heading: "Design eye. Engineering hands.",
   description:
     "I take ideas from first sketch to shipped product, and own every step in between.",
   highlights: [
     {
-      icon: <PenNib className="size-6" />,
-      lead: "Designed and built end-to-end, solo",
+      icon: <PenNib className="size-10" />,
+      lead: "Ownership and growth, built in.",
       text: "No handoff gap. I own the interface from Figma file to shipped component.",
     },
     {
-      icon: <RocketLaunch className="size-6" />,
+      icon: <RocketLaunch className="size-10" />,
       lead: "Co-founded a startup, shipped from zero to one",
       text: "Took many Web3 projects from concept to launch, wearing every hat along the way.",
     },
     {
-      icon: <Handshake className="size-6" />,
+      icon: <Handshake className="size-10" />,
       lead: "Trusted across founder, studio, and consulting work",
       text: "Brought in for both UX strategy and frontend execution, not just one or the other.",
     },
     {
-      icon: <GraduationCap className="size-6" />,
+      icon: <GraduationCap className="size-10" />,
       lead: "Always leveling up, by design",
       text: "From design to accelerator programs to full-stack code, each step chosen to close a real gap, not chase a trend.",
     },

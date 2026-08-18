@@ -142,7 +142,7 @@ export const CaseStudySectionDefaults = {
   heading: "Selected work",
   studies: [
     {
-      tagline: "Training Coach App",
+      tagline: "Coach Training App",
       heading: "Formjo",
       description:
         "Coach Smarter. Train Better. Formjo is a platform for coaches to assign structured training, review athlete video submissions, and deliver personalised feedback. Built solo with React, Flask, and Postgres, from Figma wireframe to shipped product",
