@@ -24,17 +24,17 @@ import CaseStudyLayout from "../../components/CaseStudyLayout.jsx";
 import CaseStudyImage from "../../components/CaseStudyImage.jsx";
 import BentoHighlights from "../../components/BentoHighlights.jsx";
 import Footer from "../../components/Footer.jsx";
-import koinsightHeroImage from "../../assets/koinsight-hero-img.jpg";
-import koinsightInitialPlanningImage from "../../assets/koinsight-initial-planning.jpg";
-import koinsightStyleGuideImage from "../../assets/koinsight-style-guide.jpg";
-import koinsightBackendImage from "../../assets/koinsight-backend.png";
+import koinsightHeroImage from "../../assets/koinsight-hero-img.webp";
+import koinsightInitialPlanningImage from "../../assets/koinsight-initial-planning.webp";
+import koinsightStyleGuideImage from "../../assets/koinsight-style-guide.webp";
+import koinsightBackendImage from "../../assets/koinsight-backend.webp";
 import koinsightWatchlistGif from "../../assets/koinsight-watchlist.gif";
-import koinsightTeamImage from "../../assets/koinsight-team.jpg";
-import koinsightOutcomesDashboardImage from "../../assets/koinsight-outcomes-dashboard.jpg";
-import koinsightOutcomesSelectCoinModalImage from "../../assets/koinsight-outcomes-select-coin-modal.jpg";
-import koinsightOutcomesAddTransactionModalImage from "../../assets/koinsight-outcomes-add-transaction-modal.jpg";
-import koinsightOutcomesTransactionHistoryImage from "../../assets/koinsight-outcomes-transaction-history.jpg";
-import koinsightOutcomesCoinDetailPageImage from "../../assets/koinsight-outcomes-coin-detail-page.jpg";
+import koinsightTeamImage from "../../assets/koinsight-team.webp";
+import koinsightOutcomesDashboardImage from "../../assets/koinsight-outcomes-dashboard.webp";
+import koinsightOutcomesSelectCoinModalImage from "../../assets/koinsight-outcomes-select-coin-modal.webp";
+import koinsightOutcomesAddTransactionModalImage from "../../assets/koinsight-outcomes-add-transaction-modal.webp";
+import koinsightOutcomesTransactionHistoryImage from "../../assets/koinsight-outcomes-transaction-history.webp";
+import koinsightOutcomesCoinDetailPageImage from "../../assets/koinsight-outcomes-coin-detail-page.webp";
 
 const header = {
   heading: "KoinSight",

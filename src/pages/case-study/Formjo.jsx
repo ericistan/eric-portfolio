@@ -25,15 +25,15 @@ import CaseStudyLayout from "../../components/CaseStudyLayout.jsx";
 import CaseStudyImage from "../../components/CaseStudyImage.jsx";
 import BentoHighlights from "../../components/BentoHighlights.jsx";
 import Footer from "../../components/Footer.jsx";
-import formjoHeroImage from "../../assets/case-study_formjo-hero.png";
-import formjoLofiWireframe from "../../assets/formjo-lofi-wireframe.jpg";
-import formjoDatabaseSchema from "../../assets/formjo-db-erd.png";
-import formjoPainPoints from "../../assets/formjo_pain-points.jpg";
-import formjoHowMightWe from "../../assets/formjo_how-might-we.jpg";
-import formjoStyleGuide from "../../assets/formjo-styleguide.jpg";
-import formjoCoachApp from "../../assets/formjo-coach-app.jpg";
-import formjoPinterest from "../../assets/formjo-pinterest.jpg";
-import formjoScreens from "../../assets/formjo-screens.jpg";
+import formjoHeroImage from "../../assets/case-study_formjo-hero.webp";
+import formjoLofiWireframe from "../../assets/formjo-lofi-wireframe.webp";
+import formjoDatabaseSchema from "../../assets/formjo-db-erd.webp";
+import formjoPainPoints from "../../assets/formjo_pain-points.webp";
+import formjoHowMightWe from "../../assets/formjo_how-might-we.webp";
+import formjoStyleGuide from "../../assets/formjo-styleguide.webp";
+import formjoCoachApp from "../../assets/formjo-coach-app.webp";
+import formjoPinterest from "../../assets/formjo-pinterest.webp";
+import formjoScreens from "../../assets/formjo-screens.webp";
 
 const header = {
   heading: "Formjo",

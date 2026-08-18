@@ -2,9 +2,9 @@ import { useRef } from "react";
 import { RxChevronRight } from "react-icons/rx";
 import { Link } from "react-router";
 import { motion, useScroll, useTransform } from "framer-motion";
-import formjoHeroImage from "../../assets/case-study_formjo-hero.png";
-import koinSightHeroImage from "../../assets/case-study_koin-sight_portfolio-dashboard.png";
-import startSearchHeroImage from "../../assets/case-study_start-search_portfolio-dashboard.png";
+import formjoHeroImage from "../../assets/case-study_formjo-hero.webp";
+import koinSightHeroImage from "../../assets/case-study_koin-sight_portfolio-dashboard.webp";
+import startSearchHeroImage from "../../assets/case-study_start-search_portfolio-dashboard.webp";
 
 const buttonVariants = {
   primary: "bg-text-primary text-background-primary hover:bg-text-primary/90",

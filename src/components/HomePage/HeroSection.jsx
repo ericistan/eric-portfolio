@@ -10,10 +10,10 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Globe, Briefcase, Code } from "@phosphor-icons/react";
 import { BiLogoLinkedinSquare } from "react-icons/bi";
 import StrokeText from "../StrokeText";
-import sfProfileImage from "../../assets/sf-profile.jpg";
-import fbProfileImage from "../../assets/fb-profile-pic.png";
-import etDesignerProfileImage from "../../assets/eric-designer-profile.jpg";
-import ericProfileMic from "../../assets/eric-speaking.jpg";
+import sfProfileImage from "../../assets/sf-profile.webp";
+import fbProfileImage from "../../assets/fb-profile-pic.webp";
+import etDesignerProfileImage from "../../assets/eric-designer-profile.webp";
+import ericProfileMic from "../../assets/eric-speaking.webp";
 
 const HEADING_SIZES = {
   base: { fontSize: 28, strokeWidth: 0.85, letterSpacing: -0.9 },
