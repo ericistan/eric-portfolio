@@ -280,7 +280,7 @@ export const HeroSectionDefaults = {
           tagline: "Design & Code built in one",
           heading: "Design led. Code shipped.",
           description:
-            "I design and build products end to end. Four years shaping user experience, now writing the code that brings it to life.",
+            "I design and build products end to end. 4+ years shaping user experience, now writing the code that brings it to life.",
           buttons: [
             {
               title: "LinkedIn",
@@ -305,9 +305,9 @@ export const HeroSectionDefaults = {
       content: [
         {
           tagline: "Open to Opportunities",
-          heading: "Frontend engineer with a design background.",
+          heading: "Design engineer with a UX mindset.",
           description:
-            "4+ years designing products before I learned to build them. Now I ship frontend features fast, and I know why they should look right too.",
+            "4+ years designing products before I learned to build them. Now I ship frontend features fast, and I know how they should look right, too.",
           buttons: [
             {
               title: "LinkedIn",
@@ -332,7 +332,7 @@ export const HeroSectionDefaults = {
       content: [
         {
           tagline: "Design-Minded Engineer",
-          heading: "I bring UX instincts to every line I write.",
+          heading: "I bring design instincts to the code I create.",
           description:
             "I've been the designer who loves to tinker with code. Now I build what I design myself, pixel to production, with the same eye for structure and detail I learned from design systems.",
           buttons: [
