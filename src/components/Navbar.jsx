@@ -32,6 +32,7 @@ export const Navbar = (props) => {
     <section
       id="relume"
       className="sticky top-0 z-[999] flex w-full items-center border-b border-text-primary/10 bg-background-primary lg:min-h-18"
+      onClick={(e) => e.stopPropagation()}
     >
       <div className="page-container size-full lg:flex lg:items-center lg:justify-between">
         <div className="flex min-h-16 items-center justify-between md:min-h-18 lg:min-h-full">

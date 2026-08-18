@@ -1,5 +1,6 @@
 import { Link } from "react-router";
 import SideRays from "../SideRays";
+import GradientWaves from "../GradientWaves";
 
 const buttonVariants = {
   primary: "bg-text-primary text-background-primary hover:bg-text-primary/90",
@@ -101,7 +102,35 @@ const CtaSection = (props) => {
 
   return (
     <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
-      <div className="page-container max-w-full text-center">{content}</div>
+      <div className="page-container max-w-full">
+        <div className="relative flex min-h-[420px] items-center justify-center overflow-hidden rounded-lg text-center md:min-h-[520px]">
+          <div className="absolute inset-0 z-0">
+            <GradientWaves
+              horizonColor="#000000"
+              waveColor="#4ade80"
+              crestColor="#96c8ff"
+              speed={0.4}
+              amplitude={2.5}
+              waveScale={0.6}
+              waveRatio={0.9}
+              swell={35}
+              turbulence={20}
+              tilt={1.11}
+              zoom={1}
+              height={5.5}
+              fogDepth={15}
+              detail="medium"
+              brightness={1}
+              opacity={1}
+              mouseInteraction
+              parallaxStrength={0.5}
+              grain
+              grainIntensity={0.05}
+            />
+          </div>
+          <div className="relative z-10 px-6 md:px-12">{content}</div>
+        </div>
+      </div>
     </section>
   );
 };

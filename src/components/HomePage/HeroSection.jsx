@@ -1,11 +1,94 @@
-import { createContext, useContext, useState } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Globe, Briefcase, Code } from "@phosphor-icons/react";
 import { BiLogoLinkedinSquare } from "react-icons/bi";
+import StrokeText from "../StrokeText";
 import sfProfileImage from "../../assets/sf-profile.jpg";
 import fbProfileImage from "../../assets/fb-profile-pic.png";
 import etDesignerProfileImage from "../../assets/eric-designer-profile.jpg";
 import ericProfileMic from "../../assets/eric-speaking.jpg";
+
+const HEADING_SIZES = {
+  base: { fontSize: 28, strokeWidth: 0.85, letterSpacing: -0.9 },
+  md: { fontSize: 42, strokeWidth: 1.2, letterSpacing: -1.3 },
+  lg: { fontSize: 56, strokeWidth: 1.45, letterSpacing: -1.6 },
+};
+
+const getHeadingSize = () => {
+  if (typeof window === "undefined") return HEADING_SIZES.base;
+  if (window.matchMedia("(min-width: 1024px)").matches) return HEADING_SIZES.lg;
+  if (window.matchMedia("(min-width: 768px)").matches) return HEADING_SIZES.md;
+  return HEADING_SIZES.base;
+};
+
+const HEADING_FONT_WEIGHT = 600;
+
+// Picks one font size that fits every heading in `headings` on a single
+// line within `containerRef`'s rendered width, so every tab renders its
+// heading at the exact same size instead of each shrinking independently.
+const useUniformHeadingSize = (headings, containerRef) => {
+  const [size, setSize] = useState(getHeadingSize);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container || !headings?.length) return undefined;
+
+    const compute = () => {
+      const target = getHeadingSize();
+      const containerWidth = container.getBoundingClientRect().width;
+      if (!containerWidth) {
+        setSize(target);
+        return;
+      }
+
+      const fontFamily =
+        window.getComputedStyle(container).fontFamily || "sans-serif";
+      const canvas = document.createElement("canvas");
+      const ctx = canvas.getContext("2d");
+      ctx.font = `${HEADING_FONT_WEIGHT} ${target.fontSize}px ${fontFamily}`;
+
+      const widest = headings.reduce((max, heading) => {
+        const charCount = Array.from(heading).length;
+        const width =
+          ctx.measureText(heading).width +
+          target.letterSpacing * Math.max(charCount - 1, 0);
+        return Math.max(max, width);
+      }, 0);
+
+      const scale =
+        widest > containerWidth ? (containerWidth / widest) * 0.97 : 1;
+      setSize({
+        fontSize: target.fontSize * scale,
+        strokeWidth: target.strokeWidth * scale,
+        letterSpacing: target.letterSpacing * scale,
+      });
+    };
+
+    compute();
+
+    const resizeObserver = new ResizeObserver(compute);
+    resizeObserver.observe(container);
+    const mdQuery = window.matchMedia("(min-width: 768px)");
+    const lgQuery = window.matchMedia("(min-width: 1024px)");
+    mdQuery.addEventListener("change", compute);
+    lgQuery.addEventListener("change", compute);
+
+    return () => {
+      resizeObserver.disconnect();
+      mdQuery.removeEventListener("change", compute);
+      lgQuery.removeEventListener("change", compute);
+    };
+  }, [headings, containerRef]);
+
+  return size;
+};
 
 const buttonVariants = {
   primary: "bg-text-primary text-background-primary hover:bg-text-primary/90",
@@ -88,7 +171,7 @@ const TabsTrigger = ({ value, icon, className = "", children }) => {
   );
 };
 
-const TabsContent = ({ tabs, className = "" }) => {
+const TabsContent = ({ tabs, allHeadings, className = "" }) => {
   const { value } = useContext(TabsContext);
   const activeTab = tabs.find((tab) => tab.value === value);
 
@@ -103,7 +186,7 @@ const TabsContent = ({ tabs, className = "" }) => {
         className={className}
       >
         {activeTab?.content.map((feature, featureIndex) => (
-          <Feature key={featureIndex} {...feature} />
+          <Feature key={featureIndex} {...feature} allHeadings={allHeadings} />
         ))}
       </motion.div>
     </AnimatePresence>
@@ -111,15 +194,33 @@ const TabsContent = ({ tabs, className = "" }) => {
 };
 
 const Feature = (feature) => {
+  const containerRef = useRef(null);
+  const headingSize = useUniformHeadingSize(feature.allHeadings, containerRef);
+
   return (
     <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2 lg:gap-x-20">
-      <div className="max-w-lg">
+      <div className="max-w-lg" ref={containerRef}>
         <p className="mb-3 font-mono font-semibold md:mb-4">
           {feature.tagline}
         </p>
-        <h2 className="mb-5 text-2xl font-bold md:mb-6 md:text-3xl lg:text-4xl">
-          {feature.heading}
-        </h2>
+        <div className="mb-5 md:mb-6">
+          <StrokeText
+            text={feature.heading}
+            strokeColor="#4ade80"
+            fillColor="#4ade80"
+            strokeWidth={headingSize.strokeWidth}
+            drawDuration={0.5}
+            fillDelay={0.5}
+            stagger={0.025}
+            ease="power2.out"
+            trigger="mount"
+            fillMode="wipe"
+            fontSize={headingSize.fontSize}
+            fontWeight={HEADING_FONT_WEIGHT}
+            letterSpacing={headingSize.letterSpacing}
+            reverse={false}
+          />
+        </div>
         <p className="text-md">{feature.description}</p>
         <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-8">
           {feature.buttons.map((button, index) => (
@@ -144,6 +245,11 @@ const HeroSection = (props) => {
     ...props,
   };
 
+  const allHeadings = useMemo(
+    () => tabs.flatMap((tab) => tab.content.map((feature) => feature.heading)),
+    [tabs],
+  );
+
   return (
     <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
       <div className="page-container">
@@ -155,7 +261,7 @@ const HeroSection = (props) => {
               </TabsTrigger>
             ))}
           </TabsList>
-          <TabsContent tabs={tabs} />
+          <TabsContent tabs={tabs} allHeadings={allHeadings} />
         </Tabs>
       </div>
     </section>
@@ -174,11 +280,11 @@ export const HeroSectionDefaults = {
           tagline: "Design & Code built in one",
           heading: "Design led. Code shipped.",
           description:
-            "I design and build products end to end. Three years shaping user experience, now writing the code that brings it to life.",
+            "I design and build products end to end. Four years shaping user experience, now writing the code that brings it to life.",
           buttons: [
             {
               title: "LinkedIn",
-              href: "#",
+              href: "https://www.linkedin.com/in/ericistan",
               target: "_blank",
               rel: "noreferrer",
               variant: "linkedin",
@@ -201,11 +307,11 @@ export const HeroSectionDefaults = {
           tagline: "Open to Opportunities",
           heading: "Frontend engineer with a design background.",
           description:
-            "3+ years designing products before I learned to build them. Now I ship frontend features fast, and I know why they should look right too.",
+            "4+ years designing products before I learned to build them. Now I ship frontend features fast, and I know why they should look right too.",
           buttons: [
             {
               title: "LinkedIn",
-              href: "#",
+              href: "https://www.linkedin.com/in/ericistan",
               target: "_blank",
               rel: "noreferrer",
               variant: "linkedin",
@@ -226,13 +332,13 @@ export const HeroSectionDefaults = {
       content: [
         {
           tagline: "Design-Minded Engineer",
-          heading: "I bring design instincts to every line I write.",
+          heading: "I bring UX instincts to every line I write.",
           description:
             "I've been the designer who loves to tinker with code. Now I build what I design myself, pixel to production, with the same eye for structure and detail I learned from design systems.",
           buttons: [
             {
               title: "LinkedIn",
-              href: "#",
+              href: "https://www.linkedin.com/in/ericistan",
               target: "_blank",
               rel: "noreferrer",
               variant: "linkedin",

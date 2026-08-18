@@ -1,10 +1,16 @@
 import { useState } from "react";
 import { FaXTwitter } from "react-icons/fa6";
-import { BiEnvelope, BiLogoLinkedinSquare } from "react-icons/bi";
+import {
+  BiEnvelope,
+  BiLogoLinkedinSquare,
+  BiLogoGithub,
+  BiCopy,
+  BiCheck,
+} from "react-icons/bi";
 import ericLinkedinProfileImage from "../assets/eric-linkedin-profile.jpeg";
 
 const linkRowClasses =
-  "flex w-full items-center justify-center gap-x-4 rounded-lg border border-border-primary p-3 transition-colors";
+  "flex w-full items-center gap-x-4 rounded-lg border border-border-primary p-3 transition-colors";
 
 const brandStyle = (link) =>
   link.bgColor
@@ -26,35 +32,59 @@ const CopyLink = ({ link }) => {
   };
 
   return (
-    <button type="button" onClick={handleClick} className={linkRowClasses}>
-      {link.icon}
-      <p>{copied ? "Copied!" : link.title}</p>
+    <button
+      type="button"
+      onClick={handleClick}
+      className={`${linkRowClasses} justify-between`}
+    >
+      <span className="flex items-center gap-x-4">
+        {link.icon}
+        <p>{copied ? "Copied!" : link.title}</p>
+      </span>
+      {copied ? (
+        <BiCheck className="size-5 shrink-0 text-accent" />
+      ) : (
+        <BiCopy className="size-5 shrink-0 text-text-primary/50" />
+      )}
     </button>
   );
 };
 
-const Category = ({ heading, links }) => (
+const Category = ({ heading, links, layout = "stack" }) => (
   <div className="flex flex-col items-center gap-4">
     {heading && (
       <h3 className="text-md font-bold leading-[1.4] md:text-xl">{heading}</h3>
     )}
-    {links.map((link, index) =>
-      link.url.startsWith("mailto:") ? (
-        <CopyLink key={index} link={link} />
-      ) : (
-        <a
-          key={index}
-          href={link.url}
-          target="_blank"
-          rel="noreferrer"
-          className={`${linkRowClasses} ${link.bgColor ? "hover:opacity-90" : ""}`}
-          style={brandStyle(link)}
-        >
-          {link.icon}
-          <p>{link.title}</p>
-        </a>
-      ),
-    )}
+    <div
+      className={
+        layout === "row"
+          ? "flex items-center justify-center gap-4"
+          : "flex w-full flex-col gap-4"
+      }
+    >
+      {links.map((link, index) =>
+        link.url.startsWith("mailto:") ? (
+          <CopyLink key={index} link={link} />
+        ) : (
+          <a
+            key={index}
+            href={link.url}
+            target="_blank"
+            rel="noreferrer"
+            aria-label={link.title}
+            className={
+              layout === "row"
+                ? "flex size-14 items-center justify-center rounded-full border border-border-primary transition-opacity hover:opacity-90"
+                : `${linkRowClasses} justify-center ${link.bgColor ? "hover:opacity-90" : ""}`
+            }
+            style={brandStyle(link)}
+          >
+            {link.icon}
+            {layout !== "row" && <p>{link.title}</p>}
+          </a>
+        ),
+      )}
+    </div>
   </div>
 );
 
@@ -79,6 +109,7 @@ const ContactLinks = (props) => {
                 {author.fullName}
               </h2>
               <p>{author.position}</p>
+              <p className="mt-2 text-text-primary/70">{author.bio}</p>
             </div>
           </div>
           <div className="space-y-8">
@@ -99,7 +130,8 @@ export const ContactLinksDefaults = {
       alt: "Eric Tan avatar",
     },
     fullName: "Eric Tan",
-    position: "Design-Minded Full-Stack Engineer",
+    position: "Design-Minded Design Engineer",
+    bio: "Designing and building products end to end, Singapore 🇸🇬.",
   },
   categories: [
     {
@@ -109,11 +141,6 @@ export const ContactLinksDefaults = {
           title: "eric.tanms@gmail.com",
           icon: <BiEnvelope className="size-8" />,
         },
-      ],
-    },
-    {
-      heading: "Connect",
-      links: [
         {
           url: "https://www.linkedin.com/in/ericistan",
           title: "LinkedIn",
@@ -121,10 +148,23 @@ export const ContactLinksDefaults = {
           bgColor: "#0A66C2",
           textColor: "#ffffff",
         },
+      ],
+    },
+    {
+      heading: "Connect",
+      layout: "row",
+      links: [
+        {
+          url: "https://github.com/ericistan",
+          title: "GitHub",
+          icon: <BiLogoGithub className="size-7" />,
+          bgColor: "#ffffff",
+          textColor: "#000000",
+        },
         {
           url: "https://x.com/ericistan",
           title: "X",
-          icon: <FaXTwitter className="size-6 p-1" />,
+          icon: <FaXTwitter className="size-6" />,
           bgColor: "#ffffff",
           textColor: "#000000",
         },

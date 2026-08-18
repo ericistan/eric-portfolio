@@ -7,6 +7,7 @@ import LineSidebar from "./LineSidebar/LineSidebar";
 import PageLoader from "./PageLoader";
 import CtaSection from "./HomePage/CtaSection.jsx";
 import CaseStudyImage from "./CaseStudyImage.jsx";
+import BackToTopButton from "./BackToTopButton.jsx";
 
 const CaseStudyLayout = ({
   header,
@@ -201,8 +202,9 @@ const CaseStudyLayout = ({
         heading="Want to see more?"
         description="Check out the code, try it live, or get in touch if you'd like to work together."
         buttons={ctaButtons}
-        showRays
       />
+
+      <BackToTopButton />
     </>
   );
 };

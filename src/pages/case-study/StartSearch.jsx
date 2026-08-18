@@ -59,7 +59,7 @@ const header = {
     },
     {
       label: "Role",
-      description: "Team of 3, AI Agent Design",
+      description: "UX Research & Design, Lead Builder (Manus AI)",
       icon: <IdentificationBadge className="size-5" />,
     },
     {
@@ -152,7 +152,10 @@ const sections = [
           teammates Gin and Jerome at Build Club's Go-to-Market Builders AI
           Build Lab, a Singapore evening hackathon where teams had one
           three-hour window to turn a manual workflow into a working AI
-          prototype using Manus AI, EXA, and Mem0. We took home the{" "}
+          prototype using Manus AI, EXA, and Mem0. The three of us researched
+          the dark-alumni problem together; I drove the UX research and
+          design, led the build in Manus AI, and presented our prototype via
+          Loom demo video. We took home the{" "}
           <strong>SMU Prize: Best Startup Ecosystem Build</strong>, tracking
           every graduated startup from the outside, no founder opt-in, no
           spreadsheets. Core features include:
@@ -206,9 +209,11 @@ const sections = [
     content: (
       <>
         <p>
-          The core design bet is treating silence as the signal, instead of
-          asking founders to report in, the dashboard surfaces the absence
-          of activity as the thing worth acting on.
+          I led the UX research and design: talking through the dark-alumni
+          problem with the team, then translating it into the dashboard's
+          core design bet, treating silence as the signal. Instead of asking
+          founders to report in, the dashboard surfaces the absence of
+          activity as the thing worth acting on.
         </p>
         <CaseStudyImage
           src={startsearchDesignAudienceImage}

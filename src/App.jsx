@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router";
 import { ReactLenis } from "lenis/react";
 import ScrollToTop from "./components/ScrollToTop";
+import ClickSpark from "./components/ClickSpark";
 import HomePage from "./pages/HomePage";
 import AboutMe from "./pages/AboutMe";
 import Contact from "./pages/Contact";
@@ -13,7 +14,13 @@ import "./App.css";
 
 function App() {
   return (
-    <>
+    <ClickSpark
+      sparkColor="#4ade80"
+      sparkSize={40}
+      sparkRadius={60}
+      sparkCount={12}
+      duration={400}
+    >
       <ReactLenis root />
       <ScrollToTop />
       <Routes>
@@ -25,7 +32,7 @@ function App() {
         <Route path="/case-study/startsearch" element={<StartSearch />} />
         <Route path="/case-study/raincityboxing" element={<RaincityBoxing />} />
       </Routes>
-    </>
+    </ClickSpark>
   );
 }
 
