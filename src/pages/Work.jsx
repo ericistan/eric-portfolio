@@ -46,6 +46,10 @@ const Tier = ({ type, entries }) => {
 const Work = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [fixtures, setFixtures] = useState([]);
+  // The prerendered HTML has no query string, so ignore ?type= until after
+  // hydration; otherwise the first client render wouldn't match it.
+  const [hydrated, setHydrated] = useState(false);
+  useEffect(() => setHydrated(true), []);
   const wantsFixtures = import.meta.env.DEV && searchParams.has("fixtures");
 
   useEffect(() => {
@@ -62,7 +66,7 @@ const Work = () => {
     entries: entries.filter((entry) => entry.type === type.id),
   })).filter((group) => group.entries.length > 0);
 
-  const requested = searchParams.get("type");
+  const requested = hydrated ? searchParams.get("type") : null;
   const activeId = groups.some((g) => g.type.id === requested) ? requested : "all";
   const visible =
     activeId === "all" ? groups : groups.filter((g) => g.type.id === activeId);
