@@ -3,9 +3,7 @@ import { RxChevronRight } from "react-icons/rx";
 import { Link } from "react-router";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useSafeReducedMotion } from "../../lib/useSafeReducedMotion";
-import formjoHeroImage from "../../assets/case-study_formjo-hero.webp";
-import koinSightHeroImage from "../../assets/case-study_koin-sight_portfolio-dashboard.webp";
-import startSearchHeroImage from "../../assets/case-study_start-search_portfolio-dashboard.webp";
+import { work } from "../../data/work";
 
 const buttonVariants = {
   primary: "bg-text-primary text-background-primary hover:bg-text-primary/90",
@@ -131,6 +129,17 @@ const CaseStudySection = (props) => {
             <CaseStudyCard key={index} study={study} />
           ))}
         </div>
+        <div className="mt-12 flex justify-center md:mt-16">
+          <Button
+            variant="link"
+            size="link"
+            url="/work"
+            iconRight={<RxChevronRight />}
+            className="min-h-11"
+          >
+            See all work
+          </Button>
+        </div>
       </div>
     </section>
   );
@@ -139,77 +148,23 @@ const CaseStudySection = (props) => {
 export const CaseStudySectionDefaults = {
   tagline: "Case Studies",
   heading: "Selected work",
-  studies: [
-    {
-      tagline: "Coach Training App",
-      heading: "Formjo",
-      description:
-        "Coach Smarter. Train Better. Formjo is a platform for coaches to assign structured training, review athlete video submissions, and deliver personalised feedback. Built solo with React, Flask, and Postgres, from Figma wireframe to shipped product",
-      tags: [
-        "Coaching Platform",
-        "Full-Stack Development",
-        "Product Design",
-        "UX Research",
-        "Branding",
-        "Solo Project",
-      ],
+  studies: work
+    .filter((item) => item.home)
+    .map((item) => ({
+      tagline: item.tagline,
+      heading: item.title,
+      description: item.summary,
+      tags: item.tags,
       buttons: [
         {
           title: "Read Case Study",
           variant: "secondary",
           iconRight: <RxChevronRight />,
-          url: "/case-study/formjo",
+          url: item.href,
         },
       ],
-      image: {
-        src: formjoHeroImage,
-        alt: "Formjo case study hero image",
-      },
-    },
-    {
-      tagline: "Crypto Portfolio Tracker",
-      heading: "KoinSight",
-      description:
-        "A crypto portfolio tracker built with two teammates at General Assembly's Software Engineering Bootcamp. I was the frontend developer and UX engineer, building the landing page, dashboard, and component system in React and Three.js.",
-      tags: [
-        "Frontend Development",
-        "UX Engineering",
-        "Team Project",
-        "Bootcamp Project",
-      ],
-      buttons: [
-        {
-          title: "Read Case Study",
-          variant: "secondary",
-          iconRight: <RxChevronRight />,
-          url: "/case-study/koinsight",
-        },
-      ],
-      image: {
-        src: koinSightHeroImage,
-        alt: "KoinSight case study hero image",
-      },
-    },
-    {
-      tagline: "AI Agent Dashboard",
-      heading: "StartSearch",
-      description:
-        "Alumni Intelligence tracks every SMU IIE alumni startup from the outside, no founder opt-in required. Built with teammates during a hackathon using Manus AI, EXA, and Mem0 for persistent agent memory.",
-      tags: ["AI Agents", "Hackathon", "Product Design", "Team Project"],
-      buttons: [
-        {
-          title: "Read Case Study",
-          variant: "secondary",
-          iconRight: <RxChevronRight />,
-          url: "/case-study/startsearch",
-        },
-      ],
-      image: {
-        src: startSearchHeroImage,
-        alt: "StartSearch case study hero image",
-      },
-    },
-  ],
+      image: item.image,
+    })),
 };
 
 export default CaseStudySection;

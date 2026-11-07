@@ -3,6 +3,7 @@ export default {
   ssr: false,
   prerender: [
     "/",
+    "/work",
     "/contact",
     "/case-study/formjo",
     "/case-study/koinsight",
