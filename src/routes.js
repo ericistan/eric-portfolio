@@ -2,6 +2,7 @@ import { index, route } from "@react-router/dev/routes";
 
 export default [
   index("routes/home.jsx"),
+  route("work", "routes/work.jsx"),
   route("contact", "routes/contact.jsx"),
   route("case-study/formjo", "routes/formjo.jsx"),
   route("case-study/koinsight", "routes/koinsight.jsx"),

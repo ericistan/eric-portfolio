@@ -54,6 +54,7 @@ export const FooterDefaults = {
     {
       links: [
         { title: "Home", url: "/" },
+        { title: "Work", url: "/work" },
         { title: "Contact", url: "/contact" },
       ],
     },

@@ -155,6 +155,7 @@ export const Navbar1Defaults = {
   },
   navLinks: [
     { title: "Home", url: "/" },
+    { title: "Work", url: "/work" },
     { title: "Contact", url: "/contact" },
   ],
   linkedinUrl: "https://www.linkedin.com/in/ericistan",
