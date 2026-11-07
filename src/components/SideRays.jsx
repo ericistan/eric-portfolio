@@ -185,12 +185,14 @@ void main() {
         uniforms.iResolution.value = [w * renderer.dpr, h * renderer.dpr];
       };
 
+      const prefersReducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+
       const loop = t => {
         if (!rendererRef.current || !uniformsRef.current || !meshRef.current) return;
         uniforms.iTime.value = t * 0.001;
         try {
           renderer.render({ scene: mesh });
-          animationIdRef.current = requestAnimationFrame(loop);
+          if (!prefersReducedMotion) animationIdRef.current = requestAnimationFrame(loop);
         } catch (e) {
           return;
         }

@@ -1,1 +1,5 @@
-/*    /index.html   200
+# Every route is prerendered to its own HTML file. Netlify serves existing
+# files first (non-forced rewrite), so this only applies to unknown paths:
+# serve the SPA fallback, which hydrates the client-side catch-all route and
+# renders the 404 page, with a real 404 status.
+/*    /__spa-fallback.html   404

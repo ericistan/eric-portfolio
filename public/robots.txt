@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://eric-tan.netlify.app/sitemap.xml

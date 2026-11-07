@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
-import { RxChevronDown } from "react-icons/rx";
+import { motion } from "framer-motion";
 import { BiLogoLinkedinSquare, BiLogoGithub } from "react-icons/bi";
 import { FaXTwitter } from "react-icons/fa6";
 import { Link, useLocation } from "react-router";
@@ -31,6 +30,10 @@ export const Navbar = (props) => {
   const location = useLocation();
   const lenis = useLenis();
 
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [location.pathname]);
+
   const handleSamePageClick = (url) => (e) => {
     if (location.pathname !== url) return;
     e.preventDefault();
@@ -38,13 +41,12 @@ export const Navbar = (props) => {
     if (lenis) {
       lenis.scrollTo(0);
     } else {
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      window.scrollTo({ top: 0, behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
     }
   };
 
   return (
-    <section
-      id="relume"
+    <header
       className="sticky top-0 z-[999] flex w-full items-center border-b border-text-primary/10 bg-background-primary lg:min-h-18"
       onClick={(e) => e.stopPropagation()}
     >
@@ -58,6 +60,10 @@ export const Navbar = (props) => {
             {logo.text}
           </Link>
           <button
+            type="button"
+            aria-label="Menu"
+            aria-expanded={isMobileMenuOpen}
+            aria-controls="site-menu"
             className="-mr-2 flex size-12 flex-col items-center justify-center lg:hidden"
             onClick={() => setIsMobileMenuOpen((prev) => !prev)}
           >
@@ -79,6 +85,8 @@ export const Navbar = (props) => {
           </button>
         </div>
         <motion.div
+          id="site-menu"
+          inert={isMobile && !isMobileMenuOpen}
           variants={{
             open: {
               height: "var(--height-open, 100dvh)",
@@ -90,13 +98,11 @@ export const Navbar = (props) => {
           initial="close"
           exit="close"
           animate={isMobileMenuOpen ? "open" : "close"}
-          transition={{ duration: 0.4 }}
+          transition={{ duration: 0.25 }}
           className="overflow-hidden lg:flex lg:items-center lg:[--height-closed:auto] lg:[--height-open:auto]"
         >
-          {navLinks.map((navLink, index) =>
-            navLink.subMenuLinks && navLink.subMenuLinks.length > 0 ? (
-              <SubMenu key={index} navLink={navLink} isMobile={isMobile} />
-            ) : (
+          <nav aria-label="Primary" className="contents">
+            {navLinks.map((navLink, index) => (
               <Link
                 key={index}
                 to={navLink.url}
@@ -105,15 +111,15 @@ export const Navbar = (props) => {
               >
                 {navLink.title}
               </Link>
-            ),
-          )}
+            ))}
+          </nav>
           <div className="mt-6 flex items-center justify-center gap-4 lg:ml-4 lg:mt-0">
             <a
               href={githubUrl}
               target="_blank"
               rel="noreferrer"
               aria-label="GitHub"
-              className="text-text-primary transition-colors duration-300 ease-in-out hover:text-accent"
+              className="-m-2 inline-flex items-center justify-center p-2 text-text-primary transition-colors duration-300 ease-in-out hover:text-accent"
             >
               <BiLogoGithub className="size-7" />
             </a>
@@ -122,7 +128,7 @@ export const Navbar = (props) => {
               target="_blank"
               rel="noreferrer"
               aria-label="LinkedIn"
-              className="text-text-primary transition-colors duration-300 ease-in-out hover:text-accent"
+              className="-m-2 inline-flex items-center justify-center p-2 text-text-primary transition-colors duration-300 ease-in-out hover:text-accent"
             >
               <BiLogoLinkedinSquare className="size-7" />
             </a>
@@ -131,75 +137,14 @@ export const Navbar = (props) => {
               target="_blank"
               rel="noreferrer"
               aria-label="X"
-              className="text-text-primary transition-colors duration-300 ease-in-out hover:text-accent"
+              className="-m-2 inline-flex items-center justify-center p-2 text-text-primary transition-colors duration-300 ease-in-out hover:text-accent"
             >
               <FaXTwitter className="size-6" />
             </a>
           </div>
         </motion.div>
       </div>
-    </section>
-  );
-};
-
-const SubMenu = ({ navLink, isMobile }) => {
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
-  return (
-    <div
-      onMouseEnter={() => !isMobile && setIsDropdownOpen(true)}
-      onMouseLeave={() => !isMobile && setIsDropdownOpen(false)}
-    >
-      <button
-        className="flex w-full items-center justify-between gap-2 py-3 text-left font-mono text-md text-text-primary transition-colors duration-300 ease-in-out hover:text-accent lg:flex-none lg:justify-start lg:px-4 lg:py-2 lg:text-base"
-        onClick={() => setIsDropdownOpen((prev) => !prev)}
-      >
-        <span>{navLink.title}</span>
-        <motion.span
-          variants={{
-            rotated: { rotate: 180 },
-            initial: { rotate: 0 },
-          }}
-          animate={isDropdownOpen ? "rotated" : "initial"}
-          transition={{ duration: 0.3 }}
-        >
-          <RxChevronDown />
-        </motion.span>
-      </button>
-      {isDropdownOpen && (
-        <AnimatePresence>
-          <motion.nav
-            variants={{
-              open: {
-                visibility: "visible",
-                opacity: "var(--opacity-open, 100%)",
-                y: 0,
-              },
-              close: {
-                visibility: "hidden",
-                opacity: "var(--opacity-close, 0)",
-                y: "var(--y-close, 0%)",
-              },
-            }}
-            animate={isDropdownOpen ? "open" : "close"}
-            initial="close"
-            exit="close"
-            transition={{ duration: 0.2 }}
-            className="bg-background-primary lg:absolute lg:z-50 lg:rounded-lg lg:border lg:border-border-primary lg:p-2 lg:[--y-close:25%]"
-          >
-            {navLink.subMenuLinks?.map((navLink, index) => (
-              <Link
-                key={index}
-                to={navLink.url}
-                className="block py-3 pl-[5%] font-mono text-md text-text-primary transition-colors duration-300 ease-in-out hover:text-accent lg:px-4 lg:py-2 lg:text-base"
-              >
-                {navLink.title}
-              </Link>
-            ))}
-          </motion.nav>
-        </AnimatePresence>
-      )}
-    </div>
+    </header>
   );
 };
 

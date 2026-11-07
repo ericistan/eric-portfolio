@@ -7,7 +7,7 @@ import {
   BiCopy,
   BiCheck,
 } from "react-icons/bi";
-import ericLinkedinProfileImage from "../assets/eric-linkedin-profile.jpeg";
+import ericLinkedinProfileImage from "../assets/eric-linkedin-profile.webp";
 
 const linkRowClasses =
   "flex w-full items-center gap-x-4 rounded-lg border border-border-primary p-3 transition-colors";
@@ -26,7 +26,12 @@ const CopyLink = ({ link }) => {
   const email = link.url.slice("mailto:".length);
 
   const handleClick = async () => {
-    await navigator.clipboard.writeText(email);
+    try {
+      await navigator.clipboard.writeText(email);
+    } catch {
+      window.location.href = link.url;
+      return;
+    }
     setCopied(true);
     setTimeout(() => setCopied(false), 1500);
   };
@@ -37,6 +42,9 @@ const CopyLink = ({ link }) => {
       onClick={handleClick}
       className={`${linkRowClasses} justify-between`}
     >
+      <span aria-live="polite" className="sr-only">
+        {copied ? "Email copied" : ""}
+      </span>
       <span className="flex items-center gap-x-4">
         {link.icon}
         <p>{copied ? "Copied!" : link.title}</p>
@@ -102,12 +110,14 @@ const ContactLinks = (props) => {
             <img
               src={author.avatar.src}
               alt={author.avatar.alt}
+              width={96}
+              height={96}
               className="size-24 rounded-full object-cover"
             />
             <div>
-              <h2 className="mb-2 text-xl font-bold md:text-2xl">
+              <h1 className="mb-2 text-xl font-bold md:text-2xl">
                 {author.fullName}
-              </h2>
+              </h1>
               <p>{author.position}</p>
               <p className="mt-2 text-text-primary/70">{author.bio}</p>
             </div>

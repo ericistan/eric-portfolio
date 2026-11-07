@@ -12,9 +12,9 @@ import {
   Globe,
 } from "@phosphor-icons/react";
 import CaseStudyLayout from "../../components/CaseStudyLayout.jsx";
-import CaseStudyImage from "../../components/CaseStudyImage.jsx";
 import BentoHighlights from "../../components/BentoHighlights.jsx";
 import Footer from "../../components/Footer.jsx";
+import raincityBoxingHeroImage from "../../assets/case-study_raincity-boxing-hero.webp";
 
 const header = {
   heading: "Raincity Boxing",
@@ -51,8 +51,8 @@ const header = {
     },
   ],
   image: {
-    src: "https://placehold.co/1600x900?text=Raincity+Boxing",
-    alt: "Raincity Boxing hero placeholder image",
+    src: raincityBoxingHeroImage,
+    alt: "Raincity Boxing website hero",
   },
 };
 
@@ -132,13 +132,6 @@ const sections = [
             link to Google reviews.
           </li>
         </ul>
-        <CaseStudyImage
-          src="https://placehold.co/800x500?text=Raincity+Boxing"
-          alt="Raincity Boxing placeholder image"
-        />
-        <p className="text-sm italic">
-          * Placeholder caption: swap in a real site screenshot here.
-        </p>
         <h3>Problem</h3>
         <p>
           Local gyms often lose potential members to friction: hidden
@@ -235,7 +228,7 @@ const sections = [
 
 const RaincityBoxing = () => {
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-dvh flex-col">
       <CaseStudyLayout
         header={header}
         sections={sections}

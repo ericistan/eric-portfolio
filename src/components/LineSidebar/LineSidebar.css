@@ -44,6 +44,12 @@
 }
 
 .line-sidebar__label {
+  background: none;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  text-align: left;
+  cursor: inherit;
   position: relative;
   display: inline-flex;
   align-items: baseline;

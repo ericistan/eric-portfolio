@@ -4,8 +4,10 @@ import Footer from "../components/Footer.jsx";
 
 const Contact = () => {
   return (
-    <div className="flex min-h-screen flex-col">
-      <ContactLinks />
+    <div className="flex min-h-dvh flex-col">
+      <main>
+        <ContactLinks />
+      </main>
       <Footer />
     </div>
   );

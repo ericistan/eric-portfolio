@@ -30,7 +30,8 @@ const TechStack = (props) => {
         <div className="h-[360px] overflow-hidden rounded-lg border border-text-primary/10 bg-text-primary/5 bg-[linear-gradient(to_right,rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.08)_1px,transparent_1px)] bg-[size:40px_40px] md:h-[440px]">
           <FallingText
             items={items}
-            trigger="scroll"
+            trigger="click"
+            hint="Click to drop"
             gravity={0.16}
             fontSize="clamp(0.9rem, 4vw, 2rem)"
             mouseConstraintStiffness={0.9}

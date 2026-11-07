@@ -141,6 +141,7 @@ const LineSidebar = ({
 
   return (
     <nav
+      aria-label="Case study sections"
       className={`line-sidebar${showMarker ? " line-sidebar--markers" : ""}${scaleTick ? " line-sidebar--scale-tick" : ""}${className ? ` ${className}` : ""}`}
       style={{
         "--accent-color": accentColor,
@@ -169,17 +170,20 @@ const LineSidebar = ({
             }}
             className="line-sidebar__item"
             aria-current={activeIndex === index ? "true" : undefined}
-            onClick={() => handleClick(index, label)}
           >
             {showMarker && <span className="line-sidebar__marker" aria-hidden="true" />}
-            <span className="line-sidebar__label">
+            <button
+              type="button"
+              className="line-sidebar__label"
+              onClick={() => handleClick(index, label)}
+            >
               {showIndex && (
                 <span className="line-sidebar__index">
                   {String(index + 1).padStart(2, "0")}
                 </span>
               )}
               <span className="line-sidebar__text">{label}</span>
-            </span>
+            </button>
           </li>
         ))}
       </ul>

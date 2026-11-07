@@ -74,7 +74,7 @@ const CaseStudyLayout = ({
     if (lenis) {
       lenis.scrollTo(target, { offset: -100 });
     } else {
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
+      target.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" });
     }
   };
 
@@ -82,11 +82,12 @@ const CaseStudyLayout = ({
     <>
       {header && <PageLoader title={header.heading} />}
 
+      <main>
       <div className="bg-background-primary px-[5%] pt-8 text-text-primary">
         <div className="page-container">
           <Link
             to="/"
-            className="inline-flex items-center gap-1 font-mono text-sm text-text-primary/60 transition-colors hover:text-text-primary"
+            className="-my-3 inline-flex items-center gap-1 py-3 font-mono text-sm text-text-primary/60 transition-colors hover:text-text-primary"
           >
             <RxChevronLeft className="size-4" />
             Back to Home
@@ -129,10 +130,10 @@ const CaseStudyLayout = ({
               <div className="grid grid-cols-2 gap-8">
                 {header.details.map((detail, index) => (
                   <div key={index}>
-                    <h3 className="mb-2 flex items-center gap-2 text-base font-bold leading-[1.4] text-text-primary md:text-xl">
+                    <h2 className="mb-2 flex items-center gap-2 text-base font-bold leading-[1.4] text-text-primary md:text-xl">
                       {detail.icon}
                       {detail.label}
-                    </h3>
+                    </h2>
                     {detail.url ? (
                       <a
                         href={detail.url}
@@ -155,6 +156,8 @@ const CaseStudyLayout = ({
                 alt={header.image.alt}
                 className="object-cover"
                 spacing={false}
+                loading="eager"
+                fetchPriority="high"
               />
             </div>
           </div>
@@ -203,6 +206,7 @@ const CaseStudyLayout = ({
         description="Check out the code, try it live, or get in touch if you'd like to work together."
         buttons={ctaButtons}
       />
+      </main>
 
       <BackToTopButton />
     </>
