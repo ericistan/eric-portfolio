@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { RxChevronRight } from "react-icons/rx";
 import { Link } from "react-router";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { useSafeReducedMotion } from "../../lib/useSafeReducedMotion";
 import formjoHeroImage from "../../assets/case-study_formjo-hero.webp";
 import koinSightHeroImage from "../../assets/case-study_koin-sight_portfolio-dashboard.webp";
 import startSearchHeroImage from "../../assets/case-study_start-search_portfolio-dashboard.webp";
@@ -47,6 +48,7 @@ const Button = ({
 };
 
 const CaseStudyCard = ({ study }) => {
+  const prefersReducedMotion = useSafeReducedMotion();
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -58,16 +60,11 @@ const CaseStudyCard = ({ study }) => {
     [0, 0.2, 0.7, 0.9, 1],
     [0.9, 1, 1, 0.95, 0.9],
   );
-  const opacity = useTransform(
-    scrollYProgress,
-    [0, 0.2, 0.7, 0.9, 0.95],
-    [0, 1, 1, 0.5, 0],
-  );
 
   return (
     <motion.div
       ref={ref}
-      style={{ scale, opacity }}
+      style={prefersReducedMotion ? undefined : { scale }}
       className="grid grid-cols-1 gap-x-20 gap-y-6 rounded-lg border border-text-primary/10 bg-text-primary/5 p-6 md:grid-cols-[3fr_4fr] md:gap-y-20 md:p-8 lg:p-12"
     >
       <div className="contents md:flex md:flex-col md:justify-between">
@@ -118,7 +115,7 @@ const CaseStudySection = (props) => {
   };
 
   return (
-    <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
+    <section className="px-[5%] py-16 md:py-24 lg:py-28">
       <div className="page-container">
         <header className="mx-auto mb-12 max-w-lg text-center md:mb-18 lg:mb-20">
           <p className="mb-3 font-mono font-semibold md:mb-4">{tagline}</p>

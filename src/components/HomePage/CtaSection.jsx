@@ -75,7 +75,7 @@ const CtaSection = (props) => {
 
   if (showRays) {
     return (
-      <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
+      <section className="px-[5%] py-16 md:py-24 lg:py-28">
         <div className="page-container">
           <div className="relative overflow-hidden rounded-lg border border-text-primary/10 bg-text-primary/5 px-6 py-12 text-center md:px-12 md:py-16 lg:px-16 lg:py-20">
             <div className="pointer-events-none absolute inset-0 z-0">
@@ -101,7 +101,7 @@ const CtaSection = (props) => {
   }
 
   return (
-    <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
+    <section className="px-[5%] py-16 md:py-24 lg:py-28">
       <div className="page-container max-w-full">
         <div className="relative flex min-h-[420px] items-center justify-center overflow-hidden rounded-lg text-center md:min-h-[520px]">
           <div className="absolute inset-0 z-0">

@@ -23,6 +23,7 @@ const StrokeText = ({
   fontWeight = 800,
   letterSpacing = -4,
   reverse = false,
+  decorative = false,
   className = '',
   style = {}
 }) => {
@@ -197,8 +198,9 @@ const StrokeText = ({
       ref={rootRef}
       className={`block leading-[0] ${trigger === 'hover' ? 'cursor-pointer' : ''} ${className}`.trim()}
       style={style}
-      role="img"
-      aria-label={String(text ?? '')}>
+      {...(decorative
+        ? { 'aria-hidden': 'true' }
+        : { role: 'img', 'aria-label': String(text ?? '') })}>
       <svg
         className="block max-w-full"
         width={box ? box.width : undefined}

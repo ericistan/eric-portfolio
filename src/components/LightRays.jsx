@@ -251,6 +251,8 @@ void main() {
         uniforms.rayDir.value = dir;
       };
 
+      const prefersReducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+
       const loop = t => {
         if (!rendererRef.current || !uniformsRef.current || !meshRef.current) {
           return;
@@ -269,7 +271,7 @@ void main() {
 
         try {
           renderer.render({ scene: mesh });
-          animationIdRef.current = requestAnimationFrame(loop);
+          if (!prefersReducedMotion) animationIdRef.current = requestAnimationFrame(loop);
         } catch (error) {
           console.warn('WebGL rendering error:', error);
           return;

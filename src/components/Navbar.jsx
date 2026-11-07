@@ -38,13 +38,12 @@ export const Navbar = (props) => {
     if (lenis) {
       lenis.scrollTo(0);
     } else {
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      window.scrollTo({ top: 0, behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
     }
   };
 
   return (
     <section
-      id="relume"
       className="sticky top-0 z-[999] flex w-full items-center border-b border-text-primary/10 bg-background-primary lg:min-h-18"
       onClick={(e) => e.stopPropagation()}
     >

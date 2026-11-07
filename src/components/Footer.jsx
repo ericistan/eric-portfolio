@@ -9,7 +9,7 @@ const Footer = (props) => {
   };
 
   return (
-    <footer id="relume" className="mt-auto px-[5%] py-12 md:py-18 lg:py-20">
+    <footer className="mt-auto px-[5%] py-12 md:py-18 lg:py-20">
       <div className="page-container">
         <div className="flex flex-col items-center justify-between gap-8 text-center lg:flex-row lg:text-left">
           <p>{footerText}</p>
@@ -33,6 +33,9 @@ const Footer = (props) => {
                 <a
                   key={index}
                   href={link.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={link.label}
                   className="text-text-primary transition-colors duration-300 ease-in-out hover:text-accent"
                 >
                   {link.icon}
@@ -56,9 +59,9 @@ export const FooterDefaults = {
     },
   ],
   socialMediaLinks: [
-    { url: "https://github.com/ericistan", icon: <BiLogoGithub className="size-6" /> },
-    { url: "#", icon: <FaXTwitter className="size-6 p-0.5" /> },
-    { url: "#", icon: <BiLogoLinkedinSquare className="size-6" /> },
+    { label: "GitHub", url: "https://github.com/ericistan", icon: <BiLogoGithub className="size-6" /> },
+    { label: "X", url: "https://x.com/ericistan", icon: <FaXTwitter className="size-6 p-0.5" /> },
+    { label: "LinkedIn", url: "https://www.linkedin.com/in/ericistan", icon: <BiLogoLinkedinSquare className="size-6" /> },
   ],
   footerText: "Built with ❤️ by Eric Tan. © 2026 All rights reserved.",
 };

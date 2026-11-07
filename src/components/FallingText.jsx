@@ -22,6 +22,7 @@ const FallingText = ({
   gravity = 1,
   mouseConstraintStiffness = 0.2,
   fontSize = "1rem",
+  hint,
 }) => {
   const containerRef = useRef(null);
   const textRef = useRef(null);
@@ -241,6 +242,12 @@ const FallingText = ({
           );
         })}
       </div>
+
+      {hint && !effectStarted && (
+        <p className="pointer-events-none absolute inset-x-0 bottom-4 font-mono text-sm font-semibold text-text-primary/60">
+          {hint}
+        </p>
+      )}
 
       <div className="absolute left-0 top-0 z-0" ref={canvasContainerRef} />
     </div>
