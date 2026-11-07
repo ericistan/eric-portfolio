@@ -415,7 +415,7 @@ const GlobalSpotlight = ({
 
 const BentoCardGrid = ({ children, gridRef }) => (
   <div
-    className="bento-section relative grid max-w-full select-none gap-3"
+    className="bento-section relative grid max-w-full gap-3"
     style={{ fontSize: "clamp(1rem, 0.9rem + 0.5vw, 1.5rem)" }}
     ref={gridRef}
   >
@@ -427,12 +427,18 @@ const useMobileDetection = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth <= MOBILE_BREAKPOINT);
+    const reducedMotionQuery = window.matchMedia?.("(prefers-reduced-motion: reduce)");
+    const checkMobile = () =>
+      setIsMobile(window.innerWidth <= MOBILE_BREAKPOINT || Boolean(reducedMotionQuery?.matches));
 
     checkMobile();
     window.addEventListener("resize", checkMobile);
+    reducedMotionQuery?.addEventListener?.("change", checkMobile);
 
-    return () => window.removeEventListener("resize", checkMobile);
+    return () => {
+      window.removeEventListener("resize", checkMobile);
+      reducedMotionQuery?.removeEventListener?.("change", checkMobile);
+    };
   }, []);
 
   return isMobile;
@@ -500,12 +506,14 @@ const MagicBento = ({
             z-index: 1;
           }
 
-          .card--border-glow:hover::after {
-            opacity: 1;
-          }
+          @media (hover: hover) {
+            .card--border-glow:hover::after {
+              opacity: 1;
+            }
 
-          .card--border-glow:hover {
-            box-shadow: 0 0 24px rgba(${glowColor}, 0.15);
+            .card--border-glow:hover {
+              box-shadow: 0 0 24px rgba(${glowColor}, 0.15);
+            }
           }
 
           .particle::before {

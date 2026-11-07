@@ -3,13 +3,21 @@ import Matter from "matter-js";
 
 const DEFAULT_PILL_COLOR = "#4ade80";
 
-const getContrastText = (hex) => {
+const TEXT_DARK = "#052e16";
+
+const luminance = (hex) => {
   const value = hex.replace("#", "");
-  const r = parseInt(value.substring(0, 2), 16);
-  const g = parseInt(value.substring(2, 4), 16);
-  const b = parseInt(value.substring(4, 6), 16);
-  const yiq = (r * 299 + g * 587 + b * 114) / 1000;
-  return yiq >= 128 ? "#052e16" : "#ffffff";
+  const [r, g, b] = [0, 2, 4].map((i) => {
+    const c = parseInt(value.substring(i, i + 2), 16) / 255;
+    return c <= 0.03928 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4;
+  });
+  return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+};
+
+const getContrastText = (hex) => {
+  const bg = luminance(hex);
+  const contrast = (l) => (Math.max(bg, l) + 0.05) / (Math.min(bg, l) + 0.05);
+  return contrast(luminance(TEXT_DARK)) >= contrast(1) ? TEXT_DARK : "#ffffff";
 };
 
 const FallingText = ({
@@ -172,7 +180,7 @@ const FallingText = ({
     Runner.run(runner, engine);
     Render.run(render);
 
-    let animationFrameId;
+    let animationFrameId = null;
     const updateLoop = () => {
       wordBodies.forEach(({ body, elem }) => {
         const { x, y } = body.position;
@@ -180,13 +188,27 @@ const FallingText = ({
         elem.style.top = `${y}px`;
         elem.style.transform = `translate(-50%, -50%) rotate(${body.angle}rad)`;
       });
-      Matter.Engine.update(engine);
       animationFrameId = requestAnimationFrame(updateLoop);
     };
     updateLoop();
 
+    const visibilityObserver = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        if (animationFrameId === null) {
+          Runner.run(runner, engine);
+          updateLoop();
+        }
+      } else if (animationFrameId !== null) {
+        Runner.stop(runner);
+        cancelAnimationFrame(animationFrameId);
+        animationFrameId = null;
+      }
+    });
+    visibilityObserver.observe(containerRef.current);
+
     return () => {
-      cancelAnimationFrame(animationFrameId);
+      visibilityObserver.disconnect();
+      if (animationFrameId !== null) cancelAnimationFrame(animationFrameId);
       Render.stop(render);
       Runner.stop(runner);
       if (render.canvas && canvasContainer) {
@@ -209,15 +231,36 @@ const FallingText = ({
     }
   };
 
+  const isClickable = trigger === "click" && !effectStarted;
+
   return (
     <div
       ref={containerRef}
       className="relative z-[1] h-full w-full cursor-pointer overflow-hidden pt-8 text-center"
       onClick={trigger === "click" ? handleTrigger : undefined}
       onMouseEnter={trigger === "hover" ? handleTrigger : undefined}
+      role={isClickable ? "button" : undefined}
+      tabIndex={isClickable ? 0 : undefined}
+      aria-label={isClickable ? "Drop the tech stack" : undefined}
+      onKeyDown={
+        isClickable
+          ? (e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                handleTrigger();
+              }
+            }
+          : undefined
+      }
     >
+      <ul className="sr-only">
+        {wordItems.map((item, index) => (
+          <li key={index}>{item.label}</li>
+        ))}
+      </ul>
       <div
         ref={textRef}
+        aria-hidden="true"
         className="inline-block"
         style={{
           fontSize,

@@ -14,6 +14,7 @@ const ClickSpark = ({
   const canvasRef = useRef(null);
   const sparksRef = useRef([]);
   const startTimeRef = useRef(null);
+  const startLoopRef = useRef(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -66,7 +67,7 @@ const ClickSpark = ({
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
 
-    let animationId;
+    let animationId = 0;
 
     const draw = timestamp => {
       if (!startTimeRef.current) {
@@ -101,12 +102,21 @@ const ClickSpark = ({
         return true;
       });
 
-      animationId = requestAnimationFrame(draw);
+      if (sparksRef.current.length > 0) {
+        animationId = requestAnimationFrame(draw);
+      } else {
+        animationId = 0;
+      }
     };
 
-    animationId = requestAnimationFrame(draw);
+    startLoopRef.current = () => {
+      if (!animationId) animationId = requestAnimationFrame(draw);
+    };
+
+    if (sparksRef.current.length > 0) startLoopRef.current();
 
     return () => {
+      startLoopRef.current = null;
       cancelAnimationFrame(animationId);
     };
   }, [sparkColor, sparkSize, sparkRadius, sparkCount, duration, easeFunc, extraScale]);
@@ -128,6 +138,7 @@ const ClickSpark = ({
     }));
 
     sparksRef.current.push(...newSparks);
+    startLoopRef.current?.();
   };
 
   return (

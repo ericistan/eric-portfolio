@@ -36,7 +36,7 @@ const Footer = (props) => {
                   target="_blank"
                   rel="noreferrer"
                   aria-label={link.label}
-                  className="text-text-primary transition-colors duration-300 ease-in-out hover:text-accent"
+                  className="-m-2 inline-flex items-center justify-center p-2 text-text-primary transition-colors duration-300 ease-in-out hover:text-accent"
                 >
                   {link.icon}
                 </a>

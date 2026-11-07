@@ -18,7 +18,6 @@ import {
   Buildings,
   CalendarBlank,
   IdentificationBadge,
-  Globe,
 } from "@phosphor-icons/react";
 import CaseStudyLayout from "../../components/CaseStudyLayout.jsx";
 import CaseStudyImage from "../../components/CaseStudyImage.jsx";
@@ -61,11 +60,6 @@ const header = {
       label: "Role",
       description: "Solo Full-Stack Developer & Designer",
       icon: <IdentificationBadge className="size-5" />,
-    },
-    {
-      label: "Website",
-      description: "Live preview coming soon",
-      icon: <Globe className="size-5" />,
     },
   ],
   image: {
@@ -261,7 +255,7 @@ const sections = [
         </p>
 
         <div>
-          <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-text-primary/40">
+          <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-text-primary/60">
             Stack & Architecture
           </p>
           <p>
@@ -327,7 +321,7 @@ const sections = [
           alt="Formjo lo-fi wireframe"
         />
         <CaseStudyImage src={formjoCoachApp} alt="Formjo coach app" />
-        <CaseStudyImage src={formjoScreens} alt="Formjo how might we" />
+        <CaseStudyImage src={formjoScreens} alt="Formjo app screens" />
       </>
     ),
   },
@@ -346,7 +340,7 @@ const sections = [
 
 const Formjo = () => {
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-dvh flex-col">
       <CaseStudyLayout
         header={header}
         sections={sections}

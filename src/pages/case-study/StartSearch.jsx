@@ -82,15 +82,15 @@ const header = {
 const toolsUsed = [
   {
     label: "Manus AI",
-    icon: <img src={manusLogo} alt="Manus AI logo" className="size-10 rounded-lg" />,
+    icon: <img src={manusLogo} alt="Manus AI logo" className="size-10 rounded-lg" width={40} height={40} loading="lazy" />,
   },
   {
     label: "EXA",
-    icon: <img src={exaLogo} alt="EXA logo" className="size-10 rounded-lg" />,
+    icon: <img src={exaLogo} alt="EXA logo" className="size-10 rounded-lg" width={40} height={40} loading="lazy" />,
   },
   {
     label: "Mem0",
-    icon: <img src={mem0Logo} alt="Mem0 logo" className="size-10 rounded-lg" />,
+    icon: <img src={mem0Logo} alt="Mem0 logo" className="size-10 rounded-lg" width={40} height={40} loading="lazy" />,
   },
 ];
 
@@ -245,7 +245,7 @@ const sections = [
           shaped how we built it as much as what we built.
         </p>
         <div>
-          <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-text-primary/40">
+          <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-text-primary/60">
             Tools & Services
           </p>
           <div className="flex flex-wrap gap-x-8 gap-y-6">
@@ -366,7 +366,7 @@ const sections = [
 
 const StartSearch = () => {
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-dvh flex-col">
       <CaseStudyLayout
         header={header}
         sections={sections}

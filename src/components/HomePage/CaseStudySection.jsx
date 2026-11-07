@@ -101,6 +101,8 @@ const CaseStudyCard = ({ study }) => {
         <img
           src={study.image.src}
           alt={study.image.alt}
+          loading="lazy"
+          decoding="async"
           className="aspect-[3/2] w-full object-cover"
         />
       </div>

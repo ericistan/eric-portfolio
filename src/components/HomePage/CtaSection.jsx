@@ -137,7 +137,7 @@ const CtaSection = (props) => {
 
 export const CtaSectionDefaults = {
   heading: "Like what you see? Let's work together.",
-  description: "Let's build something great together.",
+  description: "Open to design engineer roles. Email or LinkedIn is fastest.",
   buttons: [{ title: "Contact Me", url: "/contact" }],
   showRays: false,
 };

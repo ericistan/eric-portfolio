@@ -2,7 +2,7 @@ import { Link } from "react-router";
 import Footer from "../components/Footer.jsx";
 
 const NotFound = ({ heading = "Page not found", message }) => (
-  <div className="flex min-h-screen flex-col">
+  <div className="flex min-h-dvh flex-col">
     <main className="px-[5%] py-24 md:py-32 lg:py-40">
       <div className="page-container flex flex-col items-center text-center">
         <p className="mb-3 font-semibold text-accent md:mb-4">404</p>

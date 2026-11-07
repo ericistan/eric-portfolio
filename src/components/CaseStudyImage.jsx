@@ -1,10 +1,28 @@
 import Zoom from "react-medium-image-zoom";
 import "react-medium-image-zoom/dist/styles.css";
 
-const CaseStudyImage = ({ src, alt, className = "", spacing = true }) => (
+const CaseStudyImage = ({
+  src,
+  alt,
+  className = "",
+  spacing = true,
+  loading = "lazy",
+  fetchPriority,
+  width,
+  height,
+}) => (
   <div className={spacing ? "my-8! md:my-10!" : ""}>
     <Zoom>
-      <img src={src} alt={alt} className={`h-auto w-full max-w-full! ${className}`} />
+      <img
+        src={src}
+        alt={alt}
+        width={width}
+        height={height}
+        loading={loading}
+        fetchPriority={fetchPriority}
+        decoding="async"
+        className={`h-auto w-full max-w-full! ${className}`}
+      />
     </Zoom>
   </div>
 );

@@ -164,8 +164,10 @@ const Feature = (feature) => {
       </div>
       <img
         src={feature.image.src}
-        className="w-full rounded-lg object-cover"
+        className="aspect-square w-full rounded-lg object-cover"
         alt={feature.image.alt}
+        fetchPriority="high"
+        decoding="async"
       />
     </div>
   );

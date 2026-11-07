@@ -222,6 +222,8 @@ const GradientWaves = ({
     ro.observe(container);
     setSize();
 
+    const prefersReducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+
     const currentMouse = [0.5, 0.5];
     const targetMouse = [0.5, 0.5];
 
@@ -234,8 +236,10 @@ const GradientWaves = ({
       targetMouse[0] = 0.5;
       targetMouse[1] = 0.5;
     };
-    canvas.addEventListener('pointermove', onPointerMove);
-    canvas.addEventListener('pointerleave', onPointerLeave);
+    if (!prefersReducedMotion) {
+      canvas.addEventListener('pointermove', onPointerMove);
+      canvas.addEventListener('pointerleave', onPointerLeave);
+    }
 
     let raf = 0;
     let isVisible = true;
@@ -264,7 +268,7 @@ const GradientWaves = ({
       }
     };
 
-    const io = new IntersectionObserver(
+    const io = prefersReducedMotion ? { observe() {}, disconnect() {} } : new IntersectionObserver(
       ([entry]) => {
         isVisible = entry.isIntersecting;
         isVisible ? tryStart() : tryStop();
@@ -279,7 +283,7 @@ const GradientWaves = ({
     };
     document.addEventListener('visibilitychange', onVisibility);
 
-    tryStart();
+    if (!prefersReducedMotion) tryStart();
 
     return () => {
       tryStop();
@@ -338,6 +342,9 @@ const GradientWaves = ({
     cc[0] = cr[0];
     cc[1] = cr[1];
     cc[2] = cr[2];
+    if (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) {
+      ctx.renderer.render({ scene: ctx.mesh });
+    }
   }, [
     horizonColor,
     waveColor,

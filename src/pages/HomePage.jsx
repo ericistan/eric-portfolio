@@ -9,13 +9,15 @@ import Footer from "../components/Footer.jsx";
 
 const HomePage = () => {
   return (
-    <div className="relative flex min-h-screen flex-col">
+    <div className="relative flex min-h-dvh flex-col">
+      <main>
       <HeroSection />
       <CaseStudySection />
       <TechStack />
       <WhyMeSection />
       <AboutMeSection />
       <CtaSection />
+      </main>
       <Footer />
     </div>
   );

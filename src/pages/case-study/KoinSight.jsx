@@ -23,17 +23,44 @@ import CaseStudyLayout from "../../components/CaseStudyLayout.jsx";
 import CaseStudyImage from "../../components/CaseStudyImage.jsx";
 import BentoHighlights from "../../components/BentoHighlights.jsx";
 import Footer from "../../components/Footer.jsx";
+import { useSafeReducedMotion } from "../../lib/useSafeReducedMotion";
 import koinsightHeroImage from "../../assets/koinsight-hero-img.webp";
 import koinsightInitialPlanningImage from "../../assets/koinsight-initial-planning.webp";
 import koinsightStyleGuideImage from "../../assets/koinsight-style-guide.webp";
 import koinsightBackendImage from "../../assets/koinsight-backend.webp";
-import koinsightWatchlistGif from "../../assets/koinsight-watchlist.gif";
+import koinsightWatchlistMp4 from "../../assets/koinsight-watchlist.mp4";
+import koinsightWatchlistWebm from "../../assets/koinsight-watchlist.webm";
+import koinsightWatchlistPoster from "../../assets/koinsight-watchlist-poster.webp";
 import koinsightTeamImage from "../../assets/koinsight-team.webp";
 import koinsightOutcomesDashboardImage from "../../assets/koinsight-outcomes-dashboard.webp";
 import koinsightOutcomesSelectCoinModalImage from "../../assets/koinsight-outcomes-select-coin-modal.webp";
 import koinsightOutcomesAddTransactionModalImage from "../../assets/koinsight-outcomes-add-transaction-modal.webp";
 import koinsightOutcomesTransactionHistoryImage from "../../assets/koinsight-outcomes-transaction-history.webp";
 import koinsightOutcomesCoinDetailPageImage from "../../assets/koinsight-outcomes-coin-detail-page.webp";
+
+const WatchlistVideo = () => {
+  const prefersReducedMotion = useSafeReducedMotion();
+  return (
+    <div className="my-8! md:my-10!">
+      <video
+        autoPlay={!prefersReducedMotion}
+        controls={prefersReducedMotion}
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        poster={koinsightWatchlistPoster}
+        aria-label="KoinSight watchlist"
+        width="960"
+        height="576"
+        className="h-auto w-full rounded-lg"
+      >
+        <source src={koinsightWatchlistMp4} type="video/mp4" />
+        <source src={koinsightWatchlistWebm} type="video/webm" />
+      </video>
+    </div>
+  );
+};
 
 const header = {
   heading: "KoinSight",
@@ -243,7 +270,7 @@ const sections = [
           that ties them together. A few of the decisions behind that:
         </p>
         <div>
-          <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-text-primary/40">
+          <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-text-primary/60">
             Tech Stack
           </p>
           <div className="flex flex-wrap gap-x-8 gap-y-6">
@@ -295,7 +322,7 @@ const sections = [
           or center of the string. It's one component reused everywhere text
           needs to feel alive, not a one-off animation.
         </p>
-        <CaseStudyImage src={koinsightWatchlistGif} alt="KoinSight watchlist" />
+        <WatchlistVideo />
       </>
     ),
   },
@@ -399,7 +426,7 @@ const sections = [
 
 const KoinSight = () => {
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-dvh flex-col">
       <CaseStudyLayout
         header={header}
         sections={sections}
