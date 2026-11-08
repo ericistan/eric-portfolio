@@ -48,20 +48,14 @@ export const work = [
     year: "2026",
     role: "Solo Full-Stack Developer & Designer",
     summary:
-      "Coach Smarter. Train Better. Formjo is a platform for coaches to assign structured training, review athlete video submissions, and deliver personalised feedback. Built solo with React, Flask, and Postgres, from Figma wireframe to shipped product",
-    tags: [
-      "Coaching Platform",
-      "Full-Stack Development",
-      "Product Design",
-      "UX Research",
-      "Branding",
-      "Solo Project",
-    ],
+      "A platform where coaches assign structured training, review athlete video submissions, and give personalised feedback. Built solo at General Assembly's Software Engineering Bootcamp, from Figma wireframes to a shipped React, Flask, and Postgres app.",
+    tags: ["Full-Stack Development", "Product Design", "UX Research"],
     image: {
       src: formjoHeroImage,
       alt: "Formjo case study hero image",
     },
     href: "/case-study/formjo",
+    links: { repo: "https://github.com/ericistan/Formjo" },
     home: true,
   },
   {
@@ -73,17 +67,16 @@ export const work = [
     role: "Frontend Developer, UX Engineer",
     summary:
       "A crypto portfolio tracker built with two teammates at General Assembly's Software Engineering Bootcamp. I was the frontend developer and UX engineer, building the landing page, dashboard, and component system in React and Three.js.",
-    tags: [
-      "Frontend Development",
-      "UX Engineering",
-      "Team Project",
-      "Bootcamp Project",
-    ],
+    tags: ["Frontend Development", "UX Engineering", "Three.js"],
     image: {
       src: koinSightHeroImage,
       alt: "KoinSight case study hero image",
     },
     href: "/case-study/koinsight",
+    links: {
+      live: "https://koinsight-tracker.netlify.app/",
+      repo: "https://github.com/ericistan/KoinSight-Tracker",
+    },
     home: true,
   },
   {
@@ -98,7 +91,7 @@ export const work = [
     role: "UX Research & Design, Lead Builder (Manus AI)",
     summary:
       "Alumni Intelligence tracks every SMU IIE alumni startup from the outside, no founder opt-in required. Built with teammates during a hackathon using Manus AI, EXA, and Mem0 for persistent agent memory.",
-    tags: ["AI Agents", "Product Design", "Team Project"],
+    tags: ["AI Agents", "Product Design"],
     image: {
       src: startSearchHeroImage,
       alt: "StartSearch case study hero image",

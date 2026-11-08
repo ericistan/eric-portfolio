@@ -10,6 +10,11 @@ import {
   SiClaude,
   SiStorybook,
   SiGithub,
+  SiFlask,
+  SiPostgresql,
+  SiThreedotjs,
+  SiFramer,
+  SiGreensock,
 } from "react-icons/si";
 import FallingText from "../FallingText";
 import NousResearchIcon from "../icons/NousResearchIcon";
@@ -32,7 +37,7 @@ const TechStack = (props) => {
             items={items}
             trigger="click"
             hint="Click to drop"
-            gravity={0.16}
+            gravity={0.6}
             fontSize="clamp(0.9rem, 4vw, 2rem)"
             mouseConstraintStiffness={0.9}
           />
@@ -48,17 +53,22 @@ export const TechStackDefaults = {
   tagline: "Tech Stack",
   heading: "Tools I work with",
   items: [
-    { label: "JavaScript", icon: <SiJavascript className={iconClass} />, highlight: true, color: "#F7DF1E" },
     { label: "React", icon: <SiReact className={iconClass} />, highlight: true, color: "#61DAFB" },
-    { label: "Node.js", icon: <SiNodedotjs className={iconClass} />, highlight: true, color: "#3C873A" },
-    { label: "Express", icon: <SiExpress className={iconClass} />, highlight: true, color: "#FFFFFF" },
-    { label: "MongoDB", icon: <SiMongodb className={iconClass} />, highlight: true, color: "#47A248" },
-    { label: "Tailwind", icon: <SiTailwindcss className={iconClass} />, color: "#38BDF8" },
-    { label: "Figma", icon: <SiFigma className={iconClass} />, color: "#F24E1E" },
-    { label: "Webflow", icon: <SiWebflow className={iconClass} />, color: "#146EF5" },
-    { label: "Claude Code", icon: <SiClaude className={iconClass} />, color: "#D97757" },
+    { label: "JavaScript", icon: <SiJavascript className={iconClass} />, highlight: true, color: "#F7DF1E" },
+    { label: "Tailwind", icon: <SiTailwindcss className={iconClass} />, highlight: true, color: "#38BDF8" },
+    { label: "Figma", icon: <SiFigma className={iconClass} />, highlight: true, color: "#F24E1E" },
+    { label: "Framer Motion", icon: <SiFramer className={iconClass} />, color: "#FFFFFF" },
+    { label: "GSAP", icon: <SiGreensock className={iconClass} />, color: "#88CE02" },
+    { label: "Three.js", icon: <SiThreedotjs className={iconClass} />, color: "#FFFFFF" },
     { label: "Storybook", icon: <SiStorybook className={iconClass} />, color: "#FF4785" },
+    { label: "Node.js", icon: <SiNodedotjs className={iconClass} />, color: "#3C873A" },
+    { label: "Express", icon: <SiExpress className={iconClass} />, color: "#FFFFFF" },
+    { label: "MongoDB", icon: <SiMongodb className={iconClass} />, color: "#47A248" },
+    { label: "Flask", icon: <SiFlask className={iconClass} />, color: "#FFFFFF" },
+    { label: "PostgreSQL", icon: <SiPostgresql className={iconClass} />, color: "#4169E1" },
+    { label: "Webflow", icon: <SiWebflow className={iconClass} />, color: "#146EF5" },
     { label: "GitHub", icon: <SiGithub className={iconClass} />, color: "#FFFFFF" },
+    { label: "Claude Code", icon: <SiClaude className={iconClass} />, color: "#D97757" },
     { label: "Hermes", icon: <NousResearchIcon className={iconClass} />, color: "#FFFFFF" },
   ],
 };

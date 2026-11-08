@@ -77,60 +77,39 @@ export const AboutMeSectionDefaults = {
     "My natural instinct: get close to how the thing works best for users, then go build it.",
   milestones: [
     {
-      year: "2015",
-      label: "F&B Manufacturing",
-      heading: "E-commerce, ERP & supply chain fundamentals",
+      year: "2025–now",
+      label: "Zenko.gg",
+      heading: "Design engineer at a gaming platform",
       description:
-        "Learned how a business actually moves: time on the ground with line workers, project management for a new ERP system with foreign vendors, and producing product photo and video for channels like Taobao. My first lesson in how supply chain, ops, and customer-facing work are all interconnected.",
+        "Joined on UX/UI, then took on the front-end as well, so I now handle both the design and the build.",
     },
     {
-      year: "2018",
-      label: "Design Education",
-      heading: "UX/UI at Red Academy & Vancouver Film School",
+      year: "2026",
+      label: "General Assembly",
+      heading: "Software Engineering Bootcamp",
       description:
-        "Went back to school for design, learning to see products through the user's eyes.",
-    },
-    {
-      year: "2021",
-      label: "Web3 & Chainlink",
-      heading: "Shipped Web3 projects, then taught the space",
-      description:
-        "Led Web3 projects from concept to launch, then volunteered as a Chainlink Advocate, teaching others how the tech actually works.",
-    },
-    {
-      year: "2022",
-      label: "Freelance",
-      heading: "Webflow designer, Culminate Security → acquired by Datadog",
-      description:
-        "Shipped end-to-end Webflow sites for founders, from Figma file to live site, including Culminate Security, later acquired by Datadog.",
+        "Traded Figma files for pull requests to close the loop myself. Built Formjo solo and KoinSight with two teammates.",
     },
     {
       year: "2023–25",
-      label: "Accelerators & Events",
-      heading: "Silicon Valley accelerator training",
+      label: "Metafyed",
+      heading: "Co-founder and UX/UI designer",
       description:
-        "Learned to pitch and build through Hero Training and a Silicon Valley accelerator program, also planned and ran events for Metafyed at HK Fintech Week 2025 solo.",
+        "Learned to pitch and build through Hero Training and a Silicon Valley accelerator program, and planned and ran Metafyed's events at HK Fintech Week 2025 solo.",
     },
     {
-      year: "2026",
-      label: "Closing the Loop",
-      heading: "General Assembly bootcamp",
+      year: "2021–22",
+      label: "Web3 & Freelance",
+      heading: "Web3 launches and Webflow sites for founders",
       description:
-        "After years of designing products and pitching startups, decided to close the loop myself: traded Figma files for pull requests, and built KoinSight as my full-stack capstone.",
+        "Led Web3 projects from concept to launch, volunteered as a Chainlink Advocate, and shipped Webflow sites end to end, including Culminate Security, later acquired by Datadog.",
     },
     {
-      year: "2026",
-      label: "Hackathons",
-      heading: "SMU Prize, AI-building hackathon with StartSearch",
+      year: "2015–18",
+      label: "Before design",
+      heading: "F&B manufacturing, then design school",
       description:
-        "Also competing on the side: top 5 in design hackathons over the years, and this year, the SMU Prize with StartSearch.",
-    },
-    {
-      year: null,
-      label: "Today",
-      heading: "Equally at home in the design file and the codebase.",
-      description:
-        "All of it shows up in how I build now: I move fast because I've had to, and I sweat the details because design was where I started.",
+        "Learned how a business actually runs, from the factory floor to an ERP rollout, then studied UX/UI at Red Academy and Vancouver Film School.",
     },
   ],
 };

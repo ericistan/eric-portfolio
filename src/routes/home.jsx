@@ -6,6 +6,6 @@ export const meta = () =>
   buildMeta({
     title: "Eric Tan | Design Engineer",
     description:
-      "Eric Tan is a design engineer in Singapore with 4+ years designing products at startups, now building them front-end first in React. Case studies in AI, fintech, and Web3.",
+      "Eric Tan is a design engineer at Zenko.gg in Singapore, taking products from the design file to a shipped React front-end. Case studies in coaching, fintech, and AI.",
     path: "/",
   });

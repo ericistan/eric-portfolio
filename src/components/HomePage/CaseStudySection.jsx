@@ -1,9 +1,7 @@
-import { useRef } from "react";
 import { RxChevronRight } from "react-icons/rx";
 import { Link } from "react-router";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useSafeReducedMotion } from "../../lib/useSafeReducedMotion";
 import { work } from "../../data/work";
+import WorkLinks from "../Work/WorkLinks.jsx";
 
 const buttonVariants = {
   primary: "bg-text-primary text-background-primary hover:bg-text-primary/90",
@@ -46,25 +44,8 @@ const Button = ({
 };
 
 const CaseStudyCard = ({ study }) => {
-  const prefersReducedMotion = useSafeReducedMotion();
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"],
-  });
-
-  const scale = useTransform(
-    scrollYProgress,
-    [0, 0.2, 0.7, 0.9, 1],
-    [0.9, 1, 1, 0.95, 0.9],
-  );
-
   return (
-    <motion.div
-      ref={ref}
-      style={prefersReducedMotion ? undefined : { scale }}
-      className="grid grid-cols-1 gap-x-20 gap-y-6 rounded-lg border border-text-primary/10 bg-text-primary/5 p-6 md:grid-cols-[3fr_4fr] md:gap-y-20 md:p-8 lg:p-12"
-    >
+    <div className="grid grid-cols-1 gap-x-20 gap-y-6 rounded-lg border border-text-primary/10 bg-text-primary/5 p-6 md:grid-cols-[3fr_4fr] md:gap-y-20 md:p-8 lg:p-12">
       <div className="contents md:flex md:flex-col md:justify-between">
         <div>
           <p className="mb-2 font-mono text-sm font-semibold">
@@ -73,6 +54,11 @@ const CaseStudyCard = ({ study }) => {
           <h3 className="text-4xl font-bold leading-[1.2] md:text-5xl lg:text-6xl">
             {study.heading}
           </h3>
+          {study.result && (
+            <p className="mt-3 font-mono text-sm font-semibold text-accent">
+              {study.result}
+            </p>
+          )}
         </div>
         <p className="md:mt-8 md:text-md">{study.description}</p>
         {study.tags?.length > 0 && (
@@ -93,6 +79,7 @@ const CaseStudyCard = ({ study }) => {
               {button.title}
             </Button>
           ))}
+          <WorkLinks title={study.heading} links={study.links} />
         </div>
       </div>
       <div className="order-2 md:order-none">
@@ -104,7 +91,7 @@ const CaseStudyCard = ({ study }) => {
           className="aspect-[3/2] w-full object-cover"
         />
       </div>
-    </motion.div>
+    </div>
   );
 };
 
@@ -146,7 +133,7 @@ const CaseStudySection = (props) => {
 };
 
 export const CaseStudySectionDefaults = {
-  tagline: "Case Studies",
+  tagline: "Work",
   heading: "Selected work",
   studies: work
     .filter((item) => item.home)
@@ -154,6 +141,8 @@ export const CaseStudySectionDefaults = {
       tagline: item.tagline,
       heading: item.title,
       description: item.summary,
+      result: item.result,
+      links: item.links,
       tags: item.tags,
       buttons: [
         {

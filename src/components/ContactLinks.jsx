@@ -140,7 +140,7 @@ export const ContactLinksDefaults = {
       alt: "Eric Tan avatar",
     },
     fullName: "Eric Tan",
-    position: "Design-Minded Design Engineer",
+    position: "Design Engineer at Zenko.gg",
     bio: "Designing and building products end to end, Singapore 🇸🇬.",
   },
   categories: [
