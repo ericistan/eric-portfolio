@@ -1,6 +1,9 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router";
-import SideRays from "../SideRays";
+import { BiCheck, BiCopy, BiLogoLinkedinSquare } from "react-icons/bi";
 import GradientWaves from "../GradientWaves";
+
+const EMAIL = "eric.tanms@gmail.com";
 
 const buttonVariants = {
   primary: "bg-text-primary text-background-primary hover:bg-text-primary/90",
@@ -51,8 +54,37 @@ const Button = ({
   );
 };
 
+const CopyEmailButton = ({ className }) => {
+  const [copied, setCopied] = useState(false);
+
+  useEffect(() => {
+    if (!copied) return undefined;
+    const timer = setTimeout(() => setCopied(false), 1500);
+    return () => clearTimeout(timer);
+  }, [copied]);
+
+  const handleClick = async () => {
+    try {
+      await navigator.clipboard.writeText(EMAIL);
+      setCopied(true);
+    } catch {
+      window.location.href = `mailto:${EMAIL}`;
+    }
+  };
+
+  return (
+    <button type="button" onClick={handleClick} className={className}>
+      {copied ? <BiCheck className="size-5" /> : <BiCopy className="size-5" />}
+      {copied ? "Copied" : EMAIL}
+      <span aria-live="polite" className="sr-only">
+        {copied ? "Email copied" : ""}
+      </span>
+    </button>
+  );
+};
+
 const CtaSection = (props) => {
-  const { heading, description, buttons, showRays } = {
+  const { heading, description, buttons } = {
     ...CtaSectionDefaults,
     ...props,
   };
@@ -63,7 +95,10 @@ const CtaSection = (props) => {
         {heading}
       </h2>
       <p className="text-md">{description}</p>
-      <div className="mt-6 flex items-center justify-center gap-4 md:mt-8">
+      <div className="mt-6 flex flex-wrap items-center justify-center gap-4 md:mt-8">
+        <CopyEmailButton
+          className={`inline-flex min-w-64 items-center justify-center gap-2 rounded-lg transition-colors ${buttonVariants.primary} ${buttonSizes.md}`}
+        />
         {buttons.map((button, index) => (
           <Button key={index} {...button}>
             {button.title}
@@ -72,33 +107,6 @@ const CtaSection = (props) => {
       </div>
     </>
   );
-
-  if (showRays) {
-    return (
-      <section className="px-[5%] py-16 md:py-24 lg:py-28">
-        <div className="page-container">
-          <div className="relative overflow-hidden rounded-lg border border-text-primary/10 bg-text-primary/5 px-6 py-12 text-center md:px-12 md:py-16 lg:px-16 lg:py-20">
-            <div className="pointer-events-none absolute inset-0 z-0">
-              <SideRays
-                speed={2.5}
-                rayColor1="#39ff14"
-                rayColor2="#96c8ff"
-                intensity={2}
-                spread={2}
-                origin="top-right"
-                tilt={0}
-                saturation={1.5}
-                blend={0.75}
-                falloff={1.6}
-                opacity={1}
-              />
-            </div>
-            <div className="relative z-10">{content}</div>
-          </div>
-        </div>
-      </section>
-    );
-  }
 
   return (
     <section className="px-[5%] py-16 md:py-24 lg:py-28">
@@ -137,9 +145,18 @@ const CtaSection = (props) => {
 
 export const CtaSectionDefaults = {
   heading: "Like what you see? Let's work together.",
-  description: "Open to design engineer roles. Email or LinkedIn is fastest.",
-  buttons: [{ title: "Contact Me", url: "/contact" }],
-  showRays: false,
+  description:
+    "Open to design engineer roles. Email or LinkedIn is fastest: click to copy my address.",
+  buttons: [
+    {
+      title: "LinkedIn",
+      href: "https://www.linkedin.com/in/ericistan",
+      target: "_blank",
+      rel: "noreferrer",
+      variant: "secondary",
+      iconLeft: <BiLogoLinkedinSquare className="size-5" />,
+    },
+  ],
 };
 
 export default CtaSection;

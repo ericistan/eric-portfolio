@@ -119,7 +119,7 @@ const StrokeText = ({
     };
 
     const prefersReducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
-    if (prefersReducedMotion) {
+    if (prefersReducedMotion || trigger === 'static') {
       setEnd();
       return () => gsap.killTweensOf(targets);
     }

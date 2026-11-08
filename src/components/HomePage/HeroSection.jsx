@@ -1,5 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
+import { Link } from "react-router";
 import { BiLogoLinkedinSquare } from "react-icons/bi";
+import { RxChevronRight } from "react-icons/rx";
 import StrokeText from "../StrokeText";
 import etDesignerProfileImage from "../../assets/eric-designer-profile.webp";
 
@@ -97,11 +99,22 @@ const Button = ({
   iconLeft,
   iconRight,
   href,
+  url,
   className = "",
   children,
   ...props
 }) => {
   const classes = `inline-flex items-center justify-center rounded-lg transition-colors ${buttonVariants[variant]} ${buttonSizes[size]} ${className}`;
+
+  if (url) {
+    return (
+      <Link to={url} className={classes} {...props}>
+        {iconLeft}
+        {children}
+        {iconRight}
+      </Link>
+    );
+  }
 
   if (href) {
     return (
@@ -122,8 +135,34 @@ const Button = ({
   );
 };
 
+const INTRO_KEY = "hero-intro-played";
+
+// The heading draws itself on the first visit of a session only; after that
+// it renders finished, so returning to the home page doesn't replay it.
+const useIntroOnce = () => {
+  const [playIntro] = useState(() => {
+    if (typeof window === "undefined") return true;
+    try {
+      return sessionStorage.getItem(INTRO_KEY) !== "1";
+    } catch {
+      return true;
+    }
+  });
+
+  useEffect(() => {
+    try {
+      sessionStorage.setItem(INTRO_KEY, "1");
+    } catch {
+      // Storage unavailable (private mode); the intro just replays.
+    }
+  }, []);
+
+  return playIntro;
+};
+
 const Feature = (feature) => {
   const containerRef = useRef(null);
+  const playIntro = useIntroOnce();
   const headings = useMemo(() => [feature.heading], [feature.heading]);
   const headingSize = useUniformHeadingSize(headings, containerRef);
 
@@ -145,7 +184,7 @@ const Feature = (feature) => {
             fillDelay={0.5}
             stagger={0.025}
             ease="power2.out"
-            trigger="mount"
+            trigger={playIntro ? "mount" : "static"}
             fillMode="wipe"
             fontSize={headingSize.fontSize}
             fontWeight={HEADING_FONT_WEIGHT}
@@ -192,8 +231,14 @@ export const HeroSectionDefaults = {
   tagline: "Design Engineer · Singapore",
   heading: "Design led. Code shipped.",
   description:
-    "4+ years designing products at startups. Now I build them too, front-end first, with React and Tailwind.",
+    "Design engineer at Zenko.gg, a gaming platform, where I started in UX/UI and now build the front-end too. Before that, I co-founded Metafyed as its UX/UI designer and built Webflow sites for founders, including Culminate Security (acquired by Datadog).",
   buttons: [
+    {
+      title: "See my work",
+      url: "/work",
+      variant: "primary",
+      iconRight: <RxChevronRight />,
+    },
     {
       title: "LinkedIn",
       href: "https://www.linkedin.com/in/ericistan",
