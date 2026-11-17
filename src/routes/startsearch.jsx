@@ -6,6 +6,6 @@ export const meta = () =>
   buildMeta({
     title: "StartSearch Case Study | Eric Tan",
     description:
-      "StartSearch is an AI agent dashboard built for accelerator programmes like SMU IIE, tracking every graduated startup from the outside with persistent memory that gets smarter every run.",
+      "StartSearch is an AI agent dashboard for accelerator programmes like SMU IIE. It tracks every graduated startup from public signals and keeps persistent memory across runs.",
     path: "/case-study/startsearch",
   });

@@ -74,42 +74,42 @@ export const AboutMeSectionDefaults = {
   tagline: "About Me",
   heading: "How I got here.",
   description:
-    "My natural instinct: get close to how the thing works best for users, then go build it.",
+    "I like to get close to how a thing works for the people using it, then build it. I try new tools early and keep what helps me ship, which is how I moved from Figma to Paper.design.",
   milestones: [
     {
       year: "2025–now",
       label: "Zenko.gg",
-      heading: "Design engineer at a gaming platform",
+      heading: "Part-time design engineer",
       description:
-        "Joined on UX/UI, then took on the front-end as well, so I now handle both the design and the build.",
+        "I joined on UX/UI and took on the front-end as well. I design in Paper.design, write the Storybook stories, and ship to production in React every week.",
     },
     {
       year: "2026",
       label: "General Assembly",
       heading: "Software Engineering Bootcamp",
       description:
-        "Traded Figma files for pull requests to close the loop myself. Built Formjo solo and KoinSight with two teammates.",
+        "I wanted to build what I design without waiting on a handoff. I built Formjo solo and KoinSight with two teammates.",
     },
     {
       year: "2023–25",
       label: "Metafyed",
       heading: "Co-founder and UX/UI designer",
       description:
-        "Learned to pitch and build through Hero Training and a Silicon Valley accelerator program, and planned and ran Metafyed's events at HK Fintech Week 2025 solo.",
+        "I led UX/UI from zero to MVP and learned to pitch through Hero Training and a Silicon Valley accelerator program. I also planned and ran our events at HK Fintech Week 2025 on my own.",
     },
     {
       year: "2021–22",
       label: "Web3 & Freelance",
       heading: "Web3 launches and Webflow sites for founders",
       description:
-        "Led Web3 projects from concept to launch, volunteered as a Chainlink Advocate, and shipped Webflow sites end to end, including Culminate Security, later acquired by Datadog.",
+        "I led Web3 projects from concept to launch and volunteered as a Chainlink Advocate. I also designed and shipped Webflow sites for founders. One of them was Culminate Security, later acquired by Datadog.",
     },
     {
       year: "2015–18",
       label: "Before design",
       heading: "F&B manufacturing, then design school",
       description:
-        "Learned how a business actually runs, from the factory floor to an ERP rollout, then studied UX/UI at Red Academy and Vancouver Film School.",
+        "I worked on the factory floor and ran an ERP rollout, which taught me how a business runs end to end. Then I studied UX/UI at Red Academy and Vancouver Film School.",
     },
   ],
 };

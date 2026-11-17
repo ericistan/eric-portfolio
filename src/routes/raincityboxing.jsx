@@ -6,6 +6,6 @@ export const meta = () =>
   buildMeta({
     title: "Raincity Boxing Case Study | Eric Tan",
     description:
-      "A website for a Richmond, BC boxing gym and wellness studio, built to turn curious visitors into trial sign-ups with clear pricing, real member stories, and a fast path to booking.",
+      "A website for a Richmond, BC boxing gym and wellness studio, with clear pricing, member testimonials, and a short path to booking a free trial.",
     path: "/case-study/raincityboxing",
   });

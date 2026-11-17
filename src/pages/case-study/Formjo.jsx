@@ -36,7 +36,7 @@ import formjoScreens from "../../assets/formjo-screens.webp";
 const header = {
   heading: "Formjo",
   description:
-    "Coach Smarter. Train Better. Formjo is a platform for coaches to assign structured training, review athlete video submissions, and deliver personalised feedback. Designed and built solo, from Figma wireframe to shipped product.",
+    "Formjo is a platform for coaches to assign structured training, review athlete video submissions, and give personalised feedback. I designed and built it solo, from Figma wireframe to working app.",
   tags: [
     { label: "Coaching Platform" },
     { label: "Full-Stack Development" },
@@ -104,25 +104,25 @@ const resultsItems = [
     icon: <Database className="size-6" />,
     title: "Full CRUD Workflows",
     description:
-      "Complete create/read/update/delete flows for lessons, modules, assignments, submissions, and feedback.",
+      "Create, read, update and delete flows for lessons, modules, assignments, submissions, and feedback.",
   },
   {
     icon: <Palette className="size-6" />,
     title: "Deterministic Cover Art",
     description:
-      "Gradient lesson covers generated from module ID, giving each lesson a unique visual identity with zero image assets.",
+      "Gradient lesson covers generated from the module ID. Each lesson gets its own look with no image assets.",
   },
   {
     icon: <Microphone className="size-6" />,
     title: "In-Browser Voice Feedback",
     description:
-      "Recorded via the Web Audio API and MediaRecorder, uploaded to Cloudinary, gated behind a localStorage consent flow.",
+      "Recorded with the Web Audio API and MediaRecorder, uploaded to Cloudinary, and gated by a localStorage consent flow.",
   },
   {
     icon: <YoutubeLogo className="size-6" />,
     title: "Universal YouTube Embeds",
     description:
-      "A single regex normalizes any YouTube URL format into an embeddable video ID.",
+      "A single regex turns any YouTube URL format into an embeddable video ID.",
   },
   {
     icon: <ChatsCircle className="size-6" />,
@@ -134,7 +134,7 @@ const resultsItems = [
     icon: <Gauge className="size-6" />,
     title: "Automatic Progress Tracking",
     description:
-      "Marking a lesson complete recalculates progress against the module and auto-flips the assignment to completed once every lesson is done, with no manual status updates.",
+      "Marking a lesson complete recalculates progress against the module. The assignment flips to completed once every lesson is done.",
   },
 ];
 
@@ -145,50 +145,47 @@ const sections = [
     content: (
       <>
         <p>
-          This case study showcases redesigning Formjo's core features to
-          address key pain points, enhance user satisfaction, and support
-          business growth.
+          This case study covers how I designed and built Formjo's core
+          features around the pain points I saw at a boxing gym.
         </p>
         <h3>About Formjo</h3>
         <p>
           Formjo is a platform for coaches to assign structured training, review
-          athlete video submissions, and deliver personalised feedback. This
-          case study covers the redesign of three key features:
+          athlete video submissions, and give personalised feedback. It has
+          three core features:
         </p>
         <ul>
           <li>
-            <strong>Training Builder</strong>: assign structured programs with
-            reps, sets, and video demos.
+            <strong>Training Builder.</strong> Coaches assign structured programs
+            with reps, sets, and video demos.
           </li>
           <li>
-            <strong>Video and audio recording Review</strong>: coaches annotate
-            athlete submissions with timestamped feedback.
+            <strong>Video and Audio Review.</strong> Coaches annotate athlete
+            submissions with timestamped feedback.
           </li>
           <li>
-            <strong>Progress Dashboard</strong>: a visual overview of athlete
+            <strong>Progress Dashboard.</strong> A visual overview of athlete
             adherence and improvement.
           </li>
         </ul>
         <h3>Problem & Ideation</h3>
         <p>
-          The idea for Formjo came from training at a boxing gym, where I
-          noticed several coaches who do personal training were struggling to
-          keep track of their clients' progress. The usual workflow was to share
-          and track progress over messaging apps like WhatsApp.
+          The idea for Formjo came from training at a boxing gym. Several
+          coaches who do personal training were struggling to keep track of
+          their clients' progress. They shared and tracked progress over
+          messaging apps like WhatsApp.
         </p>
         <p>
-          That broke down over time, old videos and recordings got buried as
-          conversation histories grew, with no easy way to look back on a
-          client's progress. One of the coaches eventually asked me if there was
-          a better way to handle it.
+          That broke down over time. Old videos and recordings got buried as
+          conversation histories grew, and there was no easy way to look back on
+          a client's progress. One of the coaches eventually asked me if there
+          was a better way to handle it.
         </p>
         <p>
-          My first suggestion was to use something like Notion, but it was soon
-          clear that was too complex for their workflow. Coaches would forget to
-          check in, clients would forget to log updates, and without a simple,
-          structured feedback loop, neither side had real accountability ,
-          leaving athletes without the consistent guidance they needed to
-          improve.
+          My first suggestion was Notion, but it was too complex for their
+          workflow. Coaches forgot to check in and clients forgot to log
+          updates. Without a simple feedback loop, neither side was
+          accountable, and athletes went without steady guidance.
         </p>
         <CaseStudyImage src={formjoPainPoints} alt="Formjo pain points" />
         <CaseStudyImage src={formjoHowMightWe} alt="Formjo how might we" />
@@ -206,33 +203,32 @@ const sections = [
           (間) Negative Space
         </p>
         <p>
-          Formjo is built on three Japanese concepts that map directly to the
-          product's core behaviours, a reflection on my experience at a boxing
-          gym managed by a coach who treats their students with respect through
-          Asian philosophy. The colour palette and typography reflect the spirit
-          of a dojo, where student and master train and grow.
+          Formjo is built on three Japanese concepts that map to the product's
+          core behaviours. They come from my time at a boxing gym where the
+          coach treats students with respect through Asian philosophy. The
+          colour palette and typography reflect the spirit of a dojo, where
+          student and master train and grow.
         </p>
         <ul>
           <li>
-            <strong>Amber Fire #D46A1A</strong>:is the primary accent. Warm and
-            energetic without being aggressive, the colour of a candle in a dojo
-            rather than a warning signal.
+            <strong>Amber Fire #D46A1A</strong> is the primary accent. It's
+            warm and energetic, the colour of a candle in a dojo.
           </li>
           <li>
-            <strong>Washi #F5F0E8 and Parchment #E8E0D0</strong>: replace cold
-            grey or pure white as backgrounds. Under gym fluorescent lighting,
-            warm off-whites are significantly easier on the eye than neutral
-            greys.
+            <strong>Washi #F5F0E8 and Parchment #E8E0D0</strong> are the
+            backgrounds. Under gym fluorescent lighting, warm off-whites are
+            easier on the eye than neutral greys.
           </li>
           <li>
-            <strong>Bamboo #3D6B45</strong>: appears only for success states. A
-            single semantic colour keeps meaning clear and avoids visual noise
-            across an already warm palette.
+            <strong>Bamboo #3D6B45</strong> appears only for success states. One
+            semantic colour keeps the meaning clear across an already warm
+            palette.
           </li>
           <li>
-            <strong>Bebas Neue & Dm Sans</strong>: A condensed all-caps display
-            face with roots in athletic and sports branding. DM Sans pair for
-            offering warmth and legibility at small sizes.
+            <strong>Bebas Neue & DM Sans</strong> are the typefaces. Bebas Neue
+            is a condensed all-caps display face with roots in athletic and
+            sports branding. DM Sans adds warmth and stays legible at small
+            sizes.
           </li>
         </ul>
         <CaseStudyImage src={formjoPinterest} alt="Formjo Pinterest board" />
@@ -248,10 +244,10 @@ const sections = [
       <>
         <p>
           With the product direction and visual language settled, I moved from
-          lo-fi wireframes into a 13-table Postgres schema before writing a
-          single line of frontend code: the coach/student data model,
-          lesson-to-module relationships, and assignment tracking all needed to
-          hold together before anything else could be built on top.
+          lo-fi wireframes into a 13-table Postgres schema before writing any
+          frontend code. The coach/student data model, lesson-to-module
+          relationships, and assignment tracking all had to hold together
+          first.
         </p>
 
         <div>
@@ -260,8 +256,8 @@ const sections = [
           </p>
           <p>
             Formjo is a Flask REST API talking to a React/Vite frontend over
-            JWT, with Postgres as the source of truth. A few of the decisions
-            behind that were deliberate tradeoffs, not defaults:
+            JWT, with Postgres as the source of truth. A few decisions behind
+            that were deliberate tradeoffs.
           </p>
           <br />
           <div className="flex flex-wrap gap-x-8 gap-y-6">
@@ -278,38 +274,35 @@ const sections = [
         </div>
         <ul>
           <li>
-            <strong>No ORM.</strong> I reached for raw SQL via psycopg2
-            (RealDictCursor, so rows come back as plain dicts) instead of
-            SQLAlchemy. With 13 tables and a handful of multi-table joins for
-            assignment progress, I wanted to see and control the exact query
-            being run rather than reason through an abstraction on top of it.
+            <strong>Raw SQL.</strong> I used psycopg2 with RealDictCursor, so
+            rows come back as plain dicts. With 13 tables and a handful of
+            multi-table joins for assignment progress, I wanted to see and
+            control the exact query being run.
           </li>
           <br />
           <li>
-            <strong>Uploads bypass the backend entirely.</strong> Video and
-            voice submissions go straight from the browser to Cloudinary via the
-            Upload Widget for file/YouTube uploads, and a raw <code>fetch</code>{" "}
-            + <code>FormData</code> POST for the in-browser voice recordings,
-            since those exist only as an in-memory <code>Blob</code>.
+            <strong>Uploads go straight to Cloudinary.</strong> Video and voice
+            submissions skip the backend. File and YouTube uploads use the
+            Upload Widget. In-browser voice recordings use a raw{" "}
+            <code>fetch</code> + <code>FormData</code> POST, since they exist
+            only as an in-memory <code>Blob</code>.
           </li>
           <br />
           <li>
-            <strong>Theming is role-based, not user-selectable.</strong> Coach
-            defaults to dark mode, student to light, toggled by flipping a class
-            on <code>&lt;html&gt;</code> from <code>AuthContext</code> on login.
-            It's a small thing, but it's the design system's "student and
-            master" framing actually showing up in code, not just the style
-            guide. In fugure iterations, I would add a theme toggle for user
-            choice.
+            <strong>Role-based theming.</strong> Coaches get dark mode and
+            students get light. <code>AuthContext</code> flips a class on{" "}
+            <code>&lt;html&gt;</code> on login. It's a small thing, but it puts
+            the design system's "student and master" framing into the code as
+            well as the style guide. In a future iteration, I would add a theme
+            toggle.
           </li>
           <br />
           <li>
-            <strong>Voice Feedback</strong> Coaches needed a faster way to leave
-            feedback than typing, so comments can carry a voice note as an
-            option. It records in-browser with <code>getUserMedia</code> and{" "}
-            <code>MediaRecorder</code>, The recorder itself just hands a{" "}
-            <code>Blob</code> back to the parent component, which owns the
-            preview and upload.
+            <strong>Voice feedback.</strong> Coaches needed a faster way to
+            leave feedback than typing, so comments can carry a voice note. It
+            records in the browser with <code>getUserMedia</code> and{" "}
+            <code>MediaRecorder</code>. The recorder hands a <code>Blob</code>{" "}
+            back to the parent component, which owns the preview and upload.
           </li>
         </ul>
         <CaseStudyImage
@@ -327,7 +320,7 @@ const sections = [
   },
   {
     id: "Outcomes",
-    label: "Outcomes",
+    label: "What I Built",
     content: (
       <>
         <div className="flex justify-center">

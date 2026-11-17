@@ -6,6 +6,6 @@ export const meta = () =>
   buildMeta({
     title: "Work | Eric Tan",
     description:
-      "Case studies, client work, and side quests (hackathons, side projects, experiments) by Eric Tan, a design engineer in Singapore.",
+      "Case studies, client work and side quests by Eric Tan, a design engineer in Singapore.",
     path: "/work",
   });

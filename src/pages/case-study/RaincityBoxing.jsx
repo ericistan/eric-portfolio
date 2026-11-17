@@ -19,7 +19,7 @@ import raincityBoxingHeroImage from "../../assets/case-study_raincity-boxing-her
 const header = {
   heading: "Raincity Boxing",
   description:
-    "A website for a Richmond, BC boxing gym and wellness studio, built to turn curious visitors into trial sign-ups with clear pricing, real member stories, and a fast path to booking.",
+    "A website for a Richmond, BC boxing gym and wellness studio. It has clear pricing, member testimonials, and a short path to booking a free trial.",
   tags: [
     { label: "Web Design" },
     { label: "Branding" },
@@ -61,7 +61,7 @@ const resultsItems = [
     icon: <Ticket className="size-6" />,
     title: "Free Trial Sign-Up",
     description:
-      "A direct path from curious visitor to booked trial class, integrated with Zenplanner instead of ending in a phone call.",
+      "A path from first visit to a booked trial class, integrated with Zenplanner.",
   },
   {
     icon: <Heartbeat className="size-6" />,
@@ -73,7 +73,7 @@ const resultsItems = [
     icon: <Tag className="size-6" />,
     title: "Transparent Pricing",
     description:
-      "Eight-plus membership tiers with cancellation, freeze, and penalty terms stated upfront, not hidden behind a contact form.",
+      "Eight-plus membership tiers with cancellation, freeze, and penalty terms stated upfront.",
   },
   {
     icon: <Trophy className="size-6" />,
@@ -85,13 +85,13 @@ const resultsItems = [
     icon: <Star className="size-6" />,
     title: "Social Proof",
     description:
-      "Member testimonials with photos and a direct link out to Google reviews, built to reduce hesitation before signing up.",
+      "Member testimonials with photos and a direct link to Google reviews.",
   },
   {
     icon: <MapPin className="size-6" />,
     title: "Practical Info at a Glance",
     description:
-      "Hours, address, and social links surfaced clearly, so visitors aren't hunting for basics before they walk in.",
+      "Hours, address, and social links are easy to find before visitors walk in.",
   },
 ];
 
@@ -102,44 +102,42 @@ const sections = [
     content: (
       <>
         <p>
-          Raincity Boxing & Fitness needed a website that could do more than
-          list services, it needed to turn a curious visitor into a booked
-          trial, without a phone call in between.
+          Raincity Boxing & Fitness needed a website that gets a curious
+          visitor to a booked trial without a phone call in between. I
+          designed and built it solo.
         </p>
         <h3>About Raincity Boxing</h3>
         <p>
           Raincity Boxing & Fitness is a boxing gym and wellness studio in
-          Richmond, BC, combining boxing training, open gym access, massage
-          therapy, and physiotherapy under one roof for members of every
-          experience level. The site covers:
+          Richmond, BC. It offers boxing training, open gym access, massage
+          therapy, and physiotherapy under one roof, for members of every
+          experience level. The site covers the following.
         </p>
         <ul>
           <li>
-            <strong>Program Pages</strong>: general boxing, youth & teens,
-            private training, and the competitive Fighter's Club, each with
-            its own page.
+            <strong>Program Pages.</strong> General boxing, youth & teens,
+            private training, and the competitive Fighter's Club each have
+            their own page.
           </li>
           <li>
-            <strong>Transparent Pricing</strong>: eight-plus membership
+            <strong>Transparent Pricing.</strong> Eight-plus membership
             tiers with cancellation and freeze terms stated upfront.
           </li>
           <li>
-            <strong>Integrated Booking</strong>: free trial sign-up via
+            <strong>Integrated Booking.</strong> Free trial sign-up via
             Zenplanner, wellness appointments via Jane App.
           </li>
           <li>
-            <strong>Social Proof</strong>: member testimonials and a direct
+            <strong>Social Proof.</strong> Member testimonials and a direct
             link to Google reviews.
           </li>
         </ul>
         <h3>Problem</h3>
         <p>
-          Local gyms often lose potential members to friction: hidden
-          pricing, unclear cancellation terms, and booking flows that
-          dead-end in a phone call instead of a signup. Raincity needed a
-          site that answered those questions upfront and got a curious
-          visitor into a free trial without needing to speak to the front
-          desk first.
+          Local gym sites often hide pricing, leave cancellation terms
+          unclear, and send booking through a phone call. Raincity needed a
+          site that answers those questions upfront. A curious visitor can
+          book a free trial without speaking to the front desk first.
         </p>
       </>
     ),
@@ -149,13 +147,12 @@ const sections = [
     label: "Design",
     content: (
       <p>
-        The brand leans into "evolve through the power of movement", dark
+        The brand uses the line "evolve through the power of movement", dark
         tones with energetic accent colours, and action photography of real
-        training sessions, aiming for aspirational rather than
-        intimidating. The same visual system has to hold two different
-        promises at once: serious enough for competitive Fighter's Club
-        boxers, approachable enough for a first-time visitor bringing their
-        teenager to a beginner class.
+        training sessions. The look aims to be aspirational. The same visual
+        system has to hold two promises. It has to be serious enough for
+        competitive Fighter's Club boxers. It also has to suit a first-time
+        visitor bringing their teenager to a beginner class.
       </p>
     ),
   },
@@ -165,51 +162,45 @@ const sections = [
     content: (
       <>
         <p>
-          The site is structured around who's visiting, not a generic
-          About/Services/Contact template. A first-time visitor, a
-          competitive boxer, and an existing member booking a massage all
-          need a different fast path, so each gets its own.
+          I structured the site around who's visiting. A first-time visitor,
+          a competitive boxer, and an existing member booking a massage each
+          need a different fast path, so each gets their own.
         </p>
         <h3>Key Decisions</h3>
         <ul>
           <li>
             <strong>Intent-based structure.</strong> Program pages are
-            split by audience (general, youth & teens, Fighter's Club,
-            private training) instead of one page trying to serve everyone
-            at once.
+            split by audience: general, youth & teens, Fighter's Club, and
+            private training. Each page speaks to one group.
           </li>
           <li>
-            <strong>Two booking systems, one coherent flow.</strong>{" "}
-            Zenplanner handles gym trials and classes, Jane App handles
-            wellness appointments, both surfaced directly where they're
-            relevant instead of dumping every visitor onto the same
-            generic "book now" link.
+            <strong>Two booking systems, one flow.</strong>{" "}
+            Zenplanner handles gym trials and classes. Jane App handles
+            wellness appointments. Each one appears on the page where it's
+            relevant.
           </li>
           <li>
             <strong>Pricing stated upfront.</strong> Membership tiers,
-            cancellation notice, and freeze policy are all on the page,
-            not behind a "contact us for rates" wall, since hidden pricing
-            is one of the biggest reasons people bounce before signing up.
+            cancellation notice, and freeze policy are all on the page.
+            Visitors shouldn't have to ask for rates.
           </li>
         </ul>
 
         <h3>What I'd Do Differently</h3>
-        <p>A few things worth naming honestly:</p>
+        <p>A few things I'd still change.</p>
         <ul>
           <li>
             <strong>Booking still spans two separate tools.</strong>{" "}
-            Zenplanner and Jane App aren't unified, a member has to know
+            Zenplanner and Jane App aren't unified. A member has to know
             which system to use for which kind of appointment.
           </li>
           <li>
             <strong>No combined schedule view.</strong> Browsing class
-            times still means leaving the pricing/signup flow rather than
-            seeing both in one place.
+            times means leaving the pricing and signup flow.
           </li>
           <li>
             <strong>Testimonials are maintained by hand.</strong> A live
-            feed pulling in fresh Google reviews automatically would keep
-            the page current without manual updates.
+            feed of Google reviews would keep the page current.
           </li>
         </ul>
       </>
@@ -217,7 +208,7 @@ const sections = [
   },
   {
     id: "Outcomes",
-    label: "Outcomes",
+    label: "What I Built",
     content: (
       <div className="flex justify-center">
         <BentoHighlights items={resultsItems} />

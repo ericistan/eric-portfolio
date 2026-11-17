@@ -141,7 +141,7 @@ export const ContactLinksDefaults = {
     },
     fullName: "Eric Tan",
     position: "Design Engineer at Zenko.gg",
-    bio: "Designing and building products end to end, Singapore 🇸🇬.",
+    bio: "I design and build products in Singapore.",
   },
   categories: [
     {

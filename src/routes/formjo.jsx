@@ -6,6 +6,6 @@ export const meta = () =>
   buildMeta({
     title: "Formjo Case Study | Eric Tan",
     description:
-      "Formjo is a platform for coaches to assign structured training, review athlete video submissions, and deliver personalised feedback, designed and built solo from Figma wireframe to shipped product.",
+      "Formjo is a platform for coaches to assign structured training, review athlete video submissions, and give personalised feedback. Eric Tan designed and built it solo.",
     path: "/case-study/formjo",
   });

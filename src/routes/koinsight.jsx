@@ -6,6 +6,6 @@ export const meta = () =>
   buildMeta({
     title: "KoinSight Case Study | Eric Tan",
     description:
-      "KoinSight is a crypto portfolio tracker built by a team of three at General Assembly's Software Engineering Bootcamp in under two weeks, with Eric Tan as frontend developer and UX engineer.",
+      "KoinSight is a crypto portfolio tracker. A team of three built it at General Assembly's Software Engineering Bootcamp in under two weeks. Eric Tan was the frontend developer and UX engineer.",
     path: "/case-study/koinsight",
   });

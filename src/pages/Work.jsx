@@ -105,8 +105,8 @@ const Work = () => {
                 Everything I&apos;ve designed and built
               </h1>
               <p className="text-md">
-                Case studies with the full process, plus client work and side
-                quests: hackathons, side projects, and experiments.
+                Case studies show the full process. Below them are client work
+                and side quests, like hackathons and experiments.
               </p>
             </header>
 
