@@ -80,12 +80,15 @@ const StrokeText = ({
     };
 
     measure();
-    if (typeof document !== 'undefined' && document.fonts?.ready) {
-      document.fonts.ready.then(measure).catch(() => {});
-    }
+    const fonts = typeof document !== 'undefined' ? document.fonts : undefined;
+    fonts?.ready.then(measure).catch(() => {});
+    // A web font can finish loading after `ready` resolves (e.g. after a
+    // client navigation), which leaves the box sized to the fallback font.
+    fonts?.addEventListener?.('loadingdone', measure);
 
     return () => {
       cancelled = true;
+      fonts?.removeEventListener?.('loadingdone', measure);
     };
   }, [characters, fontSize, fontWeight, letterSpacing, strokeWidth]);
 

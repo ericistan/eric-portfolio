@@ -15,13 +15,14 @@ import NotFound from "./pages/NotFound.jsx";
 import { useSafeReducedMotion } from "./lib/useSafeReducedMotion";
 import interFont from "@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url";
 import jetbrainsMonoFont from "@fontsource-variable/jetbrains-mono/files/jetbrains-mono-latin-wght-normal.woff2?url";
-import sourceSerifFont from "@fontsource-variable/source-serif-4/files/source-serif-4-latin-wght-normal.woff2?url";
+import dDinFont from "./assets/fonts/D-DIN.woff2?url";
+import dDinBoldFont from "./assets/fonts/D-DIN-Bold.woff2?url";
 import "lenis/dist/lenis.css";
 import "./index.css";
 import "./App.css";
 
 export const links = () =>
-  [interFont, jetbrainsMonoFont, sourceSerifFont].map((href) => ({
+  [interFont, jetbrainsMonoFont, dDinFont, dDinBoldFont].map((href) => ({
     rel: "preload",
     href,
     as: "font",

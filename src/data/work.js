@@ -66,7 +66,7 @@ export const work = [
     year: "May 2026",
     role: "Frontend Developer, UX Engineer",
     summary:
-      "A crypto portfolio tracker built with two teammates at General Assembly's Software Engineering Bootcamp. I was the frontend developer and UX engineer, building the landing page, dashboard, and component system in React and Three.js.",
+      "A crypto portfolio tracker built with two teammates at General Assembly's Software Engineering Bootcamp. I was the frontend developer and UX engineer. I built the landing page, dashboard, and component system in React and Three.js.",
     tags: ["Frontend Development", "UX Engineering", "Three.js"],
     image: {
       src: koinSightHeroImage,
@@ -90,7 +90,7 @@ export const work = [
     year: "2026",
     role: "UX Research & Design, Lead Builder (Manus AI)",
     summary:
-      "Alumni Intelligence tracks every SMU IIE alumni startup from the outside, no founder opt-in required. Built with teammates during a hackathon using Manus AI, EXA, and Mem0 for persistent agent memory.",
+      "Alumni Intelligence tracks every SMU IIE alumni startup from public signals, so founders don't have to report in. We built it at a hackathon with Manus AI, EXA, and Mem0 for persistent agent memory.",
     tags: ["AI Agents", "Product Design"],
     image: {
       src: startSearchHeroImage,
@@ -106,7 +106,7 @@ export const work = [
     tagline: "Client Website",
     title: "Raincity Boxing",
     summary:
-      "A website for a Richmond, BC boxing gym and wellness studio, built to turn curious visitors into trial sign-ups with clear pricing, real member stories, and a fast path to booking.",
+      "A website for a Richmond, BC boxing gym and wellness studio. It has clear pricing, member testimonials, and a short path to booking a free trial.",
     year: "2026",
     role: "Solo Designer & Developer",
     tags: [

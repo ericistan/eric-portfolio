@@ -31,12 +31,16 @@ const FallingText = ({
   mouseConstraintStiffness = 0.2,
   fontSize = "1rem",
   hint,
+  // Optional controlled mode, so several boxes can drop together.
+  started,
+  onTrigger,
 }) => {
   const containerRef = useRef(null);
   const textRef = useRef(null);
   const canvasContainerRef = useRef(null);
 
-  const [effectStarted, setEffectStarted] = useState(false);
+  const [startedInternally, setEffectStarted] = useState(false);
+  const effectStarted = started ?? startedInternally;
 
   const wordItems =
     items ??
@@ -227,7 +231,8 @@ const FallingText = ({
 
   const handleTrigger = () => {
     if (!effectStarted && (trigger === "click" || trigger === "hover")) {
-      setEffectStarted(true);
+      if (onTrigger) onTrigger();
+      else setEffectStarted(true);
     }
   };
 
@@ -272,7 +277,7 @@ const FallingText = ({
           return (
             <div
               key={index}
-              className="mx-1 inline-flex select-none items-center gap-1.5 rounded-full border px-3 py-1.5 align-middle md:gap-2 md:px-4 md:py-2"
+              className="mx-1 inline-flex select-none items-center whitespace-nowrap gap-1.5 rounded-full border px-3 py-1.5 align-middle md:gap-2 md:px-4 md:py-2"
               style={{
                 borderColor: color,
                 backgroundColor: color,

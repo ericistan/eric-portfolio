@@ -1,7 +1,23 @@
 @import "tailwindcss";
 @import "@fontsource-variable/inter";
 @import "@fontsource-variable/jetbrains-mono";
-@import "@fontsource-variable/source-serif-4";
+
+/* D-DIN by Datto, SIL Open Font License 1.1 (see assets/fonts/D-DIN-OFL.txt). */
+@font-face {
+  font-family: "D-DIN";
+  src: url("./assets/fonts/D-DIN.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "D-DIN";
+  src: url("./assets/fonts/D-DIN-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
 
 @theme {
   --breakpoint-md: 768px;
@@ -13,7 +29,7 @@
   --text-md: 1.125rem;
   --text-md--line-height: 1.5;
   --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
-  --font-heading: "Source Serif 4 Variable", ui-serif, serif;
+  --font-heading: "D-DIN", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono Variable", ui-monospace, monospace;
 }
 

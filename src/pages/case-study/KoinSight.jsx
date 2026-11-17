@@ -65,7 +65,7 @@ const WatchlistVideo = () => {
 const header = {
   heading: "KoinSight",
   description:
-    "Monitor your holdings, log every transaction, and understand your performance, all in one place. KoinSight is a crypto portfolio tracker built by a team of three at General Assembly's Software Engineering Bootcamp, in under two weeks. I was the frontend developer and UX engineer.",
+    "KoinSight is a crypto portfolio tracker. A team of three built it at General Assembly's Software Engineering Bootcamp in under two weeks. I was the frontend developer and UX engineer.",
   tags: [
     { label: "Frontend Development" },
     { label: "UX Engineering" },
@@ -133,37 +133,37 @@ const resultsItems = [
     icon: <ChartLineUp className="size-6" />,
     title: "Real-Time Portfolio Tracking",
     description:
-      "Total value and asset allocation visualized with Recharts, auto-refreshing every 5 minutes so the dashboard stays current without a manual reload.",
+      "Total value and asset allocation charted with Recharts. The dashboard refreshes every 5 minutes.",
   },
   {
     icon: <ArrowsLeftRight className="size-6" />,
     title: "Transaction Logging",
     description:
-      "Full buy/sell/transfer CRUD with live-computed totals, editable history, and cost basis tied to every asset.",
+      "Buy, sell and transfer CRUD with live-computed totals, editable history, and cost basis for every asset.",
   },
   {
     icon: <Coins className="size-6" />,
     title: "Live Market Data",
     description:
-      "Prices and market data for 250+ cryptocurrencies pulled from CoinGecko, with a live scrolling ticker on the landing page.",
+      "Prices and market data for 250+ cryptocurrencies from CoinGecko, with a scrolling ticker on the landing page.",
   },
   {
     icon: <Sparkle className="size-6" />,
-    title: "Custom Text Reveal Animation",
+    title: "Text Reveal Animation",
     description:
-      "A hand-built matrix-style decrypt effect for hero text and stat numbers, with hover, click, and scroll-triggered reveal modes.",
+      "A matrix-style decrypt effect for hero text and stat numbers, adapted from React Bits' DecryptedText. It reveals on hover, on click, or on scroll.",
   },
   {
     icon: <Cube className="size-6" />,
-    title: "Immersive Landing Page",
+    title: "Shader Landing Page",
     description:
-      "A raw Three.js and GLSL shader background of animated, mouse-reactive rings, with WebGL-capability detection and a graceful fallback.",
+      "A raw Three.js and GLSL shader background of animated, mouse-reactive rings. It checks for WebGL support and falls back when it is missing.",
   },
   {
     icon: <Lock className="size-6" />,
     title: "Secure Authentication",
     description:
-      "JWT-based sign-up and login with bcrypt-hashed passwords, protecting every user's holdings and transaction history.",
+      "JWT-based sign-up and login with bcrypt-hashed passwords. Each user's holdings and transaction history sit behind it.",
   },
 ];
 
@@ -174,37 +174,36 @@ const sections = [
     content: (
       <>
         <p>
-          KoinSight is a full-stack crypto portfolio tracker I built with two
-          teammates, Lincoln and Kenneth, as our capstone project at General
-          Assembly's Software Engineering Bootcamp, shipped in under two weeks.
-          I was the frontend developer and UX engineer: the landing page, the
-          portfolio dashboard, the component system, and the UI details all ran
-          through me, while Lincoln architected the database schema, REST API,
-          and CoinGecko integration, and Kenneth built the authentication system
-          and transaction flow end-to-end.
+          KoinSight is a full-stack crypto portfolio tracker. I built it with
+          two teammates, Lincoln and Kenneth, as our capstone project at General
+          Assembly's Software Engineering Bootcamp, in under two weeks. I was
+          the frontend developer and UX engineer. I built the landing page, the
+          portfolio dashboard, the component system, and the UI details.
+          Lincoln designed the database schema, REST API, and CoinGecko
+          integration. Kenneth built the authentication system and the
+          transaction flow end to end.
         </p>
         <h3>About KoinSight</h3>
         <p>
           KoinSight lets crypto investors monitor their holdings, log every
-          transaction, and understand their performance, all in one place,
-          instead of juggling spreadsheets or a single exchange's dashboard.
-          Core features include:
+          transaction, and see their performance in one place. Core features
+          include:
         </p>
         <ul>
           <li>
-            <strong>JWT Authentication</strong>: secure sign-up and login with
+            <strong>JWT Authentication.</strong> Sign-up and login with
             bcrypt-hashed passwords.
           </li>
           <li>
-            <strong>Transaction Management</strong>: full CRUD for buy, sell,
-            and transfer transactions.
+            <strong>Transaction Management.</strong> CRUD for buy, sell, and
+            transfer transactions.
           </li>
           <li>
-            <strong>Real-Time Portfolio Tracking</strong>: live holdings and
-            performance visualized with Recharts.
+            <strong>Portfolio Tracking.</strong> Holdings and performance charted
+            with Recharts.
           </li>
           <li>
-            <strong>Live Market Data</strong>: current prices and history for
+            <strong>Live Market Data.</strong> Current prices and history for
             250+ cryptocurrencies, synced from the CoinGecko API.
           </li>
         </ul>
@@ -215,12 +214,12 @@ const sections = [
         />
         <h3>Problem & Ideation</h3>
         <p>
-          Most crypto investors track their holdings across multiple exchanges
-          and wallets, with no single source of truth for what they actually own
-          or how it's performing. Exchange dashboards only show one account at a
-          time, and spreadsheets don't update with live prices. KoinSight was
-          built to solve that: one place to log every transaction and see real
-          portfolio value and performance, synced against live market data.
+          Many crypto investors hold assets across multiple exchanges and
+          wallets. There is no single place to see what they own or how it's
+          performing. Exchange dashboards show one account at a time, and
+          spreadsheets don't update with live prices. KoinSight gives them one
+          place to log every transaction and see portfolio value and
+          performance against live market data.
         </p>
       </>
     ),
@@ -231,25 +230,23 @@ const sections = [
     content: (
       <>
         <p>
-          The design system, KoinSight-Dark, is built on a high-contrast dark
-          aesthetic optimized for financial data and cryptocurrency tracking:
+          The design system, KoinSight-Dark, uses a high-contrast dark theme
+          for financial data and cryptocurrency tracking.
         </p>
         <ul>
           <li>
-            <strong>Color Palette</strong>: A deep navy and slate foundation
-            (slate-950) ensures readability for long sessions. Gains and losses
-            are color-coded green and red throughout, both with glassmorphic
-            backing for a modern feel.
+            <strong>Color Palette.</strong> A deep navy and slate base
+            (slate-950) keeps text readable over long sessions. Gains are green
+            and losses are red throughout, both on glassmorphic backings.
           </li>
           <li>
-            <strong>Typography</strong>: Inter carries the body copy and
-            data-dense tables for its legibility, paired with Bruno Ace SC on
-            headings for a bolder, more techy display voice.
+            <strong>Typography.</strong> Inter carries the body copy and
+            data-dense tables. Bruno Ace SC sets the headings.
           </li>
           <li>
-            <strong>Visual Style</strong>: The "Cyber-Glassmorphism" approach
+            <strong>Visual Style.</strong> The "Cyber-Glassmorphism" approach
             uses soft borders, subtle background blurs, and elevation levels to
-            create hierarchy without cluttering the screen.
+            set hierarchy.
           </li>
         </ul>
         <CaseStudyImage
@@ -265,9 +262,9 @@ const sections = [
     content: (
       <>
         <p>
-          My scope was the frontend end-to-end: the React/Vite/Tailwind build,
-          the landing page, the portfolio dashboard, and the component system
-          that ties them together. A few of the decisions behind that:
+          My scope was the whole frontend. That covered the React/Vite/Tailwind
+          build, the landing page, the portfolio dashboard, and the component
+          system behind them. A few decisions stood out.
         </p>
         <div>
           <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-text-primary/60">
@@ -293,34 +290,32 @@ const sections = [
         <h3>Frontend Architecture</h3>
         <ul>
           <li>
-            <strong>A hand-built shader background, not a stock effect.</strong>{" "}
+            <strong>A custom shader background.</strong>{" "}
             The landing page's ambient ring animation is raw Three.js and a
-            custom GLSL fragment shader, gated behind a WebGL capability check
-            so it degrades gracefully instead of breaking on unsupported
-            devices.
+            custom GLSL fragment shader. A WebGL capability check gates it, so
+            unsupported devices skip it.
           </li>
           <li>
             <strong>Polling over websockets.</strong> The portfolio chart
-            refreshes on a 5-minute interval instead of a live socket
-            connection, matching how the backend itself caches CoinGecko data on
-            a schedule rather than proxying live requests.
+            refreshes on a 5-minute interval. That matches the backend, which
+            caches CoinGecko data on a schedule.
           </li>
           <li>
             <strong>Fixing Lenis against a modal's own scroll.</strong> Our
             global smooth-scroll library was hijacking scrolling inside the
-            coin-picker modal, solved by explicitly opting that modal out with a
-            data attribute rather than disabling smooth scroll site-wide.
+            coin-picker modal. We opted that modal out with a data attribute and
+            kept smooth scroll on everywhere else.
           </li>
         </ul>
 
-        <h3>Feature Spotlight: Custom Text Reveal Animation</h3>
+        <h3>Feature Spotlight: Text Reveal Animation</h3>
         <p>
-          The hero heading, section titles, and live stat numbers all run
-          through a text-reveal component I built from scratch, a matrix-style
-          decrypt effect that can trigger on hover, on click, or on scroll into
-          view, and can reveal sequentially or all at once, from the start, end,
-          or center of the string. It's one component reused everywhere text
-          needs to feel alive, not a one-off animation.
+          The hero heading, section titles, and live stat numbers all use one
+          text-reveal component. It's based on DecryptedText from React Bits, a
+          matrix-style decrypt effect. It triggers on hover, on click, or on
+          scroll into view. It can reveal sequentially or all at once, from the start, end,
+          or center of the string. One component is reused wherever text
+          animates.
         </p>
         <WatchlistVideo />
       </>
@@ -328,7 +323,7 @@ const sections = [
   },
   {
     id: "Outcomes",
-    label: "Outcomes",
+    label: "What We Built",
     content: (
       <>
         <div className="flex justify-center">
@@ -363,30 +358,30 @@ const sections = [
     content: (
       <>
         <p>
-          We shipped a working crypto portfolio tracker with live prices, full
-          transaction CRUD, and a polished landing page. Along the way, we hit a
-          few real-world engineering challenges that sharpened our skills:
+          We built a working crypto portfolio tracker with live prices, full
+          transaction CRUD, and a shader landing page. We hit a few engineering
+          problems along the way.
         </p>
         <ul>
           <li>
             <strong>
               CoinGecko's CORS policy and rate limits caught us early.
             </strong>{" "}
-            We solved it by managing requests server-side and handling rate
-            limits gracefully with scheduled cron jobs and caching, instead of
-            proxying every request live.
+            We moved requests server-side and handled rate limits with
+            scheduled cron jobs and caching. The backend doesn't proxy every
+            request live.
           </li>
           <li>
             <strong>Merge conflicts, more than once.</strong> Three of us
-            working across overlapping feature branches led to repeated git
-            merge conflicts, a reminder to scope branches more narrowly and
-            merge more often next time.
+            worked across overlapping feature branches, which caused repeated
+            git merge conflicts. Next time we'd scope branches more narrowly
+            and merge more often.
           </li>
           <li>
             <strong>Components grew before we broke them down.</strong>{" "}
-            Refactoring UI into smaller, component-level pieces part-way through
-            the build taught us how much easier that makes a codebase to read
-            and maintain, a lesson we'd apply from day one next time.
+            We split the UI into smaller components part-way through the build.
+            That made the codebase easier to read and maintain. Next time we'd
+            do it from day one.
           </li>
         </ul>
       </>
@@ -398,8 +393,7 @@ const sections = [
     content: (
       <>
         <p>
-          With the MVP complete, these are the features we'd love to build next
-          to make KoinSight even more useful for everyday crypto investors:
+          With the MVP done, these are the features we'd build next.
         </p>
         <ul>
           <li>
@@ -407,16 +401,15 @@ const sections = [
             and other fiat currencies.
           </li>
           <li>
-            <strong>A crypto-to-fiat calculator.</strong> Quick conversion
-            between crypto and fiat currencies, without leaving the dashboard.
+            <strong>A crypto-to-fiat calculator.</strong> Convert between crypto and fiat
+            currencies on the dashboard.
           </li>
           <li>
-            <strong>Price alerts.</strong> Notify users when a coin hits a
-            target price.
+            <strong>Price alerts.</strong> Notify users when a coin hits a target
+            price.
           </li>
           <li>
-            <strong>Mobile-responsive polish.</strong> An optimised experience
-            for smaller screens.
+            <strong>Mobile layout.</strong> A version tuned for smaller screens.
           </li>
         </ul>
       </>

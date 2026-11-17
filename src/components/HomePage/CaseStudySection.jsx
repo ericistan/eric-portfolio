@@ -7,6 +7,7 @@ const buttonVariants = {
   primary: "bg-text-primary text-background-primary hover:bg-text-primary/90",
   secondary: "bg-accent text-background-primary hover:bg-accent/90",
   link: "text-text-primary underline-offset-4 hover:underline",
+  accentLink: "text-accent underline-offset-4 hover:underline",
 };
 
 const buttonSizes = {
@@ -43,63 +44,104 @@ const Button = ({
   );
 };
 
-const CaseStudyCard = ({ study }) => {
-  return (
-    <div className="grid grid-cols-1 gap-x-20 gap-y-6 rounded-lg border border-text-primary/10 bg-text-primary/5 p-6 md:grid-cols-[3fr_4fr] md:gap-y-20 md:p-8 lg:p-12">
-      <div className="contents md:flex md:flex-col md:justify-between">
-        <div>
-          <p className="mb-2 font-mono text-sm font-semibold">
-            {study.tagline}
-          </p>
-          <h3 className="text-4xl font-bold leading-[1.2] md:text-5xl lg:text-6xl">
-            {study.heading}
-          </h3>
-          {study.result && (
-            <p className="mt-3 font-mono text-sm font-semibold text-accent">
-              {study.result}
-            </p>
-          )}
-        </div>
-        <p className="md:mt-8 md:text-md">{study.description}</p>
-        {study.tags?.length > 0 && (
-          <ul className="flex flex-wrap gap-2 md:mt-4">
-            {study.tags.map((tag, index) => (
-              <li
-                key={index}
-                className="rounded-full bg-text-primary/10 px-3 py-1.5 font-mono text-xs font-semibold"
-              >
-                {tag}
-              </li>
-            ))}
-          </ul>
-        )}
-        <div className="order-3 flex flex-wrap items-center gap-4 md:order-none md:mt-8">
-          {study.buttons.map((button, index) => (
-            <Button key={index} {...button} className="w-full md:w-auto">
-              {button.title}
-            </Button>
-          ))}
-          <WorkLinks title={study.heading} links={study.links} />
-        </div>
+const Tags = ({ tags }) =>
+  tags?.length > 0 && (
+    <ul className="flex flex-wrap gap-2">
+      {tags.map((tag) => (
+        <li
+          key={tag}
+          className="rounded-full bg-text-primary/10 px-3 py-1.5 font-mono text-xs font-semibold"
+        >
+          {tag}
+        </li>
+      ))}
+    </ul>
+  );
+
+const Result = ({ result }) =>
+  result && (
+    <p className="mt-3 font-mono text-sm font-semibold text-accent">{result}</p>
+  );
+
+// The lead project: big screenshot, full summary and the section's one
+// primary button.
+const FeaturedCard = ({ study }) => (
+  <article className="grid grid-cols-1 gap-x-20 gap-y-6 rounded-lg border border-text-primary/10 bg-text-primary/5 p-6 md:grid-cols-[3fr_4fr] md:p-8 lg:p-12">
+    <div className="contents md:flex md:flex-col md:justify-between">
+      <div>
+        <p className="mb-2 font-mono text-sm font-semibold">{study.tagline}</p>
+        <h3 className="text-4xl font-bold leading-[1.2] md:text-5xl lg:text-6xl">
+          {study.heading}
+        </h3>
+        <Result result={study.result} />
       </div>
-      <div className="order-2 md:order-none">
-        <img
-          src={study.image.src}
-          alt={study.image.alt}
-          loading="lazy"
-          decoding="async"
-          className="aspect-[3/2] w-full object-cover"
-        />
+      <p className="md:mt-8 md:text-md">{study.description}</p>
+      <div className="md:mt-4">
+        <Tags tags={study.tags} />
+      </div>
+      <div className="order-3 flex flex-wrap items-center gap-4 md:order-none md:mt-8">
+        <Button
+          variant="secondary"
+          url={study.href}
+          iconRight={<RxChevronRight />}
+          className="w-full md:w-auto"
+        >
+          Read case study
+        </Button>
+        <WorkLinks title={study.heading} links={study.links} />
       </div>
     </div>
-  );
-};
+    <div className="order-2 md:order-none">
+      <img
+        src={study.image.src}
+        alt={study.image.alt}
+        loading="lazy"
+        decoding="async"
+        className="aspect-[3/2] w-full object-cover"
+      />
+    </div>
+  </article>
+);
+
+// Supporting projects: screenshot on top, a text link instead of a button so
+// the featured card keeps the only primary action.
+const CompactCard = ({ study }) => (
+  <article className="flex flex-col rounded-lg border border-text-primary/10 bg-text-primary/5 p-6 md:p-8">
+    <img
+      src={study.image.src}
+      alt={study.image.alt}
+      loading="lazy"
+      decoding="async"
+      className="mb-6 aspect-[3/2] w-full object-cover"
+    />
+    <p className="mb-2 font-mono text-sm font-semibold">{study.tagline}</p>
+    <h3 className="text-3xl font-bold leading-[1.2] md:text-4xl">
+      {study.heading}
+    </h3>
+    <Result result={study.result} />
+    <p className="mt-4 text-text-primary/80">{study.description}</p>
+    <div className="mt-6 flex flex-1 flex-wrap items-end gap-x-6 gap-y-3">
+      <Button
+        variant="accentLink"
+        size="link"
+        url={study.href}
+        iconRight={<RxChevronRight />}
+        className="min-h-10 font-semibold"
+        aria-label={`Read case study: ${study.heading}`}
+      >
+        Read case study
+      </Button>
+      <WorkLinks title={study.heading} links={study.links} />
+    </div>
+  </article>
+);
 
 const CaseStudySection = (props) => {
   const { tagline, heading, description, studies } = {
     ...CaseStudySectionDefaults,
     ...props,
   };
+  const [featured, ...rest] = studies;
 
   return (
     <section className="px-[5%] py-16 md:py-24 lg:py-28">
@@ -109,12 +151,17 @@ const CaseStudySection = (props) => {
           <h2 className="mb-5 text-2xl font-bold md:mb-6 md:text-4xl lg:text-5xl">
             {heading}
           </h2>
-          <p className="text-md">{description}</p>
+          {description && <p className="text-md">{description}</p>}
         </header>
-        <div className="grid grid-cols-1 gap-6 md:gap-12 lg:gap-20">
-          {studies.map((study, index) => (
-            <CaseStudyCard key={index} study={study} />
-          ))}
+        <div className="grid grid-cols-1 gap-6 md:gap-8">
+          {featured && <FeaturedCard study={featured} />}
+          {rest.length > 0 && (
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
+              {rest.map((study) => (
+                <CompactCard key={study.heading} study={study} />
+              ))}
+            </div>
+          )}
         </div>
         <div className="mt-12 flex justify-center md:mt-16">
           <Button
@@ -144,14 +191,7 @@ export const CaseStudySectionDefaults = {
       result: item.result,
       links: item.links,
       tags: item.tags,
-      buttons: [
-        {
-          title: "Read Case Study",
-          variant: "secondary",
-          iconRight: <RxChevronRight />,
-          url: item.href,
-        },
-      ],
+      href: item.href,
       image: item.image,
     })),
 };

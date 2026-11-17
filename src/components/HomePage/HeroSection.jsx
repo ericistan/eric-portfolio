@@ -6,9 +6,9 @@ import StrokeText from "../StrokeText";
 import etDesignerProfileImage from "../../assets/eric-designer-profile.webp";
 
 const HEADING_SIZES = {
-  base: { fontSize: 28, strokeWidth: 0.85, letterSpacing: -0.9 },
-  md: { fontSize: 42, strokeWidth: 1.2, letterSpacing: -1.3 },
-  lg: { fontSize: 56, strokeWidth: 1.45, letterSpacing: -1.6 },
+  base: { fontSize: 48, strokeWidth: 1, letterSpacing: -0.4 },
+  md: { fontSize: 60, strokeWidth: 1.2, letterSpacing: -0.5 },
+  lg: { fontSize: 80, strokeWidth: 1.5, letterSpacing: -0.6 },
 };
 
 const getHeadingSize = () => {
@@ -18,7 +18,7 @@ const getHeadingSize = () => {
   return HEADING_SIZES.base;
 };
 
-const HEADING_FONT_WEIGHT = 600;
+const HEADING_FONT_WEIGHT = 400;
 
 // Picks a font size that fits every heading in `headings` on a single
 // line within `containerRef`'s rendered width.
@@ -172,7 +172,14 @@ const Feature = (feature) => {
         <p className="mb-3 font-mono font-semibold md:mb-4">
           {feature.tagline}
         </p>
-        <h1 className="mb-5 font-sans md:mb-6">
+        {/* StrokeText pads its SVG so strokes aren't clipped; pull it back so
+            the glyphs line up with the tagline and body copy. */}
+        <h1
+          className="mb-5 font-sans md:mb-6"
+          style={{
+            marginLeft: -Math.max(headingSize.strokeWidth, headingSize.fontSize * 0.1),
+          }}
+        >
           <span className="sr-only">{feature.heading}</span>
           <StrokeText
             decorative
@@ -192,7 +199,7 @@ const Feature = (feature) => {
             reverse={false}
           />
         </h1>
-        <p className="text-md">{feature.description}</p>
+        <p className="text-md text-pretty">{feature.description}</p>
         <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-8">
           {feature.buttons.map((button, index) => (
             <Button key={index} {...button}>
@@ -229,9 +236,9 @@ const HeroSection = (props) => {
 
 export const HeroSectionDefaults = {
   tagline: "Design Engineer · Singapore",
-  heading: "Design led. Code shipped.",
+  heading: "Hi, I'm Eric.",
   description:
-    "Design engineer at Zenko.gg, a gaming platform, where I started in UX/UI and now build the front-end too. Before that, I co-founded Metafyed as its UX/UI designer and built Webflow sites for founders, including Culminate Security (acquired by Datadog).",
+    "I design products and keep going after the handoff, all the way to the pull request. These days that's at Zenko.gg.",
   buttons: [
     {
       title: "See my work",

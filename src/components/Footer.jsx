@@ -64,7 +64,7 @@ export const FooterDefaults = {
     { label: "X", url: "https://x.com/ericistan", icon: <FaXTwitter className="size-6 p-0.5" /> },
     { label: "LinkedIn", url: "https://www.linkedin.com/in/ericistan", icon: <BiLogoLinkedinSquare className="size-6" /> },
   ],
-  footerText: "Built with ❤️ by Eric Tan. © 2026 All rights reserved.",
+  footerText: "Designed and built by Eric Tan. © 2026",
 };
 
 export default Footer;
