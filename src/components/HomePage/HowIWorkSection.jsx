@@ -17,7 +17,7 @@ export const HowIWorkSectionDefaults = {
       title: "Explore",
       icon: { svg: searchImageSvg, id: "how_search_image" },
       description:
-        "Every product starts with its vision and the people it serves. I use design thinking to find the real pain point, through competitive research, idea exploration and user interviews when I can get them. I also research UI best practices in Figma and Paper.design, connected to my agents over MCP.",
+        "Before I design anything, I ask a few blunt questions. Should this exist? Who is it for, and is that a real person? What problem does it solve, and is it a real problem? Then I dig in with competitive research and user interviews, and pull UI patterns from Figma and Paper.design over MCP.",
     },
     {
       title: "Systemise",
@@ -35,7 +35,7 @@ export const HowIWorkSectionDefaults = {
       title: "Check",
       icon: { svg: searchMatchSvg, id: "how_search_match" },
       description:
-        "Before anything ships, my agents run design-review and dev-testing skills on it. I lean on Emil Kowalski's, gstack, Matt Pocock's and pstack, and I keep looking for new techniques that tighten my design-to-dev process.",
+        "Before anything ships, my agents run design-review and dev-testing skills on it. I lean on Emil Kowalski's, gstack, Matt Pocock's and pstack. Then I ask the last question myself: does this make sense?",
     },
   ],
   footnote: "AI does the repetitive work. The taste calls are still mine.",
