@@ -5,7 +5,7 @@ import TagList from "./TagList";
 const FeaturedCard = ({ entry, eager = false }) => (
   <Link
     to={entry.href}
-    className="group flex h-full flex-col gap-6 rounded-lg border border-text-primary/10 bg-text-primary/5 p-6 transition-colors hover:border-text-primary/30 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent md:p-8"
+    className="group flex h-full flex-col gap-6 rounded-lg border border-border-subtle bg-surface-primary p-6 transition-colors hover:border-text-primary/30 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent md:p-8"
   >
     {entry.image && (
       <img

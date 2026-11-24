@@ -66,7 +66,7 @@ const Result = ({ result }) =>
 // The lead project: big screenshot, full summary and the section's one
 // primary button.
 const FeaturedCard = ({ study }) => (
-  <article className="grid grid-cols-1 gap-x-20 gap-y-6 rounded-lg border border-text-primary/10 bg-text-primary/5 p-6 md:grid-cols-[3fr_4fr] md:p-8 lg:p-12">
+  <article className="grid grid-cols-1 gap-x-20 gap-y-6 rounded-lg border border-border-subtle bg-surface-primary p-6 md:grid-cols-[3fr_4fr] md:p-8 lg:p-12">
     <div className="contents md:flex md:flex-col md:justify-between">
       <div>
         <p className="mb-2 font-mono text-sm font-semibold">{study.tagline}</p>
@@ -106,7 +106,7 @@ const FeaturedCard = ({ study }) => (
 // Supporting projects: screenshot on top, a text link instead of a button so
 // the featured card keeps the only primary action.
 const CompactCard = ({ study }) => (
-  <article className="flex flex-col rounded-lg border border-text-primary/10 bg-text-primary/5 p-6 md:p-8">
+  <article className="flex flex-col rounded-lg border border-border-subtle bg-surface-primary p-6 md:p-8">
     <img
       src={study.image.src}
       alt={study.image.alt}

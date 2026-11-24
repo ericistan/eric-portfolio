@@ -5,7 +5,7 @@ const ProjectCard = ({ entry }) => {
   const meta = [entry.client, entry.year].filter(Boolean).join(" · ");
 
   return (
-    <article className="flex h-full flex-col overflow-hidden rounded-lg border border-text-primary/10 bg-text-primary/5">
+    <article className="flex h-full flex-col overflow-hidden rounded-lg border border-border-subtle bg-surface-primary">
       {entry.image && (
         <img
           src={entry.image.src}

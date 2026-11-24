@@ -35,7 +35,7 @@ export const Layout = ({ children }) => (
     <head>
       <meta charSet="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <meta name="theme-color" content="#000000" />
+      <meta name="theme-color" content="#040d12" />
       <meta name="color-scheme" content="dark" />
       <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
       <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
@@ -60,7 +60,7 @@ const App = () => {
   return (
     <MotionConfig reducedMotion="user">
       <ClickSpark
-        sparkColor="#4ade80"
+        sparkColor="#93b1a6"
         sparkSize={40}
         sparkRadius={60}
         sparkCount={12}

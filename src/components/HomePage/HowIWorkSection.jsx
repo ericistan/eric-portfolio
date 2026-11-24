@@ -17,25 +17,25 @@ export const HowIWorkSectionDefaults = {
       title: "Explore",
       icon: { svg: searchImageSvg, id: "how_search_image" },
       description:
-        "Before I design anything, I ask a few blunt questions. Should this exist? Who is it for, and is that a real person? What problem does it solve, and is it a real problem? Then I dig in with competitive research and user interviews, and pull UI patterns from Figma and Paper.design over MCP.",
+        "Before I design anything, I ask the important questions; Should this exist? Who is it for, and what problem does it solve?\n\nI first explore ideas, conduct competitive research and user interviews, and pull UI patterns from Figma and Paper.design over MCP.",
     },
     {
       title: "Systemise",
       icon: { svg: agentWorkflowSvg, id: "how_agent_workflow" },
       description:
-        "I frame the problem with the team and go back and forth on what the product needs. Together we map the edge cases, the features and the tech stack they call for. Once a design leaves Figma or Paper.design, I build its components in Storybook to prototype every state.",
+        "I frame the problem with the team and go back and forth on what the product needs. Together we map the edge cases, the features and the tech stack they call for.\n\nOnce a design leaves Figma or Paper.design, I build its components in Storybook to prototype every state.",
     },
     {
       title: "Build",
       icon: { svg: terminalAgentSvg, id: "how_terminal_agent" },
       description:
-        "I ship through an agent harness, with Claude Code or whichever model fits the job, balancing output quality against token cost. Agents work in parallel and smaller models write the code. I review the output myself before I open a PR, so the design and architecture calls stay with me.",
+        "I ship through an agent harness, with Claude Code or whichever model fits the job, balancing output quality against token cost. Agents work in parallel and smaller models write the code.\n\nI review the output myself before I open a PR, so the design and architecture calls stay with me.",
     },
     {
       title: "Check",
       icon: { svg: searchMatchSvg, id: "how_search_match" },
       description:
-        "Before anything ships, my agents run design-review and dev-testing skills on it. I lean on Emil Kowalski's, gstack, Matt Pocock's and pstack. Then I ask the last question myself: does this make sense?",
+        "Before anything ships, my agents run design-review and dev-testing skills on it. I lean on Emil Kowalski's, gstack, Matt Pocock's and pstack.\n\nThen I ask the last question myself: does this make sense?",
     },
   ],
   footnote: "AI does the repetitive work. The taste calls are still mine.",
@@ -131,7 +131,7 @@ const StepCard = ({ step, index, motionEnabled }) => {
       onMouseMove={handleMouseMove}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className="rounded-lg border border-text-primary/10 bg-text-primary/5 p-6 transition-shadow duration-300 hover:shadow-[0_0_24px_rgba(224,224,224,0.15)]"
+      className="rounded-lg border border-border-subtle bg-surface-primary p-6 transition-shadow duration-300 hover:shadow-[0_0_24px_rgba(147,177,166,0.15)]"
     >
       <div className="mb-6 flex items-center justify-between">
         <span
@@ -145,7 +145,9 @@ const StepCard = ({ step, index, motionEnabled }) => {
         </span>
       </div>
       <h3 className="mb-3 text-2xl font-bold">{step.title}</h3>
-      <p className="text-text-primary/80">{step.description}</p>
+      <p className="whitespace-pre-line text-text-primary/80">
+        {step.description}
+      </p>
     </li>
   );
 };
@@ -177,7 +179,9 @@ const HowIWorkSection = (props) => {
             />
           ))}
         </ol>
-        <p className="mt-8 font-mono text-sm text-text-primary/60">{footnote}</p>
+        <p className="mt-8 font-mono text-sm text-text-primary/60">
+          {footnote}
+        </p>
       </div>
     </section>
   );
