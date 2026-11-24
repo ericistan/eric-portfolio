@@ -184,8 +184,8 @@ const Feature = (feature) => {
           <StrokeText
             decorative
             text={feature.heading}
-            strokeColor="#4ade80"
-            fillColor="#4ade80"
+            strokeColor="#93b1a6"
+            fillColor="#93b1a6"
             strokeWidth={headingSize.strokeWidth}
             drawDuration={0.5}
             fillDelay={0.5}

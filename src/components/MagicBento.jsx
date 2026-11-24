@@ -472,8 +472,8 @@ const MagicBento = ({
             --glow-intensity: 0;
             --glow-radius: 200px;
             --glow-color: ${glowColor};
-            --border-color: rgba(224, 224, 224, 0.2);
-            --background-card: rgba(224, 224, 224, 0.08);
+            --border-color: var(--color-border-subtle);
+            --background-card: var(--color-surface-primary);
           }
 
           .card-responsive {

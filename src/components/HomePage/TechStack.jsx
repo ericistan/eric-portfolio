@@ -44,7 +44,7 @@ const TechStack = (props) => {
               <p className="mb-3 font-mono text-sm font-semibold text-text-primary/70">
                 {group.label}
               </p>
-              <div className="h-[240px] overflow-hidden rounded-lg border border-text-primary/10 bg-text-primary/5 bg-[linear-gradient(to_right,rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.08)_1px,transparent_1px)] bg-[size:40px_40px] md:h-[400px]">
+              <div className="h-[240px] overflow-hidden rounded-lg border border-border-subtle bg-surface-primary bg-[linear-gradient(to_right,rgba(147,177,166,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(147,177,166,0.08)_1px,transparent_1px)] bg-[size:40px_40px] md:h-[400px]">
                 <FallingText
                   items={group.items}
                   trigger="click"

@@ -114,9 +114,9 @@ const CtaSection = (props) => {
         <div className="relative flex min-h-[420px] items-center justify-center overflow-hidden rounded-lg text-center md:min-h-[520px]">
           <div className="absolute inset-0 z-0">
             <GradientWaves
-              horizonColor="#000000"
-              waveColor="#4ade80"
-              crestColor="#96c8ff"
+              horizonColor="#040d12"
+              waveColor="#5c8374"
+              crestColor="#93b1a6"
               speed={0.4}
               amplitude={2.5}
               waveScale={0.6}

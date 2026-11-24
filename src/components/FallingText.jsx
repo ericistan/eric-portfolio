@@ -1,9 +1,9 @@
 import { useRef, useState, useEffect } from "react";
 import Matter from "matter-js";
 
-const DEFAULT_PILL_COLOR = "#4ade80";
+const DEFAULT_PILL_COLOR = "#93b1a6";
 
-const TEXT_DARK = "#052e16";
+const TEXT_DARK = "#040d12";
 
 const luminance = (hex) => {
   const value = hex.replace("#", "");
