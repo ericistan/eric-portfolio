@@ -11,7 +11,7 @@ const initialsOf = (title) =>
     .toUpperCase();
 
 const Thumbnail = ({ entry }) => (
-  <div className="aspect-[4/3] w-20 self-start overflow-hidden rounded-lg bg-text-primary/5 outline outline-1 -outline-offset-1 outline-text-primary/10 md:w-40">
+  <div className="aspect-[3/2] w-20 self-start overflow-hidden rounded-lg bg-text-primary/5 outline outline-1 -outline-offset-1 outline-text-primary/10 md:w-40">
     {entry.image ? (
       <img
         src={entry.image.src}
@@ -19,7 +19,7 @@ const Thumbnail = ({ entry }) => (
         loading="lazy"
         decoding="async"
         width="320"
-        height="240"
+        height="213"
         className="size-full object-cover object-top"
       />
     ) : (

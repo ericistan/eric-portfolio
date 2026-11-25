@@ -107,7 +107,7 @@ export const Navbar = (props) => {
                 key={index}
                 to={navLink.url}
                 onClick={handleSamePageClick(navLink.url)}
-                className="block py-3 font-mono text-md text-text-primary transition-colors duration-300 ease-in-out first:pt-7 hover:text-accent lg:px-4 lg:py-2 lg:text-base first:lg:pt-2"
+                className="block py-3 font-mono text-md text-text-primary transition-colors first:pt-7 hover:text-accent lg:px-4 lg:py-2 lg:text-base first:lg:pt-2"
               >
                 {navLink.title}
               </Link>
@@ -119,7 +119,7 @@ export const Navbar = (props) => {
               target="_blank"
               rel="noreferrer"
               aria-label="GitHub"
-              className="-m-2 inline-flex items-center justify-center p-2 text-text-primary transition-colors duration-300 ease-in-out hover:text-accent"
+              className="-m-2 inline-flex items-center justify-center p-2 text-text-primary transition-colors hover:text-accent"
             >
               <BiLogoGithub className="size-7" />
             </a>
@@ -128,7 +128,7 @@ export const Navbar = (props) => {
               target="_blank"
               rel="noreferrer"
               aria-label="LinkedIn"
-              className="-m-2 inline-flex items-center justify-center p-2 text-text-primary transition-colors duration-300 ease-in-out hover:text-accent"
+              className="-m-2 inline-flex items-center justify-center p-2 text-text-primary transition-colors hover:text-accent"
             >
               <BiLogoLinkedinSquare className="size-7" />
             </a>
@@ -137,7 +137,7 @@ export const Navbar = (props) => {
               target="_blank"
               rel="noreferrer"
               aria-label="X"
-              className="-m-2 inline-flex items-center justify-center p-2 text-text-primary transition-colors duration-300 ease-in-out hover:text-accent"
+              className="-m-2 inline-flex items-center justify-center p-2 text-text-primary transition-colors hover:text-accent"
             >
               <FaXTwitter className="size-6" />
             </a>

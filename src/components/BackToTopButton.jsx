@@ -35,7 +35,7 @@ const BackToTopButton = () => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 10 }}
           transition={{ duration: 0.2, ease: "easeInOut" }}
-          className="fixed bottom-6 right-6 z-40 flex size-12 items-center justify-center rounded-full border border-text-primary/20 bg-background-primary/80 text-text-primary backdrop-blur-sm transition-colors duration-300 ease-in-out hover:border-accent hover:text-accent md:bottom-8 md:right-8"
+          className="fixed bottom-6 right-6 z-40 flex size-12 items-center justify-center rounded-full border border-text-primary/20 bg-background-primary/80 text-text-primary backdrop-blur-sm transition-colors hover:border-accent hover:text-accent md:bottom-8 md:right-8"
         >
           <ArrowUp className="size-5" />
         </motion.button>

@@ -8,6 +8,7 @@ import PageLoader from "./PageLoader";
 import CtaSection from "./HomePage/CtaSection.jsx";
 import CaseStudyImage from "./CaseStudyImage.jsx";
 import BackToTopButton from "./BackToTopButton.jsx";
+import MoreCaseStudies from "./MoreCaseStudies.jsx";
 
 const CaseStudyLayout = ({
   header,
@@ -200,6 +201,8 @@ const CaseStudyLayout = ({
           </div>
         </div>
       </section>
+
+      <MoreCaseStudies />
 
       <CtaSection
         heading="Want to see more?"

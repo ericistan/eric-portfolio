@@ -26,7 +26,7 @@ const Button = ({
   children,
   ...props
 }) => {
-  const classes = `inline-flex items-center justify-center gap-2 rounded-lg transition-colors ${buttonVariants[variant]} ${buttonSizes[size]} ${className}`;
+  const classes = `inline-flex items-center justify-center gap-2 rounded-lg transition-[color,background-color,border-color,scale] active:scale-[0.97] ${buttonVariants[variant]} ${buttonSizes[size]} ${className}`;
 
   if (url) {
     return (
@@ -97,7 +97,7 @@ const CtaSection = (props) => {
       <p className="text-md">{description}</p>
       <div className="mt-6 flex flex-wrap items-center justify-center gap-4 md:mt-8">
         <CopyEmailButton
-          className={`inline-flex min-w-64 items-center justify-center gap-2 rounded-lg transition-colors ${buttonVariants.primary} ${buttonSizes.md}`}
+          className={`inline-flex min-w-64 items-center justify-center gap-2 rounded-lg transition-[color,background-color,border-color,scale] active:scale-[0.97] ${buttonVariants.primary} ${buttonSizes.md}`}
         />
         {buttons.map((button, index) => (
           <Button key={index} {...button}>
