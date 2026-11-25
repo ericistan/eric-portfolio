@@ -5,14 +5,14 @@ const ProjectCard = ({ entry }) => {
   const meta = [entry.client, entry.year].filter(Boolean).join(" · ");
 
   return (
-    <article className="flex h-full flex-col overflow-hidden rounded-lg border border-border-subtle bg-surface-primary">
+    <article className="group flex h-full flex-col overflow-hidden rounded-lg border border-border-subtle bg-surface-primary">
       {entry.image && (
         <img
           src={entry.image.src}
           alt={entry.image.alt}
           loading="lazy"
           decoding="async"
-          className="aspect-[16/10] w-full object-cover"
+          className="aspect-[3/2] w-full object-cover object-top"
         />
       )}
       <div className="flex flex-1 flex-col p-6">

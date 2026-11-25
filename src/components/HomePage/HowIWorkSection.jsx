@@ -131,7 +131,7 @@ const StepCard = ({ step, index, motionEnabled }) => {
       onMouseMove={handleMouseMove}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className="rounded-lg border border-border-subtle bg-surface-primary p-6 transition-shadow duration-300 hover:shadow-[0_0_24px_rgba(147,177,166,0.15)]"
+      className="rounded-lg border border-border-subtle bg-surface-primary p-6 transition-shadow hover:shadow-[0_0_24px_rgba(147,177,166,0.15)]"
     >
       <div className="mb-6 flex items-center justify-between">
         <span

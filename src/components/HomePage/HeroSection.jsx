@@ -3,7 +3,7 @@ import { Link } from "react-router";
 import { BiLogoLinkedinSquare } from "react-icons/bi";
 import { RxChevronRight } from "react-icons/rx";
 import StrokeText from "../StrokeText";
-import etDesignerProfileImage from "../../assets/eric-designer-profile.webp";
+import profileImage from "../../assets/eric-profile.webp";
 
 const HEADING_SIZES = {
   base: { fontSize: 48, strokeWidth: 1, letterSpacing: -0.4 },
@@ -83,7 +83,7 @@ const buttonVariants = {
   primary: "bg-text-primary text-background-primary hover:bg-text-primary/90",
   secondary:
     "border border-text-primary bg-transparent text-text-primary hover:bg-text-primary/5",
-  link: "text-text-primary underline-offset-4 hover:underline",
+  link: "text-text-primary underline decoration-transparent underline-offset-4 hover:decoration-current",
   linkedin: "bg-[#0A66C2] text-white hover:bg-[#0A66C2]/90",
 };
 
@@ -104,7 +104,7 @@ const Button = ({
   children,
   ...props
 }) => {
-  const classes = `inline-flex items-center justify-center rounded-lg transition-colors ${buttonVariants[variant]} ${buttonSizes[size]} ${className}`;
+  const classes = `inline-flex items-center justify-center rounded-lg transition-[color,background-color,border-color,scale] active:scale-[0.97] ${buttonVariants[variant]} ${buttonSizes[size]} ${className}`;
 
   if (url) {
     return (
@@ -256,8 +256,8 @@ export const HeroSectionDefaults = {
     },
   ],
   image: {
-    src: etDesignerProfileImage,
-    alt: "Eric Tan's designer profile picture",
+    src: profileImage,
+    alt: "Portrait of Eric Tan",
   },
 };
 

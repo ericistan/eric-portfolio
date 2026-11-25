@@ -1,7 +1,7 @@
-import formjoHeroImage from "../assets/case-study_formjo-hero.webp";
-import koinSightHeroImage from "../assets/case-study_koin-sight_portfolio-dashboard.webp";
-import startSearchHeroImage from "../assets/case-study_start-search_portfolio-dashboard.webp";
-import raincityHeroImage from "../assets/case-study_raincity-boxing-hero.webp";
+import formjoHeroImage from "../assets/case-study_formjo-hero_thumb.webp";
+import koinSightHeroImage from "../assets/case-study_koin-sight_portfolio-dashboard_thumb.webp";
+import startSearchHeroImage from "../assets/case-study_start-search_portfolio-dashboard_thumb.webp";
+import raincityHeroImage from "../assets/case-study_raincity-boxing-hero_thumb.webp";
 
 /**
  * Single source of truth for everything listed on /work (and the case study

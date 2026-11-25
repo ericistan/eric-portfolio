@@ -36,6 +36,10 @@
   --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
   --font-heading: "D-DIN", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono Variable", ui-monospace, monospace;
+  /* Motion: one soft ease-out for every hover/press transition. */
+  --ease-out-soft: cubic-bezier(0.23, 1, 0.32, 1);
+  --default-transition-duration: 200ms;
+  --default-transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 html {

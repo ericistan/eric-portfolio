@@ -5,17 +5,19 @@ import TagList from "./TagList";
 const FeaturedCard = ({ entry, eager = false }) => (
   <Link
     to={entry.href}
-    className="group flex h-full flex-col gap-6 rounded-lg border border-border-subtle bg-surface-primary p-6 transition-colors hover:border-text-primary/30 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent md:p-8"
+    className="group flex h-full flex-col gap-6 rounded-lg border border-border-subtle bg-surface-primary p-6 transition-colors hover:border-border-strong focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent md:p-8"
   >
     {entry.image && (
-      <img
-        src={entry.image.src}
-        alt={entry.image.alt}
-        loading={eager ? "eager" : "lazy"}
-        fetchPriority={eager ? "high" : undefined}
-        decoding="async"
-        className="aspect-[3/2] w-full object-cover"
-      />
+      <div className="overflow-hidden">
+        <img
+          src={entry.image.src}
+          alt={entry.image.alt}
+          loading={eager ? "eager" : "lazy"}
+          fetchPriority={eager ? "high" : undefined}
+          decoding="async"
+          className="aspect-[3/2] w-full object-cover object-top"
+        />
+      </div>
     )}
     <div className="flex flex-1 flex-col">
       {entry.tagline && (
@@ -31,7 +33,7 @@ const FeaturedCard = ({ entry, eager = false }) => (
       )}
       <p className="md:text-md">{entry.summary}</p>
       <TagList tags={entry.tags} className="mt-4" />
-      <span className="mt-6 inline-flex items-center gap-1 pt-2 text-sm font-semibold text-accent group-hover:underline group-hover:underline-offset-4 lg:mt-auto">
+      <span className="mt-6 inline-flex items-center gap-1 pt-2 text-sm font-semibold text-accent underline decoration-transparent underline-offset-4 transition-[text-decoration-color] group-hover:decoration-current lg:mt-auto">
         Read case study
         <RxChevronRight aria-hidden="true" />
       </span>

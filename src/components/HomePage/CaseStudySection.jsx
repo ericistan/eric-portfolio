@@ -6,8 +6,8 @@ import WorkLinks from "../Work/WorkLinks.jsx";
 const buttonVariants = {
   primary: "bg-text-primary text-background-primary hover:bg-text-primary/90",
   secondary: "bg-accent text-background-primary hover:bg-accent/90",
-  link: "text-text-primary underline-offset-4 hover:underline",
-  accentLink: "text-accent underline-offset-4 hover:underline",
+  link: "text-text-primary underline decoration-transparent underline-offset-4 hover:decoration-current",
+  accentLink: "text-accent underline decoration-transparent underline-offset-4 hover:decoration-current",
 };
 
 const buttonSizes = {
@@ -25,7 +25,7 @@ const Button = ({
   children,
   ...props
 }) => {
-  const classes = `inline-flex items-center justify-center rounded-lg transition-colors ${buttonVariants[variant]} ${buttonSizes[size]} ${className}`;
+  const classes = `inline-flex items-center justify-center rounded-lg transition-[color,background-color,border-color,scale] active:scale-[0.97] ${buttonVariants[variant]} ${buttonSizes[size]} ${className}`;
 
   if (url) {
     return (
@@ -66,7 +66,7 @@ const Result = ({ result }) =>
 // The lead project: big screenshot, full summary and the section's one
 // primary button.
 const FeaturedCard = ({ study }) => (
-  <article className="grid grid-cols-1 gap-x-20 gap-y-6 rounded-lg border border-border-subtle bg-surface-primary p-6 md:grid-cols-[3fr_4fr] md:p-8 lg:p-12">
+  <article className="group grid grid-cols-1 gap-x-20 gap-y-6 rounded-lg border border-border-subtle bg-surface-primary p-6 md:grid-cols-[3fr_4fr] md:p-8 lg:p-12">
     <div className="contents md:flex md:flex-col md:justify-between">
       <div>
         <p className="mb-2 font-mono text-sm font-semibold">{study.tagline}</p>
@@ -91,13 +91,13 @@ const FeaturedCard = ({ study }) => (
         <WorkLinks title={study.heading} links={study.links} />
       </div>
     </div>
-    <div className="order-2 md:order-none">
+    <div className="order-2 overflow-hidden md:order-none">
       <img
         src={study.image.src}
         alt={study.image.alt}
         loading="lazy"
         decoding="async"
-        className="aspect-[3/2] w-full object-cover"
+        className="aspect-[3/2] w-full object-cover object-top"
       />
     </div>
   </article>
@@ -106,14 +106,16 @@ const FeaturedCard = ({ study }) => (
 // Supporting projects: screenshot on top, a text link instead of a button so
 // the featured card keeps the only primary action.
 const CompactCard = ({ study }) => (
-  <article className="flex flex-col rounded-lg border border-border-subtle bg-surface-primary p-6 md:p-8">
-    <img
-      src={study.image.src}
-      alt={study.image.alt}
-      loading="lazy"
-      decoding="async"
-      className="mb-6 aspect-[3/2] w-full object-cover"
-    />
+  <article className="group flex flex-col rounded-lg border border-border-subtle bg-surface-primary p-6 md:p-8">
+    <div className="mb-6 overflow-hidden">
+      <img
+        src={study.image.src}
+        alt={study.image.alt}
+        loading="lazy"
+        decoding="async"
+        className="aspect-[3/2] w-full object-cover object-top"
+      />
+    </div>
     <p className="mb-2 font-mono text-sm font-semibold">{study.tagline}</p>
     <h3 className="text-3xl font-bold leading-[1.2] md:text-4xl">
       {study.heading}
